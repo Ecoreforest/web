@@ -10,146 +10,166 @@ const pasos = [
   {
     numero: '01',
     titulo: 'Recolección',
-    descripcion: 'Recogemos residuos orgánicos de mercados, supermercados y centrales hortofrutícolas que de otro modo acabarían en vertederos.',
+    descripcion: 'Recogemos residuos orgánicos de mercados, supermercados y centrales hortofrutícolas que de otro modo acabarían en vertederos. Cada tonelada que recuperamos es una tonelada que no genera metano en un vertedero.',
     dato: '7,7M toneladas/año en España',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/paso-01-recolecci%C3%B3n_mottf9.png',
   },
   {
     numero: '02',
     titulo: 'Compostaje acelerado',
-    descripcion: 'Mediante microorganismos específicos y control automatizado, transformamos los residuos en compost de alta calidad en 30-45 días.',
+    descripcion: 'Mediante microorganismos específicos y control automatizado por sensores IoT, transformamos los residuos en compost de alta calidad en 30-45 días. Tres veces más rápido que el método tradicional, y con mayor concentración nutricional.',
     dato: '3× más rápido que el método tradicional',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895098/paso-02-compostaje_k6ibj4.png',
   },
   {
     numero: '03',
     titulo: 'Plantación',
-    descripcion: 'Aplicamos el compost en zonas degradadas y plantamos especies autóctonas adaptadas: encina, algarrobo, pino carrasco, acebuche y retama.',
+    descripcion: 'Aplicamos el compost en zonas degradadas y plantamos especies autóctonas adaptadas: encina, algarrobo, pino carrasco, acebuche y retama. Cada árbol elegido por su capacidad de prosperar en suelo árido.',
     dato: '85% de supervivencia garantizada',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895093/paso-03-plantacion_v5ylho.png',
   },
   {
     numero: '04',
     titulo: 'Monitoreo',
-    descripcion: 'Drones multiespectrales y sensores IoT vigilan cada hectárea en tiempo real: humedad del suelo, salud de la vegetación y captura de carbono.',
+    descripcion: 'Drones multiespectrales, sensores IoT en campo y análisis satelital vigilan cada hectárea en tiempo real: humedad del suelo, salud de la vegetación y captura de carbono certificada.',
     dato: '8-10 t CO₂/ha/año capturado',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895088/paso-04-monitoreo_p5xvfu.png',
   },
 ];
 
-export default function HomeProceso() {
-  const ref = useRef<HTMLElement>(null);
+function Paso({ paso, index }: { paso: typeof pasos[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start start', 'end end'],
+    offset: ['start end', 'end start'],
   });
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
 
-  // 4 pasos: cada paso ocupa una sección del 25% del scroll.
-  // Movimiento total: -75% (3 desplazamientos de 25% para 4 pantallas).
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-75%']);
-
-  // Indicador de paso activo (0, 1, 2, 3)
-  const activeIndex = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 1, 2, 3, 3]);
+  const isReverse = index % 2 === 1;
 
   return (
-    <section ref={ref} className="relative bg-bone" style={{ height: '500vh' }}>
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        {/* Header sticky con eyebrow + título */}
-        <div className="container-x pt-24 pb-4 lg:pt-28 lg:pb-6 shrink-0">
-          <SectionEyebrow>El proceso</SectionEyebrow>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-md font-semibold tracking-tight max-w-4xl text-balance"
-          >
-            Del residuo al bosque,{' '}
-            <span className="italic-display font-normal">en cuatro pasos.</span>
-          </motion.h2>
-        </div>
+    <article ref={ref} className="relative py-20 lg:py-32">
+      <div className="container-x max-w-7xl">
+        <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isReverse ? 'lg:flex-row-reverse' : ''}`}>
 
-        {/* Pasos en desplazamiento horizontal */}
-        <motion.div
-          style={{ x }}
-          className="flex flex-1 will-change-transform"
-        >
-          {pasos.map((paso) => (
-            <article
-              key={paso.numero}
-              className="w-screen shrink-0 flex items-center px-6 md:px-10 lg:px-16 py-6"
+          {/* Texto */}
+          <div className={`lg:col-span-5 ${isReverse ? 'lg:col-start-8' : 'lg:col-start-1'}`}>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="font-mono text-sm tracking-[0.25em] text-forest mb-5"
             >
-              <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+              PASO {paso.numero}
+            </motion.p>
 
-                {/* Columna texto */}
-                <div className="order-2 lg:order-1">
-                  <p className="font-mono text-sm tracking-[0.25em] text-forest mb-5">
-                    PASO {paso.numero}
-                  </p>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5 leading-[1.05]">
-                    {paso.titulo}
-                  </h3>
-                  <p className="text-base lg:text-lg text-smoke leading-relaxed mb-7 max-w-md">
-                    {paso.descripcion}
-                  </p>
-                  <div className="pt-5 border-t border-ash max-w-md">
-                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-smoke mb-2">
-                      Dato clave
-                    </p>
-                    <p className="text-lg lg:text-xl font-medium tracking-tight">
-                      {paso.dato}
-                    </p>
-                  </div>
-                </div>
+            <motion.h3
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-md font-semibold tracking-tight mb-6 leading-[1]"
+            >
+              {paso.titulo}
+            </motion.h3>
 
-                {/* Columna imagen */}
-                <div className="order-1 lg:order-2 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm bg-ivory">
-                  <Image
-                    src={paso.imagen}
-                    alt={paso.titulo}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    priority={paso.numero === '01'}
-                  />
-                </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base lg:text-lg text-smoke leading-relaxed mb-10 max-w-md"
+            >
+              {paso.descripcion}
+            </motion.p>
 
-              </div>
-            </article>
-          ))}
-        </motion.div>
-
-        {/* Footer sticky con indicador de progreso */}
-        <div className="container-x py-5 shrink-0 flex items-center justify-between border-t border-ash/60 bg-bone">
-          <div className="flex items-center gap-2">
-            {pasos.map((p, i) => (
-              <ProgresoBullet key={p.numero} index={i} activeIndex={activeIndex} />
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="pt-6 border-t border-ash max-w-md"
+            >
+              <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-smoke mb-2">
+                Dato clave
+              </p>
+              <p className="text-xl lg:text-2xl font-medium tracking-tight">
+                {paso.dato}
+              </p>
+            </motion.div>
           </div>
-          <Link
-            href="/proceso"
-            className="text-sm font-medium underline underline-offset-4 decoration-ash hover:decoration-ink transition-colors"
-          >
-            Ver el proceso completo →
-          </Link>
+
+          {/* Imagen con parallax */}
+          <div className={`lg:col-span-7 ${isReverse ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-6'}`}>
+            <motion.div
+              style={{ y: imageY }}
+              className="relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-sm bg-ivory"
+            >
+              <motion.div
+                style={{ scale: imageScale }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={paso.imagen}
+                  alt={paso.titulo}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover"
+                  priority={index === 0}
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </article>
   );
 }
 
-function ProgresoBullet({ index, activeIndex }: { index: number; activeIndex: any }) {
-  const opacity = useTransform(activeIndex, (v: number) => {
-    return Math.abs(v - index) < 0.5 ? 1 : 0.25;
-  });
-  const width = useTransform(activeIndex, (v: number) => {
-    return Math.abs(v - index) < 0.5 ? '32px' : '8px';
-  });
-
+export default function HomeProceso() {
   return (
-    <motion.div
-      style={{ opacity, width }}
-      className="h-[2px] bg-forest rounded-full transition-all"
-    />
+    <section className="relative bg-bone">
+      {/* Cabecera */}
+      <div className="container-x pt-32 lg:pt-48 pb-8 max-w-6xl">
+        <SectionEyebrow>El proceso</SectionEyebrow>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-display-lg font-semibold tracking-tight max-w-5xl text-balance"
+        >
+          Del residuo al bosque,{' '}
+          <span className="italic-display font-normal">en cuatro pasos.</span>
+        </motion.h2>
+      </div>
+
+      {/* Los 4 pasos */}
+      {pasos.map((paso, i) => (
+        <Paso key={paso.numero} paso={paso} index={i} />
+      ))}
+
+      {/* CTA */}
+      <div className="container-x max-w-6xl pb-32 lg:pb-48 pt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-6 pt-12 border-t border-ash"
+        >
+          <Link
+            href="/proceso"
+            className="inline-flex items-center gap-3 px-7 py-3.5 bg-ink text-bone rounded-full font-medium hover:bg-forest transition-colors"
+          >
+            Ver el proceso completo
+            <span>→</span>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
   );
 }
