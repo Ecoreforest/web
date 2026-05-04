@@ -44,13 +44,18 @@ export default function HomeProceso() {
     offset: ['start start', 'end end'],
   });
 
-  // Movimiento horizontal: 4 pantallas (75% en horizontal)
+  // 4 pasos: cada paso ocupa una sección del 25% del scroll.
+  // Movimiento total: -75% (3 desplazamientos de 25% para 4 pantallas).
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-75%']);
 
+  // Indicador de paso activo (0, 1, 2, 3)
+  const activeIndex = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], [0, 1, 2, 3, 3]);
+
   return (
-    <section ref={ref} className="relative bg-bone" style={{ height: '400vh' }}>
+    <section ref={ref} className="relative bg-bone" style={{ height: '500vh' }}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
-        <div className="container-x pt-24 pb-8 lg:pt-28 lg:pb-12 shrink-0">
+        {/* Header sticky con eyebrow + título */}
+        <div className="container-x pt-24 pb-4 lg:pt-28 lg:pb-6 shrink-0">
           <SectionEyebrow>El proceso</SectionEyebrow>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -64,6 +69,7 @@ export default function HomeProceso() {
           </motion.h2>
         </div>
 
+        {/* Pasos en desplazamiento horizontal */}
         <motion.div
           style={{ x }}
           className="flex flex-1 will-change-transform"
@@ -71,47 +77,55 @@ export default function HomeProceso() {
           {pasos.map((paso) => (
             <article
               key={paso.numero}
-              className="w-screen shrink-0 flex items-center"
+              className="w-screen shrink-0 flex items-center px-6 md:px-10 lg:px-16 py-6"
             >
-              <div className="container-x w-full grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                <div className="lg:col-span-5 lg:col-start-1">
-                  <p className="font-mono text-sm tracking-[0.25em] text-forest mb-6">
+              <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
+
+                {/* Columna texto */}
+                <div className="order-2 lg:order-1">
+                  <p className="font-mono text-sm tracking-[0.25em] text-forest mb-5">
                     PASO {paso.numero}
                   </p>
-                  <h3 className="text-display-md font-semibold tracking-tight mb-6">
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5 leading-[1.05]">
                     {paso.titulo}
                   </h3>
-                  <p className="text-base lg:text-lg text-smoke leading-relaxed mb-8 max-w-md">
+                  <p className="text-base lg:text-lg text-smoke leading-relaxed mb-7 max-w-md">
                     {paso.descripcion}
                   </p>
-                  <div className="pt-6 border-t border-ash">
-                    <p className="text-xs font-mono uppercase tracking-[0.2em] text-smoke mb-2">
+                  <div className="pt-5 border-t border-ash max-w-md">
+                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-smoke mb-2">
                       Dato clave
                     </p>
-                    <p className="text-xl lg:text-2xl font-medium tracking-tight">
+                    <p className="text-lg lg:text-xl font-medium tracking-tight">
                       {paso.dato}
                     </p>
                   </div>
                 </div>
 
-                <div className="lg:col-span-6 lg:col-start-7 relative aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-sm">
+                {/* Columna imagen */}
+                <div className="order-1 lg:order-2 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm bg-ivory">
                   <Image
                     src={paso.imagen}
                     alt={paso.titulo}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
+                    priority={paso.numero === '01'}
                   />
                 </div>
+
               </div>
             </article>
           ))}
         </motion.div>
 
-        <div className="container-x py-6 shrink-0 flex items-center justify-between border-t border-ash/60">
-          <p className="text-xs font-mono uppercase tracking-[0.25em] text-smoke">
-            Desliza para avanzar
-          </p>
+        {/* Footer sticky con indicador de progreso */}
+        <div className="container-x py-5 shrink-0 flex items-center justify-between border-t border-ash/60 bg-bone">
+          <div className="flex items-center gap-2">
+            {pasos.map((p, i) => (
+              <ProgresoBullet key={p.numero} index={i} activeIndex={activeIndex} />
+            ))}
+          </div>
           <Link
             href="/proceso"
             className="text-sm font-medium underline underline-offset-4 decoration-ash hover:decoration-ink transition-colors"
@@ -121,5 +135,21 @@ export default function HomeProceso() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ProgresoBullet({ index, activeIndex }: { index: number; activeIndex: any }) {
+  const opacity = useTransform(activeIndex, (v: number) => {
+    return Math.abs(v - index) < 0.5 ? 1 : 0.25;
+  });
+  const width = useTransform(activeIndex, (v: number) => {
+    return Math.abs(v - index) < 0.5 ? '32px' : '8px';
+  });
+
+  return (
+    <motion.div
+      style={{ opacity, width }}
+      className="h-[2px] bg-forest rounded-full transition-all"
+    />
   );
 }
