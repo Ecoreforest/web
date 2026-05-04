@@ -12,7 +12,7 @@ const lineas = [
     descripcion: 'Fertilizante orgánico de alta calidad producido con tecnología de compostaje acelerado. Cumple la norma UNE 142500 y es apto para agricultura ecológica.',
     cta: 'Conoce el producto',
     href: '/tienda/compost',
-    imagen: 'https://images.unsplash.com/photo-1564518087613-fa4920cd0a09?auto=format&fit=crop&w=1200&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-compost_jepie9.jpg',
   },
   {
     eyebrow: 'Servicio',
@@ -20,7 +20,7 @@ const lineas = [
     descripcion: 'Diseño, plantación y mantenimiento de proyectos de restauración ecológica. Especies autóctonas, riego eficiente y monitoreo digital con garantía de supervivencia.',
     cta: 'Servicios para empresas',
     href: '/colabora',
-    imagen: 'https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1200&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg',
   },
   {
     eyebrow: 'Mercado',
@@ -28,7 +28,7 @@ const lineas = [
     descripcion: 'Captura verificable de CO₂ certificada bajo estándares Verra y Gold Standard. Una nueva forma de financiar la restauración ecológica.',
     cta: 'Para tu empresa',
     href: '/colabora',
-    imagen: 'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=1200&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-carbono_zmr4n4.jpg',
   },
 ];
 

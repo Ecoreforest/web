@@ -77,7 +77,7 @@ export default function HomePrinceton() {
               className="relative aspect-[4/5] overflow-hidden rounded-sm"
             >
               <Image
-                src="https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=1200&q=80"
+                src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895096/princeton-naranjas_forgqn.png"
                 alt="Naranjas frescas como símbolo del descubrimiento de Princeton"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

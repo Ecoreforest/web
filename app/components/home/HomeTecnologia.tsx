@@ -30,7 +30,7 @@ export default function HomeTecnologia() {
         className="absolute inset-0 will-change-transform"
       >
         <Image
-          src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=2400&q=85"
+          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
           alt=""
           fill
           sizes="100vw"

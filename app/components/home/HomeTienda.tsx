@@ -26,8 +26,8 @@ export default function HomeTienda() {
               className="relative aspect-[4/5] lg:aspect-[5/6] overflow-hidden rounded-sm bg-ivory will-change-transform"
             >
               <Image
-                src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1600&q=85"
-                alt="Línea EcoReforest"
+                src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895101/camiseta-1_u1asrg.png"
+                alt="Camiseta línea EcoReforest"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover"

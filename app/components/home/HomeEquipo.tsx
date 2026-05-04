@@ -1,25 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const equipo = [
   {
     nombre: 'Àlex Frías Díez',
     rol: 'Presidente',
-    iniciales: 'AF',
+    foto: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895087/equipo-alex_kyitiu.png',
     bio: 'Funda EcoReforest con la convicción de que la economía circular es la respuesta práctica al doble desafío de la desertificación y los residuos orgánicos en España.',
   },
   {
     nombre: 'Izan Jiménez Bernardo',
     rol: 'Secretario',
-    iniciales: 'IJ',
+    foto: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895101/equipo-izan_innsrp.png',
     bio: 'Responsable de la coordinación operativa del proyecto, la gestión de alianzas institucionales y el seguimiento riguroso de cada hito.',
   },
   {
     nombre: 'Santiago Colino',
     rol: 'Tesorero',
-    iniciales: 'SC',
+    foto: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/equipo-santi_syr0vi.png',
     bio: 'Lidera la planificación financiera, la estrategia de captación de fondos europeos y la transparencia económica de la asociación.',
   },
 ];
@@ -62,12 +63,13 @@ export default function HomeEquipo() {
               className="group"
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-bone mb-6">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-bone via-ivory to-ash/50">
-                  <span className="text-display-xl font-display italic font-normal text-forest/30 select-none">
-                    {persona.iniciales}
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ash to-transparent" />
+                <Image
+                  src={persona.foto}
+                  alt={persona.nombre}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                />
               </div>
               <p className="text-xs font-mono uppercase tracking-[0.25em] text-forest mb-3">
                 {persona.rol}

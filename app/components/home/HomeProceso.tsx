@@ -12,28 +12,28 @@ const pasos = [
     titulo: 'Recolección',
     descripcion: 'Recogemos residuos orgánicos de mercados, supermercados y centrales hortofrutícolas que de otro modo acabarían en vertederos.',
     dato: '7,7M toneladas/año en España',
-    imagen: 'https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?auto=format&fit=crop&w=1600&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/paso-01-recolecci%C3%B3n_mottf9.png',
   },
   {
     numero: '02',
     titulo: 'Compostaje acelerado',
     descripcion: 'Mediante microorganismos específicos y control automatizado, transformamos los residuos en compost de alta calidad en 30-45 días.',
     dato: '3× más rápido que el método tradicional',
-    imagen: 'https://images.unsplash.com/photo-1592991538534-00972b6f59ed?auto=format&fit=crop&w=1600&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895098/paso-02-compostaje_k6ibj4.png',
   },
   {
     numero: '03',
     titulo: 'Plantación',
     descripcion: 'Aplicamos el compost en zonas degradadas y plantamos especies autóctonas adaptadas: encina, algarrobo, pino carrasco, acebuche y retama.',
     dato: '85% de supervivencia garantizada',
-    imagen: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895093/paso-03-plantacion_v5ylho.png',
   },
   {
     numero: '04',
     titulo: 'Monitoreo',
     descripcion: 'Drones multiespectrales y sensores IoT vigilan cada hectárea en tiempo real: humedad del suelo, salud de la vegetación y captura de carbono.',
     dato: '8-10 t CO₂/ha/año capturado',
-    imagen: 'https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1600&q=80',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895088/paso-04-monitoreo_p5xvfu.png',
   },
 ];
 
