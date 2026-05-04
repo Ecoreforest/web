@@ -1,17 +1,31 @@
-import PageHero from '../components/PageHero';
+import ProyectoHero from '../components/proyecto/ProyectoHero';
+import ProyectoManifiesto from '../components/proyecto/ProyectoManifiesto';
+import ProyectoProblema from '../components/proyecto/ProyectoProblema';
+import ProyectoSolucion from '../components/proyecto/ProyectoSolucion';
+import ProyectoEstrategia from '../components/proyecto/ProyectoEstrategia';
+import ProyectoEquipo from '../components/proyecto/ProyectoEquipo';
+import ProyectoMarco from '../components/proyecto/ProyectoMarco';
+import ProyectoOportunidad from '../components/proyecto/ProyectoOportunidad';
+import ProyectoCTA from '../components/proyecto/ProyectoCTA';
 
 export const metadata = {
   title: 'El proyecto',
-  description: 'Quiénes somos, qué hacemos y por qué EcoReforest existe.',
+  description:
+    'Quiénes somos, por qué empezamos y a dónde vamos. Una asociación nacida para revertir la desertificación con economía circular.',
 };
 
 export default function Proyecto() {
   return (
-    <PageHero
-      eyebrow="01 — El proyecto"
-      title="La historia detrás del bosque."
-      italicWord="bosque."
-      description="Una asociación nacida para revertir la desertificación con una idea simple: el residuo de unos puede ser el alimento de un bosque entero."
-    />
+    <>
+      <ProyectoHero />
+      <ProyectoManifiesto />
+      <ProyectoProblema />
+      <ProyectoSolucion />
+      <ProyectoEstrategia />
+      <ProyectoEquipo />
+      <ProyectoMarco />
+      <ProyectoOportunidad />
+      <ProyectoCTA />
+    </>
   );
 }
