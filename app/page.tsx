@@ -3,6 +3,16 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
+import HomeUrgencia from './components/home/HomeUrgencia';
+import HomePrinceton from './components/home/HomePrinceton';
+import HomeProceso from './components/home/HomeProceso';
+import HomeLineas from './components/home/HomeLineas';
+import HomeTecnologia from './components/home/HomeTecnologia';
+import HomeHojaRuta from './components/home/HomeHojaRuta';
+import HomeTienda from './components/home/HomeTienda';
+import HomeEquipo from './components/home/HomeEquipo';
+import HomeAliados from './components/home/HomeAliados';
+import HomeCTA from './components/home/HomeCTA';
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -116,75 +126,16 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="relative py-32 lg:py-48 bg-bone">
-        <div className="container-x max-w-6xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-xs font-mono uppercase tracking-[0.25em] text-smoke mb-8"
-          >
-            La urgencia
-          </motion.p>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold tracking-tight max-w-5xl text-balance"
-          >
-            España se está{' '}
-            <span className="italic-display font-normal">secando.</span>{' '}
-            Y nosotros tenemos la respuesta.
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg lg:text-xl text-smoke max-w-2xl leading-relaxed mt-8"
-          >
-            Mientras tres cuartas partes del territorio están en riesgo de desertificación, generamos millones de toneladas de residuos orgánicos que acaban en vertederos. La conexión entre ambos problemas es también su solución.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 mt-20 lg:mt-28 pt-16 border-t border-ash"
-          >
-            {[
-              { value: '74%', label: 'Territorio español en riesgo de desertificación' },
-              { value: '7.7M', label: 'Toneladas de residuos orgánicos al año' },
-              { value: '176%', label: 'Aumento de biomasa en estudios con compost' },
-              { value: '270', label: 'Hectáreas comprometidas en Galicia' },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.value}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.1 * i,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                <p className="text-display-md font-semibold tracking-tight mb-3">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-smoke leading-relaxed max-w-[20ch]">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <HomeUrgencia />
+      <HomePrinceton />
+      <HomeProceso />
+      <HomeLineas />
+      <HomeTecnologia />
+      <HomeHojaRuta />
+      <HomeTienda />
+      <HomeEquipo />
+      <HomeAliados />
+      <HomeCTA />
     </>
   );
 }
