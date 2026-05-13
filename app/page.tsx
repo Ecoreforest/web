@@ -10,7 +10,6 @@ import HomeLineas from './components/home/HomeLineas';
 import HomeTecnologia from './components/home/HomeTecnologia';
 import HomeHojaRuta from './components/home/HomeHojaRuta';
 import HomeTienda from './components/home/HomeTienda';
-import HomeEquipo from './components/home/HomeEquipo';
 import HomeAliados from './components/home/HomeAliados';
 import HomeCTA from './components/home/HomeCTA';
 
@@ -133,7 +132,6 @@ export default function Home() {
       <HomeTecnologia />
       <HomeHojaRuta />
       <HomeTienda />
-      <HomeEquipo />
       <HomeAliados />
       <HomeCTA />
     </>

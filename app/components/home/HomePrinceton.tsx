@@ -15,7 +15,7 @@ export default function HomePrinceton() {
 
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
-      <div ref={ref} className="container-x max-w-7xl py-32 lg:py-48">
+      <div ref={ref} className="container-x max-w-7xl py-24 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-6 order-2 lg:order-1">
             <SectionEyebrow light>Costa Rica · 1996</SectionEyebrow>

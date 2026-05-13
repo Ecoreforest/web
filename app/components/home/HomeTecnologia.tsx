@@ -40,7 +40,7 @@ export default function HomeTecnologia() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
       </motion.div>
 
-      <div className="relative container-x max-w-7xl py-32 lg:py-48">
+      <div className="relative container-x max-w-7xl py-24 lg:py-32">
         <SectionEyebrow light>Tecnología</SectionEyebrow>
 
         <motion.h2

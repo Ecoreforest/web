@@ -133,7 +133,7 @@ export default function HomeProceso() {
   return (
     <section className="relative bg-bone">
       {/* Cabecera */}
-      <div className="container-x pt-32 lg:pt-48 pb-8 max-w-6xl">
+      <div className="container-x pt-24 lg:pt-32 pb-8 max-w-6xl">
         <SectionEyebrow>El proceso</SectionEyebrow>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -153,7 +153,7 @@ export default function HomeProceso() {
       ))}
 
       {/* CTA */}
-      <div className="container-x max-w-6xl pb-32 lg:pb-48 pt-8">
+      <div className="container-x max-w-6xl pb-24 lg:pb-32 pt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

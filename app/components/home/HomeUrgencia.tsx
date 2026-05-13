@@ -6,7 +6,7 @@ import SectionEyebrow from '../SectionEyebrow';
 
 export default function HomeUrgencia() {
   return (
-    <section className="relative py-32 lg:py-48 bg-bone">
+    <section className="relative py-24 lg:py-32 bg-bone">
       <div className="container-x max-w-6xl">
         <SectionEyebrow>La urgencia</SectionEyebrow>
 

@@ -34,7 +34,7 @@ const lineas = [
 
 export default function HomeLineas() {
   return (
-    <section className="relative py-32 lg:py-48 bg-ivory">
+    <section className="relative py-24 lg:py-32 bg-ivory">
       <div className="container-x max-w-7xl">
         <div className="max-w-4xl mb-20 lg:mb-28">
           <SectionEyebrow>Líneas de actuación</SectionEyebrow>

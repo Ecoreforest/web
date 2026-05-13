@@ -16,7 +16,7 @@ export default function HomeTienda() {
 
   return (
     <section ref={ref} className="relative bg-bone overflow-hidden">
-      <div className="container-x max-w-7xl py-32 lg:py-48">
+      <div className="container-x max-w-7xl py-24 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <motion.div
             className="lg:col-span-7 lg:order-2"
