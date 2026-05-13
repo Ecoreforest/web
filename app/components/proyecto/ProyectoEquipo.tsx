@@ -13,7 +13,7 @@ const equipo = [
       'Cada residuo que se entierra es un bosque que no se planta. Esa cuenta no me sale.',
     bio: [
       'Funda EcoReforest con la convicción de que la economía circular es la respuesta práctica al doble desafío de la desertificación y los residuos orgánicos en España.',
-      'Lidera la estrategia general, la relación con instituciones y el diseño del modelo dual asociación-empresa que articula el proyecto a largo plazo.',
+      'Lidera la estrategia general, la relación con instituciones y la coordinación de los proyectos de financiación europea que articulan el proyecto a largo plazo.',
     ],
   },
   {

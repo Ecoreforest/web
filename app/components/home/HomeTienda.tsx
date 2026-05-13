@@ -88,13 +88,13 @@ export default function HomeTienda() {
               className="mt-12 flex flex-col sm:flex-row gap-3"
             >
               <Link
-                href="/tienda/ropa"
+                href="/shop"
                 className="px-7 py-3.5 bg-ink text-bone rounded-full font-medium hover:bg-forest transition-colors"
               >
                 Ver colección
               </Link>
               <Link
-                href="/tienda"
+                href="/shop"
                 className="px-7 py-3.5 border border-ink/20 rounded-full font-medium hover:border-ink/60 transition-colors"
               >
                 Toda la tienda

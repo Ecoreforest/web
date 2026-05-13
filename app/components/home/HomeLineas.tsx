@@ -11,7 +11,7 @@ const lineas = [
     titulo: 'Compost certificado',
     descripcion: 'Fertilizante orgánico de alta calidad producido con tecnología de compostaje acelerado. Cumple la norma UNE 142500 y es apto para agricultura ecológica.',
     cta: 'Conoce el producto',
-    href: '/tienda/compost',
+    href: '/servicios/compost',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-compost_jepie9.jpg',
   },
   {

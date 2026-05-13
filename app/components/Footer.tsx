@@ -24,12 +24,19 @@ const footerSections = [
     ],
   },
   {
+    title: 'Servicios',
+    links: [
+      { href: '/servicios/compost', label: 'Compost' },
+      { href: '/servicios/reforestacion', label: 'Reforestación' },
+      { href: '/servicios/forest-clean', label: 'Forest Clean' },
+      { href: '/servicios/auditorias', label: 'Auditorías' },
+      { href: '/servicios/creditos-carbono', label: 'Créditos de carbono' },
+    ],
+  },
+  {
     title: 'Tienda',
     links: [
-      { href: '/tienda', label: 'Tienda' },
-      { href: '/tienda/compost', label: 'Compost' },
-      { href: '/tienda/adopta', label: 'Adopta un árbol' },
-      { href: '/tienda/ropa', label: 'Línea EcoReforest' },
+      { href: '/shop', label: 'EcoReforest Wear' },
     ],
   },
   {
@@ -68,8 +75,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-ink text-bone relative overflow-hidden">
-      <div className="container-x pt-24 pb-10 lg:pt-32">
-        <div className="max-w-3xl mb-20 lg:mb-28">
+      <div className="container-x pt-20 pb-10 lg:pt-28">
+        <div className="max-w-3xl mb-20 lg:mb-24">
           <p className="text-xs font-mono uppercase tracking-[0.2em] text-bone/50 mb-4">
             Newsletter
           </p>
@@ -99,7 +106,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-bone/40 mb-5">

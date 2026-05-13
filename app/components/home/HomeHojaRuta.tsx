@@ -21,9 +21,9 @@ const hitos = [
   },
   {
     fecha: '2027',
-    momento: 'Enero',
-    titulo: 'Constitución EcoReforest SL',
-    descripcion: 'Transición al modelo dual: la asociación mantiene I+D y proyectos públicos; la SL escala las operaciones comerciales.',
+    momento: 'Consolidación',
+    titulo: 'Modelo a escala nacional',
+    descripcion: 'Primeros contratos con administraciones autonómicas y consolidación de la red de proveedores de residuos en cuatro comunidades.',
     estado: 'Planificado',
   },
   {
