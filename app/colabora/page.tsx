@@ -1,17 +1,23 @@
-import PageHero from '../components/PageHero';
+import ColaboraHero from '../components/colabora/ColaboraHero';
+import ColaboraFormas from '../components/colabora/ColaboraFormas';
+import ColaboraEmpresas from '../components/colabora/ColaboraEmpresas';
+import ColaboraVoluntariado from '../components/colabora/ColaboraVoluntariado';
+import ColaboraCTA from '../components/colabora/ColaboraCTA';
 
 export const metadata = {
   title: 'Colabora',
-  description: 'Empresas, voluntariado, inversores y mecenas. Únete al proyecto.',
+  description:
+    'Empresas, voluntariado, mecenazgo e inversores. Cuatro formas de formar parte de EcoReforest, todas auditables, todas con compromiso real.',
 };
 
 export default function Colabora() {
   return (
-    <PageHero
-      eyebrow="07 — Colabora"
-      title="Únete desde el primer árbol."
-      italicWord="primer árbol."
-      description="Empresas, voluntariado, mecenazgo, inversores. Cuatro formas de formar parte del proyecto."
-    />
+    <>
+      <ColaboraHero />
+      <ColaboraFormas />
+      <ColaboraEmpresas />
+      <ColaboraVoluntariado />
+      <ColaboraCTA />
+    </>
   );
 }

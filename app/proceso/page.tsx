@@ -1,17 +1,23 @@
-import PageHero from '../components/PageHero';
+import ProcesoHero from '../components/proceso/ProcesoHero';
+import ProcesoEtapas from '../components/proceso/ProcesoEtapas';
+import ProcesoCiclo from '../components/proceso/ProcesoCiclo';
+import ProcesoTrazabilidad from '../components/proceso/ProcesoTrazabilidad';
+import ProcesoCTA from '../components/proceso/ProcesoCTA';
 
 export const metadata = {
   title: 'Proceso',
-  description: 'Los cuatro pasos de nuestra economía circular: del residuo al bosque.',
+  description:
+    'Los cuatro pasos del ciclo: recolección, compostaje acelerado, plantación y monitoreo. Trazabilidad pública y datos verificables.',
 };
 
 export default function Proceso() {
   return (
-    <PageHero
-      eyebrow="02 — Proceso"
-      title="Del residuo al bosque, en cuatro pasos."
-      italicWord="cuatro pasos."
-      description="Recolección, compostaje acelerado, plantación y monitoreo. Un ciclo cerrado entre la basura urbana y el suelo árido."
-    />
+    <>
+      <ProcesoHero />
+      <ProcesoEtapas />
+      <ProcesoCiclo />
+      <ProcesoTrazabilidad />
+      <ProcesoCTA />
+    </>
   );
 }
