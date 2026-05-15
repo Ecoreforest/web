@@ -18,7 +18,9 @@ export default function HomeUrgencia() {
           className="text-display-lg font-semibold tracking-tight max-w-5xl text-balance"
         >
           España se está{' '}
-          <span className="italic-display font-normal">secando.</span>{' '}
+          <span className="italic-display font-normal text-[#B8956A]">
+            secando.
+          </span>{' '}
           Y nosotros tenemos la respuesta.
         </motion.h2>
 

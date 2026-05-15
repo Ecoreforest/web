@@ -22,6 +22,7 @@ export default function HomeTecnologia() {
     offset: ['start end', 'end start'],
   });
   const imageScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+  const droneY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
 
   return (
     <section ref={ref} className="relative bg-ink text-bone overflow-hidden">
@@ -41,29 +42,52 @@ export default function HomeTecnologia() {
       </motion.div>
 
       <div className="relative container-x max-w-7xl py-24 lg:py-32">
-        <SectionEyebrow light>Tecnología</SectionEyebrow>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-display-lg font-semibold tracking-tight max-w-5xl text-balance"
-        >
-          Ciencia, ingeniería y{' '}
-          <span className="italic-display font-normal">rigor</span>{' '}
-          en cada hectárea.
-        </motion.h2>
+        {/* Cabecera con drone al lado */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-7">
+            <SectionEyebrow light>Tecnología</SectionEyebrow>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg lg:text-xl text-bone/65 max-w-2xl leading-relaxed mt-8"
-        >
-          Cada paso del proceso se monitoriza con tecnología de última generación. Lo que no se mide, no se mejora.
-        </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold tracking-tight max-w-3xl text-balance"
+            >
+              Ciencia, ingeniería y{' '}
+              <span className="italic-display font-normal">rigor</span>{' '}
+              en cada hectárea.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-lg lg:text-xl text-bone/65 max-w-xl leading-relaxed mt-8"
+            >
+              Cada paso del proceso se monitoriza con tecnología de última generación. Lo que no se mide, no se mejora.
+            </motion.p>
+          </div>
+
+          <motion.div
+            style={{ y: droneY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-square w-full max-w-sm mx-auto lg:max-w-none"
+          >
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869864/drone-multiespectral_kzfwlp.png"
+              alt="Drone multiespectral usado en el monitoreo forestal"
+              fill
+              sizes="(max-width: 1024px) 70vw, 35vw"
+              className="object-contain"
+            />
+          </motion.div>
+        </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 lg:gap-y-14 mt-20 lg:mt-28 pt-16 border-t border-bone/15">
           {tech.map((t, i) => (

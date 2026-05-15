@@ -18,17 +18,30 @@ const lineas = [
     eyebrow: 'Servicio',
     titulo: 'Reforestación integral',
     descripcion: 'Diseño, plantación y mantenimiento de proyectos de restauración ecológica. Especies autóctonas, riego eficiente y monitoreo digital con garantía de supervivencia.',
-    cta: 'Servicios para empresas',
-    href: '/colabora',
+    cta: 'Ver el servicio',
+    href: '/servicios/reforestacion',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg',
   },
   {
     eyebrow: 'Mercado',
     titulo: 'Créditos de carbono',
     descripcion: 'Captura verificable de CO₂ certificada bajo estándares Verra y Gold Standard. Una nueva forma de financiar la restauración ecológica.',
-    cta: 'Para tu empresa',
-    href: '/colabora',
+    cta: 'Ver el servicio',
+    href: '/servicios/creditos-carbono',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-carbono_zmr4n4.jpg',
+  },
+];
+
+const adicionales = [
+  {
+    titulo: 'Forest Clean',
+    descripcion: 'Limpieza y mantenimiento forestal preventivo para administraciones y propietarios.',
+    href: '/servicios/forest-clean',
+  },
+  {
+    titulo: 'Auditorías ambientales',
+    descripcion: 'Auditoría técnica de masas forestales con drones, sensores y análisis satelital.',
+    href: '/servicios/auditorias',
   },
 ];
 
@@ -45,7 +58,7 @@ export default function HomeLineas() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-display-lg font-semibold tracking-tight text-balance"
           >
-            Tres formas de{' '}
+            Cinco formas de{' '}
             <span className="italic-display font-normal">cerrar el ciclo.</span>
           </motion.h2>
         </div>
@@ -88,6 +101,39 @@ export default function HomeLineas() {
                 </Link>
               </div>
             </motion.article>
+          ))}
+        </div>
+
+        {/* Dos líneas adicionales — formato compacto */}
+        <div className="grid md:grid-cols-2 gap-px mt-12 lg:mt-16 bg-ash border-t border-b border-ash">
+          {adicionales.map((a, i) => (
+            <motion.div
+              key={a.titulo}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.7, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-ivory p-8 lg:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
+            >
+              <div className="flex-1">
+                <p className="text-xs font-mono uppercase tracking-[0.25em] text-forest mb-2">
+                  {`0${i + 4}`}
+                </p>
+                <h3 className="text-xl lg:text-2xl font-semibold tracking-tight mb-2">
+                  {a.titulo}
+                </h3>
+                <p className="text-base text-smoke leading-relaxed max-w-xl">
+                  {a.descripcion}
+                </p>
+              </div>
+              <Link
+                href={a.href}
+                className="inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap group/link shrink-0"
+              >
+                Ver el servicio
+                <span className="inline-block transition-transform duration-500 group-hover/link:translate-x-1">→</span>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

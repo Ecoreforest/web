@@ -2,8 +2,8 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
+import BeforeAfterSlider from '../BeforeAfterSlider';
 
 export default function HomePrinceton() {
   const ref = useRef<HTMLDivElement>(null);
@@ -70,23 +70,23 @@ export default function HomePrinceton() {
             className="lg:col-span-6 order-1 lg:order-2 relative"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 1.05 }}
+              initial={{ opacity: 0, scale: 1.02 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] overflow-hidden rounded-sm"
             >
-              <Image
-                src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895096/princeton-naranjas_forgqn.png"
-                alt="Naranjas frescas como símbolo del descubrimiento de Princeton"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+              <BeforeAfterSlider
+                beforeSrc="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895096/princeton-naranjas_forgqn.png"
+                afterSrc="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869862/costa-rica-despues_u1njep.jpg"
+                beforeAlt="Cáscaras de naranja depositadas sobre el suelo degradado en 1996"
+                afterAlt="Parcela completamente cubierta de bosque tropical recuperado en 2014"
+                beforeLabel="1996"
+                afterLabel="2014"
+                aspect="aspect-[4/5]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
             </motion.div>
             <p className="mt-4 text-xs font-mono text-bone/40 uppercase tracking-[0.2em]">
-              Foto: estudio inspirado en Janzen & Hallwachs (Princeton)
+              Estudio Janzen &amp; Hallwachs · Costa Rica · Princeton
             </p>
           </motion.div>
         </div>

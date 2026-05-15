@@ -13,7 +13,7 @@ export default function TecnologiaHero() {
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.9]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.9]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
@@ -26,7 +26,7 @@ export default function TecnologiaHero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
+          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869836/tegnologia-hero-drone-aeria_cll1te.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -37,7 +37,7 @@ export default function TecnologiaHero() {
 
       <motion.div
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/55 to-ink/90"
+        className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/50 to-ink/90"
       />
 
       <motion.div

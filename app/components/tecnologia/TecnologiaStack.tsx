@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const capas = [
@@ -35,33 +36,53 @@ const capas = [
 
 export default function TecnologiaStack() {
   return (
-    <section className="relative py-24 lg:py-32 bg-ivory">
+    <section className="relative py-24 lg:py-32 bg-ivory overflow-hidden">
       <div className="container-x max-w-7xl">
-        <div className="max-w-3xl mb-20 lg:mb-28">
-          <SectionEyebrow>Stack técnico</SectionEyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        {/* Cabecera 2 columnas: imagen tronco a la izquierda, texto a la derecha */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 lg:mb-28">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold tracking-tight text-balance"
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-square w-full max-w-sm mx-auto lg:max-w-none order-2 lg:order-1"
           >
-            Tres capas, un mismo{' '}
-            <span className="italic-display font-normal">propósito.</span>
-          </motion.h2>
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869825/tronco-stack-tres-capas_arzayv.png"
+              alt="Sección de tronco en tres capas, símbolo del stack tecnológico"
+              fill
+              sizes="(max-width: 1024px) 70vw, 35vw"
+              className="object-contain"
+            />
+          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
-          >
-            Del biorreactor al dato público. Cada capa de la pila técnica
-            cumple una función concreta dentro del ciclo y se conecta con la
-            siguiente sin fricción.
-          </motion.p>
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <SectionEyebrow>Stack técnico</SectionEyebrow>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold tracking-tight text-balance"
+            >
+              Tres capas, un mismo{' '}
+              <span className="italic-display font-normal">propósito.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
+            >
+              Del biorreactor al dato público. Cada capa de la pila técnica
+              cumple una función concreta dentro del ciclo y se conecta con la
+              siguiente sin fricción.
+            </motion.p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-10 lg:gap-12">

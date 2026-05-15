@@ -26,7 +26,7 @@ export default function ProcesoHero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
+          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869802/proceso-hero-desierto-verde_foomlh.jpg"
           alt=""
           fill
           sizes="100vw"

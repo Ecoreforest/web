@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function HomeCTA() {
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
-      <div className="container-x max-w-6xl py-24 lg:py-32 text-center">
+      <div className="container-x max-w-6xl mx-auto py-24 lg:py-32 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

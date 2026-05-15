@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const inputs = [
@@ -19,33 +20,54 @@ export default function ProcesoCiclo() {
   return (
     <section className="relative py-24 lg:py-32 bg-ink text-bone overflow-hidden grain">
       <div className="container-x max-w-7xl">
-        <div className="max-w-3xl mb-20 lg:mb-28">
-          <SectionEyebrow light>Balance del ciclo</SectionEyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold text-bone tracking-tight text-balance"
-          >
-            Lo que entra,{' '}
-            <span className="italic-display font-normal">lo que sale.</span>
-          </motion.h2>
+        {/* Cabecera + imagen al lado */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
+          <div className="lg:col-span-7">
+            <SectionEyebrow light>Balance del ciclo</SectionEyebrow>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold text-bone tracking-tight text-balance"
+            >
+              Lo que entra,{' '}
+              <span className="italic-display font-normal">lo que sale.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-lg lg:text-xl text-bone/65 leading-relaxed max-w-xl"
+            >
+              La economía circular no es una metáfora: es una contabilidad.
+              Cada tonelada que entra como residuo se transforma en algo
+              cuantificable a la salida.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 text-lg lg:text-xl text-bone/65 leading-relaxed max-w-2xl"
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-square w-full max-w-md mx-auto lg:max-w-none"
           >
-            La economía circular no es una metáfora: es una contabilidad.
-            Cada tonelada que entra como residuo se transforma en
-            algo cuantificable a la salida.
-          </motion.p>
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869860/compost-en-manos_dz50df.png"
+              alt="Compost terminado sostenido en manos, símbolo del cierre del ciclo"
+              fill
+              sizes="(max-width: 1024px) 80vw, 40vw"
+              className="object-contain"
+            />
+          </motion.div>
         </div>
 
+        {/* Tabla entradas / salidas */}
         <div className="grid lg:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-0">
           <div>
             <p className="text-xs font-mono uppercase tracking-[0.25em] text-forest mb-8 pb-4 border-b border-bone/15">

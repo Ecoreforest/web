@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const pasos = [
@@ -32,33 +33,53 @@ const pasos = [
 
 export default function ColaboraVoluntariado() {
   return (
-    <section className="relative py-24 lg:py-32 bg-ivory">
+    <section className="relative py-24 lg:py-32 bg-ivory overflow-hidden">
       <div className="container-x max-w-7xl">
-        <div className="max-w-3xl mb-20 lg:mb-28">
-          <SectionEyebrow>Voluntariado</SectionEyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold tracking-tight text-balance"
-          >
-            Plantar es{' '}
-            <span className="italic-display font-normal">solo el principio.</span>
-          </motion.h2>
+        {/* Cabecera con plantón al lado */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
+          <div className="lg:col-span-7">
+            <SectionEyebrow>Voluntariado</SectionEyebrow>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold tracking-tight text-balance"
+            >
+              Plantar es{' '}
+              <span className="italic-display font-normal">solo el principio.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
+            >
+              El voluntariado no es marketing experiencial: es parte real del
+              proceso. Los datos que se recogen sobre el terreno alimentan
+              decisiones técnicas posteriores.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-[3/4] w-full max-w-sm mx-auto lg:max-w-none"
           >
-            El voluntariado no es marketing experiencial: es parte real del
-            proceso. Los datos que se recogen sobre el terreno alimentan
-            decisiones técnicas posteriores.
-          </motion.p>
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869811/voluntariado-planton_cgm37j.png"
+              alt="Plantón de árbol recién brotado, símbolo del voluntariado"
+              fill
+              sizes="(max-width: 1024px) 70vw, 35vw"
+              className="object-contain"
+            />
+          </motion.div>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-px bg-ash">

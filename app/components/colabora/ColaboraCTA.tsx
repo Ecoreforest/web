@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function ColaboraCTA() {
   return (
     <section className="relative bg-bone overflow-hidden">
-      <div className="container-x max-w-5xl py-24 lg:py-36 text-center">
+      <div className="container-x max-w-5xl mx-auto py-24 lg:py-36 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export default function ColaboraCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-display-lg font-semibold tracking-tight text-balance leading-[1]"
+          className="text-display-lg font-semibold tracking-tight text-balance leading-[1] max-w-4xl mx-auto"
         >
           Hay 270 hectáreas{' '}
           <span className="italic-display font-normal text-forest">

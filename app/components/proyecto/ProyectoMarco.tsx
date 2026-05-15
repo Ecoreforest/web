@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const europeo = [
@@ -43,34 +44,54 @@ const espanol = [
 
 export default function ProyectoMarco() {
   return (
-    <section className="relative py-24 lg:py-32 bg-bone">
+    <section className="relative py-24 lg:py-32 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
-        <div className="max-w-4xl mb-20 lg:mb-28">
-          <SectionEyebrow>Marco institucional</SectionEyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold tracking-tight text-balance"
-          >
-            Alineados con los compromisos{' '}
-            <span className="italic-display font-normal">más ambiciosos.</span>
-          </motion.h2>
+        {/* Cabecera con banderas al lado */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-20 lg:mb-28">
+          <div className="lg:col-span-7">
+            <SectionEyebrow>Marco institucional</SectionEyebrow>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold tracking-tight text-balance"
+            >
+              Alineados con los compromisos{' '}
+              <span className="italic-display font-normal">más ambiciosos.</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-lg lg:text-xl text-smoke leading-relaxed mt-8 max-w-xl"
+            >
+              EcoReforest no opera al margen de los marcos institucionales:
+              opera dentro y desde dentro. Cada decisión técnica y económica
+              del proyecto se diseña para encajar con las prioridades
+              europeas y españolas en materia climática.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg lg:text-xl text-smoke leading-relaxed mt-8 max-w-2xl"
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-[4/3] w-full max-w-md mx-auto lg:max-w-none"
           >
-            EcoReforest no opera al margen de los marcos institucionales:
-            opera dentro y desde dentro. Cada decisión técnica y económica
-            del proyecto se diseña para encajar con las prioridades
-            europeas y españolas en materia climática.
-          </motion.p>
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869793/bandera-ue-espana-1_yqaoqp.png"
+              alt="Banderas de la Unión Europea y España"
+              fill
+              sizes="(max-width: 1024px) 80vw, 40vw"
+              className="object-contain"
+            />
+          </motion.div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">

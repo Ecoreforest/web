@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 const pilares = [
@@ -48,33 +49,51 @@ const pilares = [
 
 export default function TecnologiaPilares() {
   return (
-    <section className="relative py-24 lg:py-32 bg-bone">
+    <section className="relative py-24 lg:py-32 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
-        <div className="max-w-3xl mb-20 lg:mb-28">
-          <SectionEyebrow>Cinco pilares</SectionEyebrow>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
+          <div className="lg:col-span-7">
+            <SectionEyebrow>Cinco pilares</SectionEyebrow>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-display-lg font-semibold tracking-tight text-balance"
-          >
-            La pila tecnológica,{' '}
-            <span className="italic-display font-normal">sin humo.</span>
-          </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-display-lg font-semibold tracking-tight text-balance"
+            >
+              La pila tecnológica,{' '}
+              <span className="italic-display font-normal">sin humo.</span>
+            </motion.h2>
 
-          <motion.p
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
+            >
+              Nada de esto es nuevo: lo nuevo es el conjunto. Combinamos
+              herramientas maduras del sector forestal, agrícola y aeroespacial
+              para llevarlas a un solo proyecto.
+            </motion.p>
+          </div>
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
+            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative aspect-[3/4] w-full max-w-sm mx-auto lg:max-w-none"
           >
-            Nada de esto es nuevo: lo nuevo es el conjunto. Combinamos
-            herramientas maduras del sector forestal, agrícola y aeroespacial
-            para llevarlas a un solo proyecto.
-          </motion.p>
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869819/torre-warka_gi12ej.png"
+              alt="Torre Warka: estructura de captación de agua atmosférica"
+              fill
+              sizes="(max-width: 1024px) 70vw, 35vw"
+              className="object-contain"
+            />
+          </motion.div>
         </div>
 
         <div className="space-y-10 lg:space-y-14">

@@ -5,31 +5,36 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
+// Aplicamos `e_trim` de Cloudinary para recortar el espacio transparente de
+// cada PNG y `c_pad,w_400,h_400,b_transparent` para normalizar todos los
+// iconos al mismo lienzo. De esa forma `object-contain` renderiza todos los
+// iconos al mismo tamaño visible, independientemente de cómo se exportó cada
+// PNG original.
 const flujo = [
   {
     palabra: 'Residuo',
     descripcion: 'Una manzana que ya no se vende.',
-    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778624307/flujo-residuo_nmxkfa.png',
+    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624307/flujo-residuo_nmxkfa.png',
   },
   {
     palabra: 'Compost',
     descripcion: 'Un fertilizante con más nutrientes que el suelo agotado.',
-    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778624315/flujo-compost_ruecbc.png',
+    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624315/flujo-compost_ruecbc.png',
   },
   {
     palabra: 'Suelo',
     descripcion: 'Una tierra que recupera la capacidad de sostener vida.',
-    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778624325/flujo-suelo_ueq8di.png',
+    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624325/flujo-suelo_ueq8di.png',
   },
   {
     palabra: 'Árbol',
     descripcion: 'Una raíz que captura agua, carbono y comunidad.',
-    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778624337/flujo-arbol_szarwr.png',
+    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624337/flujo-arbol_szarwr.png',
   },
   {
     palabra: 'Bosque',
     descripcion: 'Una hectárea menos del desierto que avanza.',
-    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778624348/flujo-bosque_ijzkoh.png',
+    icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624348/flujo-bosque_ijzkoh.png',
   },
 ];
 
@@ -94,7 +99,7 @@ export default function ProyectoSolucion() {
           </motion.div>
         </div>
 
-        {/* Flujo con iconos */}
+        {/* Flujo con iconos normalizados */}
         <div className="space-y-8 lg:space-y-12">
           {flujo.map((item, i) => (
             <motion.article
@@ -128,14 +133,14 @@ export default function ProyectoSolucion() {
                 </h3>
               </div>
 
-              {/* Icono en medio */}
+              {/* Icono normalizado en lienzo 1:1 */}
               <div className="lg:col-span-2 flex justify-center">
-                <div className="relative w-20 h-20 lg:w-24 lg:h-24 shrink-0">
+                <div className="relative w-24 h-24 lg:w-28 lg:h-28 shrink-0">
                   <Image
                     src={item.icono}
                     alt=""
                     fill
-                    sizes="96px"
+                    sizes="112px"
                     className="object-contain"
                   />
                 </div>

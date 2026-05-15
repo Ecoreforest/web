@@ -6,13 +6,13 @@ import Link from 'next/link';
 export default function ProyectoCTA() {
   return (
     <section className="relative py-32 lg:py-40 bg-bone">
-      <div className="container-x max-w-5xl text-center">
+      <div className="container-x max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-display-lg font-semibold tracking-tight text-balance leading-[1]"
+          className="text-display-lg font-semibold tracking-tight text-balance leading-[1] max-w-4xl mx-auto"
         >
           Ahora ya conoces el{' '}
           <span className="italic-display font-normal">por qué.</span>
