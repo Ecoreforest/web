@@ -49,14 +49,24 @@ const pilares = [
 
 export default function TecnologiaPilares() {
   return (
-    // Padding section reducido: py-12 lg:py-20 (era py-24 lg:py-32)
     <section className="relative py-12 lg:py-20 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera con Torre Warka — separación con primer pilar reducida:
-            mb-10 lg:mb-14 (era mb-20 lg:mb-28). Imagen aspect [3/5] +
-            scale-[1.08] para que se vea un poco más grande. */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-10 lg:mb-14">
+        {/*
+          Cabecera con Torre Warka.
+          - items-start: el texto se pega arriba en lugar de centrarse
+            verticalmente dentro de la fila → desaparece el hueco vertical
+            grande entre el final del hero y el eyebrow "Cinco pilares".
+          - lg:h-[560px] en la imagen: limita la altura de la fila en
+            desktop a ~560 px (antes la fila medía ~1.200 px porque
+            seguía el aspect ratio de la imagen). Esto reduce drásticamente
+            el espacio vacío que queda entre el final del párrafo y el
+            primer pilar de la lista.
+          - mb-4 lg:mb-8: margen mínimo entre la cabecera y el primer pilar.
+          - lg:scale-[1.05] sobre la imagen: mantiene la sensación de
+            "Torre Warka un poco más grande" sin inflar la fila.
+        */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-4 lg:mb-8">
           <div className="lg:col-span-5">
             <SectionEyebrow>Cinco pilares</SectionEyebrow>
 
@@ -89,14 +99,14 @@ export default function TecnologiaPilares() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative aspect-[3/5] w-full max-w-md mx-auto lg:max-w-none lg:scale-[1.08] origin-center"
+            className="lg:col-span-7 relative aspect-[3/4] lg:aspect-auto lg:h-[560px] w-full max-w-md mx-auto lg:max-w-none"
           >
             <Image
               src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869819/torre-warka_gi12ej.png"
               alt="Torre Warka: estructura de captación de agua atmosférica"
               fill
               sizes="(max-width: 1024px) 80vw, 60vw"
-              className="object-contain"
+              className="object-contain lg:scale-[1.05] origin-center"
             />
           </motion.div>
         </div>
