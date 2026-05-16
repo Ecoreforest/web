@@ -51,8 +51,11 @@ export default function TecnologiaPilares() {
   return (
     <section className="relative py-24 lg:py-32 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
+
+        {/* Cabecera con Torre Warka — ahora más grande:
+            texto col-5, imagen col-7, aspect 2/3 (más alta y dominante) */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-5">
             <SectionEyebrow>Cinco pilares</SectionEyebrow>
 
             <motion.h2
@@ -71,7 +74,7 @@ export default function TecnologiaPilares() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-lg"
             >
               Nada de esto es nuevo: lo nuevo es el conjunto. Combinamos
               herramientas maduras del sector forestal, agrícola y aeroespacial
@@ -84,13 +87,13 @@ export default function TecnologiaPilares() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative aspect-[3/4] w-full max-w-sm mx-auto lg:max-w-none"
+            className="lg:col-span-7 relative aspect-[2/3] w-full max-w-md mx-auto lg:max-w-none"
           >
             <Image
               src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869819/torre-warka_gi12ej.png"
               alt="Torre Warka: estructura de captación de agua atmosférica"
               fill
-              sizes="(max-width: 1024px) 70vw, 35vw"
+              sizes="(max-width: 1024px) 80vw, 55vw"
               className="object-contain"
             />
           </motion.div>

@@ -39,7 +39,7 @@ export default function TecnologiaStack() {
     <section className="relative py-24 lg:py-32 bg-ivory overflow-hidden">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera 2 columnas: imagen tronco a la izquierda, texto a la derecha */}
+        {/* Cabecera 2 columnas: imagen de compost en 3 capas a la izquierda, texto a la derecha */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 lg:mb-28">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -49,8 +49,8 @@ export default function TecnologiaStack() {
             className="lg:col-span-5 relative aspect-square w-full max-w-sm mx-auto lg:max-w-none order-2 lg:order-1"
           >
             <Image
-              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869825/tronco-stack-tres-capas_arzayv.png"
-              alt="Sección de tronco en tres capas, símbolo del stack tecnológico"
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778888291/compost-stack-tres-capas_x2xz7p.png"
+              alt="Compost en tres capas de madurez, símbolo del stack tecnológico"
               fill
               sizes="(max-width: 1024px) 70vw, 35vw"
               className="object-contain"

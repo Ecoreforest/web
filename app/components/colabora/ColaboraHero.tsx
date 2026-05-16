@@ -26,7 +26,7 @@ export default function ColaboraHero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869858/colabora-hero-zwales_feeglm.jpg"
+          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778889347/colabora-hero-swales_ruy8nb.png"
           alt=""
           fill
           sizes="100vw"

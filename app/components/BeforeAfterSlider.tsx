@@ -81,24 +81,8 @@ export default function BeforeAfterSlider({
       onTouchStart={onTouchStart}
       className={`relative overflow-hidden rounded-sm select-none touch-pan-y cursor-ew-resize ${aspect}`}
     >
-      {/* Imagen "antes" — capa base completa */}
+      {/* Imagen "después" — capa base completa (siempre visible debajo) */}
       <div className="absolute inset-0">
-        <Image
-          src={beforeSrc}
-          alt={beforeAlt}
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover pointer-events-none"
-          draggable={false}
-          priority={false}
-        />
-      </div>
-
-      {/* Imagen "después" — recortada según posición del slider */}
-      <div
-        className="absolute inset-0"
-        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-      >
         <Image
           src={afterSrc}
           alt={afterAlt}
@@ -110,7 +94,24 @@ export default function BeforeAfterSlider({
         />
       </div>
 
-      {/* Etiquetas */}
+      {/* Imagen "antes" — capa superior recortada desde la derecha,
+          visible en el lado izquierdo según `position`. */}
+      <div
+        className="absolute inset-0"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+      >
+        <Image
+          src={beforeSrc}
+          alt={beforeAlt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover pointer-events-none"
+          draggable={false}
+          priority={false}
+        />
+      </div>
+
+      {/* Etiquetas — antes a la izquierda, después a la derecha */}
       <span className="absolute top-4 left-4 text-xs font-mono uppercase tracking-[0.25em] text-bone bg-ink/55 backdrop-blur-sm px-3 py-1.5 rounded-full pointer-events-none">
         {beforeLabel}
       </span>
