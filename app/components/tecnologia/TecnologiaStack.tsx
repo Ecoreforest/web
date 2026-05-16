@@ -36,30 +36,45 @@ const capas = [
 
 export default function TecnologiaStack() {
   return (
-    <section className="relative py-24 lg:py-32 bg-ivory overflow-hidden">
+    // Section padding reducido: py-12 lg:py-20 (era py-24 lg:py-32)
+    <section className="relative py-12 lg:py-20 bg-ivory overflow-hidden">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera 2 columnas: imagen de compost en 3 capas a la izquierda
-            (ahora col-span-7, era col-span-5), texto a la derecha (col-span-5).
-            La imagen pasa a ocupar el 58% del ancho — notablemente más grande. */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 lg:mb-28">
+        {/*
+          Cabecera 2 columnas — mismo fix que TecnologiaPilares:
+          - items-start: ambas columnas se anclan arriba en lugar de
+            centrarse verticalmente. Elimina los huecos vacíos arriba
+            y abajo del texto.
+          - lg:h-[440px] en la imagen: limita la altura de la fila a
+            ~440 px (antes la fila medía ~742 px porque seguía aspect-
+            square en col-span-7). Ahora la imagen tiene una altura
+            comparable al texto adyacente y todo queda proporcionado.
+          - col-span-5 (era col-span-7): imagen más estrecha, en línea
+            con la altura reducida. El compost-stack mantiene presencia
+            sin dominar la fila.
+          - gap-8 lg:gap-12 (era gap-12 lg:gap-20): menos aire horizontal
+            entre imagen y texto.
+          - mb-12 lg:mb-16 (era mb-20 lg:mb-28): menos aire vertical
+            entre la cabecera y el grid de 3 capas que viene debajo.
+        */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative aspect-square w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1"
+            className="lg:col-span-5 relative aspect-[3/4] lg:aspect-auto lg:h-[440px] w-full max-w-sm mx-auto lg:max-w-none order-2 lg:order-1"
           >
             <Image
               src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778888291/compost-stack-tres-capas_x2xz7p.png"
               alt="Compost en tres capas de madurez, símbolo del stack tecnológico"
               fill
-              sizes="(max-width: 1024px) 80vw, 55vw"
+              sizes="(max-width: 1024px) 70vw, 40vw"
               className="object-contain"
             />
           </motion.div>
 
-          <div className="lg:col-span-5 order-1 lg:order-2">
+          <div className="lg:col-span-7 order-1 lg:order-2">
             <SectionEyebrow>Stack técnico</SectionEyebrow>
 
             <motion.h2
@@ -78,7 +93,7 @@ export default function TecnologiaStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-lg"
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
             >
               Del biorreactor al dato público. Cada capa de la pila técnica
               cumple una función concreta dentro del ciclo y se conecta con la
