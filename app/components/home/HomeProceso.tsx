@@ -49,7 +49,9 @@ function Paso({ paso, index }: { paso: typeof pasos[0]; index: number }) {
   const isReverse = index % 2 === 1;
 
   return (
-    <article ref={ref} className="relative py-20 lg:py-32">
+    // Padding vertical reducido: py-10 lg:py-14 (era py-20 lg:py-32)
+    // Cada paso pasa de ~256px a ~112px de aire vertical → mucho menos espacio entre pasos.
+    <article ref={ref} className="relative py-10 lg:py-14">
       <div className="container-x max-w-7xl">
         <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isReverse ? 'lg:flex-row-reverse' : ''}`}>
 

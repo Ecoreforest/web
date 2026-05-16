@@ -39,25 +39,27 @@ export default function TecnologiaStack() {
     <section className="relative py-24 lg:py-32 bg-ivory overflow-hidden">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera 2 columnas: imagen de compost en 3 capas a la izquierda, texto a la derecha */}
+        {/* Cabecera 2 columnas: imagen de compost en 3 capas a la izquierda
+            (ahora col-span-7, era col-span-5), texto a la derecha (col-span-5).
+            La imagen pasa a ocupar el 58% del ancho — notablemente más grande. */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center mb-20 lg:mb-28">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative aspect-square w-full max-w-sm mx-auto lg:max-w-none order-2 lg:order-1"
+            className="lg:col-span-7 relative aspect-square w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1"
           >
             <Image
               src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778888291/compost-stack-tres-capas_x2xz7p.png"
               alt="Compost en tres capas de madurez, símbolo del stack tecnológico"
               fill
-              sizes="(max-width: 1024px) 70vw, 35vw"
+              sizes="(max-width: 1024px) 80vw, 55vw"
               className="object-contain"
             />
           </motion.div>
 
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="lg:col-span-5 order-1 lg:order-2">
             <SectionEyebrow>Stack técnico</SectionEyebrow>
 
             <motion.h2
@@ -76,7 +78,7 @@ export default function TecnologiaStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-xl"
+              className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-lg"
             >
               Del biorreactor al dato público. Cada capa de la pila técnica
               cumple una función concreta dentro del ciclo y se conecta con la

@@ -49,12 +49,14 @@ const pilares = [
 
 export default function TecnologiaPilares() {
   return (
-    <section className="relative py-24 lg:py-32 bg-bone overflow-hidden">
+    // Padding section reducido: py-12 lg:py-20 (era py-24 lg:py-32)
+    <section className="relative py-12 lg:py-20 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera con Torre Warka — ahora más grande:
-            texto col-5, imagen col-7, aspect 2/3 (más alta y dominante) */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
+        {/* Cabecera con Torre Warka — separación con primer pilar reducida:
+            mb-10 lg:mb-14 (era mb-20 lg:mb-28). Imagen aspect [3/5] +
+            scale-[1.08] para que se vea un poco más grande. */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-10 lg:mb-14">
           <div className="lg:col-span-5">
             <SectionEyebrow>Cinco pilares</SectionEyebrow>
 
@@ -87,19 +89,20 @@ export default function TecnologiaPilares() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 relative aspect-[2/3] w-full max-w-md mx-auto lg:max-w-none"
+            className="lg:col-span-7 relative aspect-[3/5] w-full max-w-md mx-auto lg:max-w-none lg:scale-[1.08] origin-center"
           >
             <Image
               src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778869819/torre-warka_gi12ej.png"
               alt="Torre Warka: estructura de captación de agua atmosférica"
               fill
-              sizes="(max-width: 1024px) 80vw, 55vw"
+              sizes="(max-width: 1024px) 80vw, 60vw"
               className="object-contain"
             />
           </motion.div>
         </div>
 
-        <div className="space-y-10 lg:space-y-14">
+        {/* Lista de pilares con espacio reducido entre cards */}
+        <div className="space-y-6 lg:space-y-8">
           {pilares.map((p, i) => (
             <motion.article
               key={p.id}
@@ -107,7 +110,7 @@ export default function TecnologiaPilares() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.9, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-baseline border-b border-ash pb-10 lg:pb-14"
+              className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-baseline border-b border-ash pb-6 lg:pb-8"
             >
               <div className="lg:col-span-1">
                 <p className="font-mono text-sm tracking-[0.25em] text-forest">
