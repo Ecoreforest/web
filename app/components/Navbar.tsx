@@ -14,7 +14,7 @@ const navStructure: NavItem[] = [
     label: 'Proyecto',
     children: [
       { href: '/proyecto', label: 'El proyecto', description: 'Quiénes somos y por qué' },
-      { href: '/proyecto#equipo', label: 'Equipo', description: 'Los tres fundadores' },
+      { href: '/equipo', label: 'Equipo', description: 'Los tres fundadores' },
       { href: '/hoja-de-ruta', label: 'Hoja de ruta', description: 'Plan paso a paso' },
       { href: '/impacto', label: 'Impacto', description: 'Datos y transparencia' },
     ],
