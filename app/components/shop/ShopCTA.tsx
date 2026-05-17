@@ -1,79 +1,67 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import Link from 'next/link';
 
 export default function ShopCTA() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
-    setEmail('');
-    setTimeout(() => setSubmitted(false), 4000);
-  };
-
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
-      <div className="container-x max-w-5xl py-24 lg:py-32 text-center">
+      <div className="container-x max-w-5xl mx-auto py-24 lg:py-36 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-xs font-mono uppercase tracking-[0.25em] text-bone/50 mb-8"
+          className="text-xs font-mono uppercase tracking-[0.25em] text-bone/50 mb-10"
         >
-          Próximo lanzamiento
+          Preventa 2026 · Lanzamiento gradual 2027
         </motion.p>
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-display-lg font-semibold tracking-tight text-balance leading-[1]"
+          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-display-lg font-semibold tracking-tight text-balance text-bone leading-[1] max-w-4xl mx-auto"
         >
-          La primera colección{' '}
-          <span className="italic-display font-normal">llega muy pronto.</span>
+          Las primeras prendas{' '}
+          <span className="italic-display font-normal text-bone">
+            llegan en preventa.
+          </span>
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-lg lg:text-xl text-bone/65 max-w-2xl mx-auto leading-relaxed"
         >
-          Apúntate a la lista de espera y serás de los primeros en recibir
-          EcoReforest Wear. Sin spam, solo una notificación cuando abramos la
-          tienda.
+          Lanzamiento gradual desde 2026 con producción bajo demanda. Las
+          primeras unidades sirven para validar materiales, prototipos y
+          financiar la primera plantación de Galicia en octubre.
         </motion.p>
 
-        <motion.form
-          onSubmit={handleSubmit}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto"
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 flex flex-col sm:flex-row gap-3 justify-center"
         >
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="tu@email.com"
-            className="flex-1 bg-transparent border border-bone/25 rounded-full px-5 py-3.5 text-bone placeholder:text-bone/40 focus:border-bone/60 transition-colors"
-          />
-          <button
-            type="submit"
-            className="px-7 py-3.5 bg-bone text-ink rounded-full font-medium hover:bg-bone/90 transition-colors whitespace-nowrap"
+          <Link
+            href="/contacto"
+            className="px-8 py-4 bg-bone text-ink rounded-full font-medium hover:bg-bone/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
-            {submitted ? '¡Apuntado!' : 'Apuntarme'}
-          </button>
-        </motion.form>
+            Apuntarme a la lista de espera
+          </Link>
+          <Link
+            href="/colabora"
+            className="px-8 py-4 border border-bone/30 text-bone rounded-full font-medium hover:bg-bone/10 transition-all"
+          >
+            Colaborar con el proyecto
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

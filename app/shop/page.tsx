@@ -5,7 +5,8 @@ import ShopCTA from '../components/shop/ShopCTA';
 
 export const metadata = {
   title: 'EcoReforest Wear',
-  description: 'Moda 100% ecológica con trazabilidad blockchain. Algodón orgánico GOTS, lino europeo y fibras recicladas. Cada compra planta un árbol.',
+  description:
+    'Dos colecciones dentro de EcoReforest Wear: Forest Wear (premium casual) y Sport (rendimiento técnico). Materiales certificados, producción bajo demanda, kilómetro cero textil y un 10% de los ingresos netos a financiar reforestación.',
 };
 
 export default function Shop() {

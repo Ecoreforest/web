@@ -11,16 +11,20 @@ export default function ShopHero() {
     offset: ['start start', 'end start'],
   });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0.7]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-15%']);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.85]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden bg-ivory"
+      className="relative h-[100svh] min-h-[600px] overflow-hidden bg-ink"
     >
-      <motion.div style={{ scale: imageScale }} className="absolute inset-0">
+      <motion.div
+        style={{ scale: imageScale, y: imageY }}
+        className="absolute inset-0"
+      >
         <Image
           src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895101/camiseta-1_u1asrg.png"
           alt="EcoReforest Wear"
@@ -33,45 +37,42 @@ export default function ShopHero() {
 
       <motion.div
         style={{ opacity: overlayOpacity }}
-        className="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink/60"
+        className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/45 to-ink/90"
       />
 
       <motion.div
-        style={{ y: contentY }}
-        className="relative h-full flex flex-col justify-between pt-32 pb-12 lg:pb-20 container-x"
+        style={{ opacity: contentOpacity }}
+        className="relative h-full flex flex-col justify-end pb-20 lg:pb-28 pt-32 container-x"
       >
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="text-xs font-mono uppercase tracking-[0.25em] text-bone/70 mb-8"
         >
-          <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-bone/80 mb-3">
-            EcoReforest
-          </p>
-          <p
-            className="font-semibold tracking-tighter text-bone leading-none italic-display font-normal"
-            style={{ fontSize: 'clamp(4rem, 14vw, 16rem)' }}
-          >
-            Wear
-          </p>
-        </motion.div>
+          06 — EcoReforest Wear
+        </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-2xl"
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-display-lg font-semibold text-bone tracking-tight max-w-[18ch] text-balance"
         >
-          <h1 className="text-display-md font-semibold text-bone tracking-tight text-balance leading-[1.05]">
-            Moda que{' '}
-            <span className="italic-display font-normal">planta árboles.</span>
-          </h1>
-          <p className="mt-6 text-bone/85 text-lg lg:text-xl font-light max-w-xl leading-relaxed">
-            Prendas elaboradas con algodón orgánico, lino europeo y fibras
-            recicladas. Cada compra está vinculada a un árbol real plantado en
-            nuestros proyectos de reforestación.
-          </p>
-        </motion.div>
+          Dos marcas,{' '}
+          <span className="italic-display font-normal">una misión.</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 text-bone/85 text-lg md:text-xl font-light tracking-tight max-w-2xl"
+        >
+          Forest Wear, premium casual. Sport, rendimiento técnico. Materiales
+          certificados, producción bajo demanda y un 10% de los ingresos netos
+          a financiar reforestación.
+        </motion.p>
       </motion.div>
     </section>
   );
