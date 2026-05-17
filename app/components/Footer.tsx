@@ -10,7 +10,7 @@ const footerSections = [
     title: 'Proyecto',
     links: [
       { href: '/proyecto', label: 'El proyecto' },
-      { href: '/proyecto#equipo', label: 'Equipo' },
+      { href: '/equipo', label: 'Equipo' },
       { href: '/hoja-de-ruta', label: 'Hoja de ruta' },
       { href: '/impacto', label: 'Impacto' },
     ],
