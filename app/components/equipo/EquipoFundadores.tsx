@@ -5,74 +5,57 @@ import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Cada fundador puede tener `imagen` (URL Cloudinary) o quedarse en undefined
- * y se renderiza el retrato tipográfico con sus iniciales como placeholder.
- * Para activar la foto real, simplemente añade el campo `imagen` con la URL:
- *   imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/vXXXXXXX/equipo-alex_XXXX.jpg'
+ * EquipoFundadores con fotos reales + bios extendidas trasladadas desde
+ * el antiguo bloque ProyectoEquipo. Las 3 fotos están ya subidas a
+ * Cloudinary.
  */
 type Fundador = {
-  iniciales: string;
   nombre: string;
   cargo: string;
-  bio: string;
-  imagen?: string;
+  cita: string;
+  bio1: string;
+  bio2: string;
+  imagen: string;
 };
 
 const fundadores: Fundador[] = [
   {
-    iniciales: 'AF',
     nombre: 'Àlex Frías Díez',
     cargo: 'Presidente',
-    bio: 'Lidera la visión estratégica del proyecto, las relaciones institucionales y la coordinación general entre las áreas técnica, financiera y de comunicación.',
-    // imagen: 'https://res.cloudinary.com/dekgmk73i/...equipo-alex...'
+    cita:
+      'Cada residuo que se entierra es un bosque que no se planta. Esa cuenta no me sale.',
+    bio1:
+      'Funda EcoReforest con la convicción de que la economía circular es la respuesta práctica al doble desafío de la desertificación y los residuos orgánicos en España.',
+    bio2:
+      'Lidera la estrategia general, la relación con instituciones y la coordinación de los proyectos de financiación europea que articulan el proyecto a largo plazo.',
+    imagen:
+      'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895087/equipo-alex_kyitiu.png',
   },
   {
-    iniciales: 'IJ',
     nombre: 'Izan Jiménez Bernardo',
     cargo: 'Secretario',
-    bio: 'Responsable de la documentación oficial, las actas de la Junta Directiva, el registro de socios y el cumplimiento normativo de la asociación.',
-    // imagen: 'https://res.cloudinary.com/dekgmk73i/...equipo-izan...'
+    cita:
+      'Las buenas intenciones sin ejecución no plantan árboles. La operativa importa tanto como la idea.',
+    bio1:
+      'Responsable de la coordinación operativa del proyecto, la gestión documental de la asociación y el seguimiento riguroso de cada hito.',
+    bio2:
+      'Su trabajo asegura que cada paso —desde un acuerdo con un ayuntamiento hasta la organización de una plantación— se ejecute con el orden que el proyecto necesita.',
+    imagen:
+      'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895101/equipo-izan_innsrp.png',
   },
   {
-    iniciales: 'SC',
     nombre: 'Santiago Colino',
     cargo: 'Tesorero',
-    bio: 'Gestiona el presupuesto, la contabilidad, las donaciones y los controles financieros. Supervisa la transparencia económica del proyecto.',
-    // imagen: 'https://res.cloudinary.com/dekgmk73i/...equipo-santiago...'
+    cita:
+      'La transparencia financiera es la primera prueba de credibilidad ambiental.',
+    bio1:
+      'Lidera la planificación financiera, la estrategia de captación de fondos europeos (LIFE 2026, Next Generation EU) y la transparencia económica de la asociación.',
+    bio2:
+      'Diseña los modelos económicos que sustentan el plan a cinco años y supervisa cada euro que entra y sale del proyecto.',
+    imagen:
+      'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/equipo-santi_syr0vi.png',
   },
 ];
-
-function Portrait({ fundador }: { fundador: Fundador }) {
-  if (fundador.imagen) {
-    return (
-      <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-ivory">
-        <Image
-          src={fundador.imagen}
-          alt={`Retrato de ${fundador.nombre}`}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover"
-        />
-      </div>
-    );
-  }
-
-  // Retrato tipográfico de fallback. Estético, intencional, no parece "imagen rota".
-  return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-forest text-bone flex items-center justify-center grain">
-      <div className="absolute inset-0 bg-gradient-to-br from-forest via-forest to-forest-deep" />
-      <span
-        className="italic-display font-normal text-bone/95 relative z-10"
-        style={{ fontSize: 'clamp(5rem, 10vw, 9rem)' }}
-      >
-        {fundador.iniciales}
-      </span>
-      <span className="absolute bottom-4 left-4 text-[10px] font-mono uppercase tracking-[0.25em] text-bone/55">
-        Retrato pendiente
-      </span>
-    </div>
-  );
-}
 
 export default function EquipoFundadores() {
   return (
@@ -88,8 +71,8 @@ export default function EquipoFundadores() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-display-lg font-semibold tracking-tight text-balance"
           >
-            Tres roles,{' '}
-            <span className="italic-display font-normal">una misma misión.</span>
+            Nombres y caras{' '}
+            <span className="italic-display font-normal">detrás del bosque.</span>
           </motion.h2>
 
           <motion.p
@@ -99,9 +82,8 @@ export default function EquipoFundadores() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
           >
-            La asociación se constituyó con una Junta Directiva mínima y
-            funcional, pensada para ejecutar la fase preparatoria sin
-            burocracia innecesaria.
+            Tres fundadores. Tres responsabilidades complementarias. Una visión
+            compartida para los próximos diez años.
           </motion.p>
         </div>
 
@@ -115,22 +97,38 @@ export default function EquipoFundadores() {
               transition={{ duration: 0.9, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col"
             >
-              <Portrait fundador={f} />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-bone">
+                <Image
+                  src={f.imagen}
+                  alt={`Retrato de ${f.nombre}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
 
               <div className="mt-8">
                 <p className="font-mono text-xs uppercase tracking-[0.25em] text-forest mb-3">
                   {f.cargo}
                 </p>
                 <h3
-                  className="font-semibold tracking-tight leading-[1] mb-5"
+                  className="font-semibold tracking-tight leading-[1] mb-6"
                   style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}
                 >
                   {f.nombre}
                   <span className="italic-display font-normal text-forest">.</span>
                 </h3>
-                <p className="text-base text-smoke leading-relaxed max-w-md">
-                  {f.bio}
-                </p>
+
+                <blockquote className="border-l-2 border-forest/40 pl-5 mb-6">
+                  <p className="italic-display text-lg lg:text-xl text-ink leading-snug">
+                    «{f.cita}»
+                  </p>
+                </blockquote>
+
+                <div className="space-y-4 text-base text-smoke leading-relaxed">
+                  <p>{f.bio1}</p>
+                  <p>{f.bio2}</p>
+                </div>
               </div>
             </motion.article>
           ))}

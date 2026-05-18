@@ -9,19 +9,19 @@ import Logo from './Logo';
 type SubLink = { href: string; label: string; description?: string };
 type NavItem = { label: string; href?: string; children?: SubLink[] };
 
+/**
+ * Nav restructurada (paso 6.4):
+ * - "Cómo lo hacemos" se fusiona dentro de "Proyecto"
+ * - Hoja de ruta e Impacto se retiran del menú (las páginas siguen existiendo
+ *   en /hoja-de-ruta y /impacto, simplemente no se enlazan desde nav)
+ * - Proyecto ahora contiene: El proyecto · Equipo · Proceso · Tecnología · Colabora
+ */
 const navStructure: NavItem[] = [
   {
     label: 'Proyecto',
     children: [
       { href: '/proyecto', label: 'El proyecto', description: 'Quiénes somos y por qué' },
       { href: '/equipo', label: 'Equipo', description: 'Los tres fundadores' },
-      { href: '/hoja-de-ruta', label: 'Hoja de ruta', description: 'Plan paso a paso' },
-      { href: '/impacto', label: 'Impacto', description: 'Datos y transparencia' },
-    ],
-  },
-  {
-    label: 'Cómo lo hacemos',
-    children: [
       { href: '/proceso', label: 'Proceso', description: 'Del residuo al bosque' },
       { href: '/tecnologia', label: 'Tecnología', description: 'Drones, IoT, satélite' },
       { href: '/colabora', label: 'Colabora', description: 'Únete al proyecto' },

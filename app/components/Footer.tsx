@@ -5,19 +5,19 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
 
+/**
+ * Footer restructurado (paso 6.4):
+ * - Columna "Cómo lo hacemos" eliminada
+ * - Sus links se consolidan dentro de "Proyecto"
+ * - Hoja de ruta e Impacto retirados (las páginas siguen accesibles por URL)
+ * - Grid pasa de 5 → 4 columnas en desktop
+ */
 const footerSections = [
   {
     title: 'Proyecto',
     links: [
       { href: '/proyecto', label: 'El proyecto' },
       { href: '/equipo', label: 'Equipo' },
-      { href: '/hoja-de-ruta', label: 'Hoja de ruta' },
-      { href: '/impacto', label: 'Impacto' },
-    ],
-  },
-  {
-    title: 'Cómo lo hacemos',
-    links: [
       { href: '/proceso', label: 'Proceso' },
       { href: '/tecnologia', label: 'Tecnología' },
       { href: '/colabora', label: 'Colabora' },
@@ -106,7 +106,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-bone/40 mb-5">
