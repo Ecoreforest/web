@@ -2,7 +2,6 @@ import ProyectoHero from '../components/proyecto/ProyectoHero';
 import ProyectoManifiesto from '../components/proyecto/ProyectoManifiesto';
 import ProyectoProblema from '../components/proyecto/ProyectoProblema';
 import ProyectoSolucion from '../components/proyecto/ProyectoSolucion';
-import ProyectoEquipo from '../components/proyecto/ProyectoEquipo';
 import ProyectoMarco from '../components/proyecto/ProyectoMarco';
 import ProyectoOportunidad from '../components/proyecto/ProyectoOportunidad';
 import ProyectoCTA from '../components/proyecto/ProyectoCTA';
@@ -20,7 +19,6 @@ export default function Proyecto() {
       <ProyectoManifiesto />
       <ProyectoProblema />
       <ProyectoSolucion />
-      <ProyectoEquipo />
       <ProyectoMarco />
       <ProyectoOportunidad />
       <ProyectoCTA />
