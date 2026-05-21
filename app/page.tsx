@@ -8,8 +8,6 @@ import HomePrinceton from './components/home/HomePrinceton';
 import HomeProceso from './components/home/HomeProceso';
 import HomeLineas from './components/home/HomeLineas';
 import HomeTecnologia from './components/home/HomeTecnologia';
-import HomeHojaRuta from './components/home/HomeHojaRuta';
-import HomeTienda from './components/home/HomeTienda';
 import HomeAliados from './components/home/HomeAliados';
 import HomeCTA from './components/home/HomeCTA';
 
@@ -130,8 +128,6 @@ export default function Home() {
       <HomeProceso />
       <HomeLineas />
       <HomeTecnologia />
-      <HomeHojaRuta />
-      <HomeTienda />
       <HomeAliados />
       <HomeCTA />
     </>

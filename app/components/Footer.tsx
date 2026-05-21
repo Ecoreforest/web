@@ -6,11 +6,9 @@ import { motion } from 'framer-motion';
 import Logo from './Logo';
 
 /**
- * Footer restructurado (paso 6.4):
- * - Columna "Cómo lo hacemos" eliminada
- * - Sus links se consolidan dentro de "Proyecto"
- * - Hoja de ruta e Impacto retirados (las páginas siguen accesibles por URL)
- * - Grid pasa de 5 → 4 columnas en desktop
+ * Footer restructurado (paso 6.6):
+ * - Columna "Tienda" eliminada (irá en dominio separado ecoreforest.com)
+ * - Grid pasa de 4 → 3 columnas en desktop
  */
 const footerSections = [
   {
@@ -31,12 +29,6 @@ const footerSections = [
       { href: '/servicios/forest-clean', label: 'Forest Clean' },
       { href: '/servicios/auditorias', label: 'Auditorías' },
       { href: '/servicios/creditos-carbono', label: 'Créditos de carbono' },
-    ],
-  },
-  {
-    title: 'Tienda',
-    links: [
-      { href: '/shop', label: 'EcoReforest Wear' },
     ],
   },
   {
@@ -106,7 +98,7 @@ export default function Footer() {
           </form>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 lg:gap-8 mb-16">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-bone/40 mb-5">

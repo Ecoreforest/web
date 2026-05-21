@@ -10,11 +10,10 @@ type SubLink = { href: string; label: string; description?: string };
 type NavItem = { label: string; href?: string; children?: SubLink[] };
 
 /**
- * Nav restructurada (paso 6.4):
- * - "Cómo lo hacemos" se fusiona dentro de "Proyecto"
- * - Hoja de ruta e Impacto se retiran del menú (las páginas siguen existiendo
- *   en /hoja-de-ruta y /impacto, simplemente no se enlazan desde nav)
- * - Proyecto ahora contiene: El proyecto · Equipo · Proceso · Tecnología · Colabora
+ * Nav restructurada (paso 6.6):
+ * - "Tienda" eliminada del menú (irá en dominio separado ecoreforest.com cuando esté lista)
+ * - Hoja de ruta e Impacto fueron retiradas previamente (paso 6.4) y las páginas se eliminan en paso 6.6
+ * - Proyecto contiene: El proyecto · Equipo · Proceso · Tecnología · Colabora
  */
 const navStructure: NavItem[] = [
   {
@@ -37,7 +36,6 @@ const navStructure: NavItem[] = [
       { href: '/servicios/creditos-carbono', label: 'Créditos de carbono', description: 'Compensación verificable' },
     ],
   },
-  { label: 'Tienda', href: '/shop' },
   { label: 'Contacto', href: '/contacto' },
 ];
 
