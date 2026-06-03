@@ -16,7 +16,7 @@ export default function Reforestacion() {
         title="Reforestación integral. Del proyecto al primer brote, todo bajo control."
         italicWord="todo bajo control."
         description="Diseño, plantación y mantenimiento de proyectos de restauración ecológica con especies autóctonas, sistemas de riego eficiente y monitoreo digital con garantía de supervivencia."
-        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
+        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780491605/servicio-hero-reforestacion_gtttm6.png"
       />
 
       <ServicioFeatures
