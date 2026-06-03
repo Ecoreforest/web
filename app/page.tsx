@@ -9,6 +9,7 @@ import HomeProceso from './components/home/HomeProceso';
 import HomeLineas from './components/home/HomeLineas';
 import HomeTecnologia from './components/home/HomeTecnologia';
 import HomeAliados from './components/home/HomeAliados';
+import HomeSuscripcion from './components/home/HomeSuscripcion';
 import HomeCTA from './components/home/HomeCTA';
 
 export default function Home() {
@@ -129,6 +130,7 @@ export default function Home() {
       <HomeLineas />
       <HomeTecnologia />
       <HomeAliados />
+      <HomeSuscripcion />
       <HomeCTA />
     </>
   );

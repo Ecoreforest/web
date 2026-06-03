@@ -20,7 +20,7 @@ const lineas = [
     descripcion: 'Diseño, plantación y mantenimiento de proyectos de restauración ecológica. Especies autóctonas, riego eficiente y monitoreo digital con garantía de supervivencia.',
     cta: 'Ver el servicio',
     href: '/servicios/reforestacion',
-    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780491605/servicio-hero-reforestacion_gtttm6.png',
   },
   {
     eyebrow: 'Mercado',

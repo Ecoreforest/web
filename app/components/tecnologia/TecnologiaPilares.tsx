@@ -15,22 +15,14 @@ const pilares = [
   },
   {
     id: '02',
-    titulo: 'Sensores IoT en parcela',
-    rol: 'Monitoreo de suelo',
+    titulo: 'Conservación de agua y suelo',
+    rol: 'Retención hídrica',
     descripcion:
-      'Estaciones de campo con LoRaWAN que registran humedad, temperatura, conductividad y nutrientes del suelo. Datos cada 15 minutos, batería autónoma.',
-    spec: 'LoRa · 15 min · 5 años batería',
+      'Técnicas tradicionales y modernas combinadas para retener cada gota en el suelo árido y multiplicar la supervivencia: zanjas de infiltración, pozos zai, terrazas de piedra, medias lunas y mulching orgánico.',
+    spec: 'Zai · Mulching · Microcuencas',
   },
   {
     id: '03',
-    titulo: 'Drones multiespectrales',
-    rol: 'Salud vegetal',
-    descripcion:
-      'Vuelos periódicos con cámara multibanda (NDVI, NDRE) para detectar estrés hídrico, enfermedades y mortalidad antes de que sean visibles a simple vista.',
-    spec: 'NDVI · 5 bandas · vuelo mensual',
-  },
-  {
-    id: '04',
     titulo: 'Torre Warka',
     rol: 'Captación de agua',
     descripcion:
@@ -38,7 +30,23 @@ const pilares = [
     spec: '≤ 100 L / día · sin red eléctrica',
   },
   {
+    id: '04',
+    titulo: 'Sensores IoT en parcela',
+    rol: 'Monitoreo de suelo',
+    descripcion:
+      'Estaciones de campo con LoRaWAN que registran humedad, temperatura, conductividad y nutrientes del suelo. Datos cada 15 minutos, batería autónoma.',
+    spec: 'LoRa · 15 min · 5 años batería',
+  },
+  {
     id: '05',
+    titulo: 'Drones multiespectrales',
+    rol: 'Salud vegetal',
+    descripcion:
+      'Vuelos periódicos con cámara multibanda (NDVI, NDRE) para detectar estrés hídrico, enfermedades y mortalidad antes de que sean visibles a simple vista.',
+    spec: 'NDVI · 5 bandas · vuelo mensual',
+  },
+  {
+    id: '06',
     titulo: 'Análisis satelital',
     rol: 'Escala territorial',
     descripcion:
@@ -56,7 +64,7 @@ export default function TecnologiaPilares() {
           Cabecera con Torre Warka.
           - items-start: el texto se pega arriba en lugar de centrarse
             verticalmente dentro de la fila → desaparece el hueco vertical
-            grande entre el final del hero y el eyebrow "Cinco pilares".
+            grande entre el final del hero y el eyebrow "Seis pilares".
           - lg:h-[560px] en la imagen: limita la altura de la fila en
             desktop a ~560 px (antes la fila medía ~1.200 px porque
             seguía el aspect ratio de la imagen). Esto reduce drásticamente
@@ -68,7 +76,7 @@ export default function TecnologiaPilares() {
         */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-4 lg:mb-8">
           <div className="lg:col-span-5">
-            <SectionEyebrow>Cinco pilares</SectionEyebrow>
+            <SectionEyebrow>Seis pilares</SectionEyebrow>
 
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
