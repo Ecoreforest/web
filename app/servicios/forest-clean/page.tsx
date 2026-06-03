@@ -16,7 +16,7 @@ export default function ForestClean() {
         title="Forest Clean. Bosques limpios, comunidades protegidas."
         italicWord="comunidades protegidas."
         description="Servicio integral de limpieza y gestión de biomasa forestal. Reducimos el riesgo de incendios mientras alimentamos la economía circular del compostaje y la valorización energética."
-        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895088/paso-04-monitoreo_p5xvfu.png"
+        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780492612/servicio-hero-forest-clean_aj7hwi.png"
       />
 
       <ServicioFeatures
