@@ -16,7 +16,7 @@ export default function Auditorias() {
         title="Auditorías forestales. Diagnóstico técnico para decidir con datos."
         italicWord="decidir con datos."
         description="Evaluación experta del estado del monte, cartografía de riesgo, certificaciones FSC y PEFC, e informes técnicos para administraciones, propietarios y empresas con obligaciones ambientales."
-        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895093/paso-03-plantacion_v5ylho.png"
+        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780490181/servicio-hero-auditorias_cpq5yu.png"
       />
 
       <ServicioFeatures
