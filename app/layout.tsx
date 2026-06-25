@@ -27,6 +27,16 @@ const jetbrains = JetBrains_Mono({
   weight: ['400', '500'],
 });
 
+/**
+ * Imagen Open Graph / Twitter card — 1200×630.
+ *
+ * Por ahora generada a partir de bosque-mediterraneo con transformaciones de
+ * Cloudinary (recorte centrado en 1200×630). Cuando se diseñe una OG con
+ * marca + slogan, sustituir esta URL por la nueva.
+ */
+const OG_IMAGE =
+  'https://res.cloudinary.com/dekgmk73i/image/upload/c_fill,g_auto,w_1200,h_630/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://ecoreforest.org'),
   title: {
@@ -44,14 +54,22 @@ export const metadata: Metadata = {
     'asociación medio ambiente',
     'sostenibilidad',
     'biodiversidad',
+    'restauración de suelos',
+    'biocompost',
+    'agricultura regenerativa',
+    'LIFE 2027',
+    'Pacto Verde Europeo',
   ],
-  authors: [{ name: 'EcoReforest' }],
+  authors: [{ name: 'EcoReforest', url: 'https://ecoreforest.org' }],
   creator: 'EcoReforest',
   publisher: 'EcoReforest',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
+  },
+  alternates: {
+    canonical: '/',
   },
   openGraph: {
     type: 'website',
@@ -63,18 +81,22 @@ export const metadata: Metadata = {
       'Asociación que combate la desertificación en España transformando residuos orgánicos en fertilizante natural para reforestar zonas áridas.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'EcoReforest',
+        alt: 'EcoReforest — Convertimos el desperdicio en bosque',
+        type: 'image/jpeg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@ecoreforest',
+    creator: '@ecoreforest',
     title: 'EcoReforest — Convertimos el desperdicio en bosque',
     description:
       'Asociación que combate la desertificación en España transformando residuos orgánicos en fertilizante natural.',
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
@@ -87,6 +109,72 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // Para verificación de Search Console: cuando des de alta el sitio en
+  // Google Search Console te darán un token. Pégalo en el campo
+  // `google` y se inserta en el <head> automáticamente.
+  // verification: {
+  //   google: 'TU-TOKEN-DE-VERIFICACION-AQUI',
+  // },
+};
+
+/**
+ * Datos estructurados (JSON-LD) para que Google entienda que EcoReforest
+ * es una asociación sin ánimo de lucro con sus fundadores y redes sociales.
+ *
+ * Aparecerá en el código fuente de cualquier página y los buscadores lo
+ * leerán automáticamente para mostrar Knowledge Panel y rich results.
+ */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  '@id': 'https://ecoreforest.org/#organization',
+  name: 'EcoReforest',
+  alternateName: 'EcoReforest Asociación',
+  url: 'https://ecoreforest.org',
+  logo: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780502849/logo-hojita-verde_tum1zm.png',
+  image: OG_IMAGE,
+  description:
+    'Asociación sin ánimo de lucro inscrita en el Registro Nacional de Asociaciones de España. Combate la desertificación transformando residuos orgánicos en biocompost para restaurar suelos y reforestar zonas áridas.',
+  email: 'hola@ecoreforest.com',
+  foundingDate: '2026-04-22',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'ES',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'España',
+  },
+  sameAs: [
+    'https://www.instagram.com/ecoreforest',
+    'https://www.linkedin.com/company/ecoreforest/',
+    'https://www.tiktok.com/@ecoreforest_',
+  ],
+  founder: [
+    {
+      '@type': 'Person',
+      name: 'Àlex Frías Díez',
+      jobTitle: 'Presidente',
+    },
+    {
+      '@type': 'Person',
+      name: 'Izan Jiménez Bernardo',
+      jobTitle: 'Secretario',
+    },
+    {
+      '@type': 'Person',
+      name: 'Santiago Colino',
+      jobTitle: 'Tesorero',
+    },
+  ],
+  knowsAbout: [
+    'Restauración ecológica',
+    'Compostaje acelerado',
+    'Economía circular',
+    'Captura de carbono',
+    'Lucha contra la desertificación',
+    'Gestión forestal sostenible',
+  ],
 };
 
 export default function RootLayout({
@@ -97,6 +185,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${manrope.variable} ${instrument.variable} ${jetbrains.variable}`}>
       <body className="bg-bone text-ink antialiased">
+        {/* JSON-LD para SEO semántico */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <SmoothScroll />
         <Navbar />
         <main>{children}</main>
