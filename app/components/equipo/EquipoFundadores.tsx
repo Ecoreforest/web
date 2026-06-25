@@ -11,8 +11,6 @@ import SectionEyebrow from '../SectionEyebrow';
  */
 type Fundador = {
   nombre: string;
-  cargo: string;
-  cita: string;
   bio1: string;
   bio2: string;
   imagen: string;
@@ -21,23 +19,17 @@ type Fundador = {
 const fundadores: Fundador[] = [
   {
     nombre: 'Àlex Frías Díez',
-    cargo: 'Presidente',
-    cita:
-      'Cada residuo que se entierra es un bosque que no se planta. Esa cuenta no me sale.',
     bio1:
-      'Funda EcoReforest con la convicción de que la economía circular es la respuesta práctica al doble desafío de la desertificación y los residuos orgánicos en España.',
+      'Gestor forestal y medio ambiental. Funda EcoReforest con la convicción de que la economía circular es la respuesta práctica al doble desafío de la desertificación y los residuos orgánicos en España. Su mayor pasión es plantar árboles, dar vida y crear bosques en donde antes solo había polvo y arena.',
     bio2:
-      'Lidera la estrategia general, la relación con instituciones y la coordinación de los proyectos de financiación europea que articulan el proyecto a largo plazo.',
+      'Lidera la estrategia general, la relación con instituciones y la coordinación de los proyectos de financiación europea que articulan el proyecto a largo plazo. Es la mente detrás de todo.',
     imagen:
       'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895087/equipo-alex_kyitiu.png',
   },
   {
     nombre: 'Izan Jiménez Bernardo',
-    cargo: 'Secretario',
-    cita:
-      'Las buenas intenciones sin ejecución no plantan árboles. La operativa importa tanto como la idea.',
     bio1:
-      'Responsable de la coordinación operativa del proyecto, la gestión documental de la asociación y el seguimiento riguroso de cada hito.',
+      'Auditor. Responsable de la coordinación operativa del proyecto, la gestión documental de la asociación y el seguimiento riguroso de cada hito.',
     bio2:
       'Su trabajo asegura que cada paso —desde un acuerdo con un ayuntamiento hasta la organización de una plantación— se ejecute con el orden que el proyecto necesita.',
     imagen:
@@ -45,11 +37,8 @@ const fundadores: Fundador[] = [
   },
   {
     nombre: 'Santiago Colino',
-    cargo: 'Tesorero',
-    cita:
-      'La transparencia financiera es la primera prueba de credibilidad ambiental.',
     bio1:
-      'Lidera la planificación financiera, la estrategia de captación de fondos europeos (LIFE 2026, Next Generation EU) y la transparencia económica de la asociación.',
+      'Creative Business. Lidera la innovación y las alianzas estratégicas (LIFE 2026, Next Generation EU) y la transparencia económica de la asociación.',
     bio2:
       'Diseña los modelos económicos que sustentan el plan a cinco años y supervisa cada euro que entra y sale del proyecto.',
     imagen:
@@ -83,7 +72,7 @@ export default function EquipoFundadores() {
             className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
           >
             Tres fundadores. Tres responsabilidades complementarias. Una visión
-            compartida para los próximos diez años.
+            compartida para los próximos años.
           </motion.p>
         </div>
 
@@ -108,9 +97,6 @@ export default function EquipoFundadores() {
               </div>
 
               <div className="mt-8">
-                <p className="font-mono text-xs uppercase tracking-[0.25em] text-forest mb-3">
-                  {f.cargo}
-                </p>
                 <h3
                   className="font-semibold tracking-tight leading-[1] mb-6"
                   style={{ fontSize: 'clamp(1.5rem, 2vw, 2rem)' }}
@@ -118,12 +104,6 @@ export default function EquipoFundadores() {
                   {f.nombre}
                   <span className="italic-display font-normal text-forest">.</span>
                 </h3>
-
-                <blockquote className="border-l-2 border-forest/40 pl-5 mb-6">
-                  <p className="italic-display text-lg lg:text-xl text-ink leading-snug">
-                    «{f.cita}»
-                  </p>
-                </blockquote>
 
                 <div className="space-y-4 text-base text-smoke leading-relaxed">
                   <p>{f.bio1}</p>

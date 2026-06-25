@@ -26,7 +26,7 @@ export default function EquipoHero() {
         className="absolute inset-0"
       >
         <Image
-          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
+          src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1782220846/hero-bosque-equipo_oawzm7.png"
           alt=""
           fill
           sizes="100vw"
