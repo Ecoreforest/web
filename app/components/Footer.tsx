@@ -6,10 +6,13 @@ import { motion } from 'framer-motion';
 import Logo from './Logo';
 
 /**
- * Footer restructurado (paso 6.6):
- * - Columna "Tienda" eliminada (irá en dominio separado ecoreforest.com)
- * - Grid pasa de 4 → 3 columnas en desktop
+ * Footer con newsletter funcional vía Web3Forms (paso 9).
+ * Misma access key que el formulario de /contacto. Los envíos de newsletter
+ * llegan al mismo email (hola@ecoreforest.com) pero con subject distinguible
+ * para que se puedan filtrar a una carpeta dedicada.
  */
+const WEB3FORMS_ACCESS_KEY = 'c3a3728f-67f5-4c60-b68c-be8d2393189e';
+
 const footerSections = [
   {
     title: 'Proyecto',
@@ -53,16 +56,52 @@ const legal = [
   { href: '/condiciones', label: 'Condiciones de venta' },
 ];
 
+type NewsletterStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 export default function Footer() {
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<NewsletterStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
-    setEmail('');
-    setTimeout(() => setSubmitted(false), 4000);
+    if (!email || status === 'submitting') return;
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('email', email);
+    formData.append('from_name', 'EcoReforest · Newsletter');
+    formData.append('subject', 'Nueva suscripción al newsletter');
+    formData.append(
+      'message',
+      `Nueva suscripción al newsletter desde el footer de la web.\n\nEmail: ${email}\n\nFecha: ${new Date().toLocaleString('es-ES')}`
+    );
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus('success');
+        setEmail('');
+        // Después de 6s volvemos al estado inicial por si el usuario quiere
+        // suscribir otro email
+        setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        setStatus('error');
+        setErrorMessage(data.message || 'No hemos podido procesar la suscripción.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage('Error de conexión. Inténtalo de nuevo en unos minutos.');
+    }
   };
 
   return (
@@ -81,24 +120,70 @@ export default function Footer() {
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
+            {/* Honeypot anti-spam — invisible para humanos */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="tu@email.com"
-              className="flex-1 bg-transparent border border-bone/20 rounded-full px-5 py-3 text-bone placeholder:text-bone/40 focus:border-bone/60 transition-colors"
+              disabled={status === 'submitting' || status === 'success'}
+              className="flex-1 bg-transparent border border-bone/20 rounded-full px-5 py-3 text-bone placeholder:text-bone/40 focus:border-bone/60 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-bone text-ink rounded-full font-medium hover:bg-bone/90 transition-colors whitespace-nowrap"
+              disabled={status === 'submitting' || status === 'success'}
+              className="px-6 py-3 bg-bone text-ink rounded-full font-medium hover:bg-bone/90 transition-colors whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {submitted ? '¡Gracias!' : 'Suscribirme'}
+              {status === 'submitting' && 'Enviando…'}
+              {status === 'success' && '¡Te has suscrito!'}
+              {status === 'error' && 'Reintentar'}
+              {status === 'idle' && 'Suscribirme'}
             </button>
           </form>
+
+          {/* Mensajes de estado bajo el form */}
+          {status === 'success' && (
+            <motion.p
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-4 text-sm text-bone/70"
+            >
+              Gracias por sumarte. El próximo email te llega cuando haya algo que contar
+              de verdad — sin ruido.
+            </motion.p>
+          )}
+
+          {status === 'error' && (
+            <motion.p
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-4 text-sm text-bone/70"
+            >
+              {errorMessage} Si el problema persiste, escríbenos a{' '}
+              <a
+                href="mailto:hola@ecoreforest.com"
+                className="underline hover:text-bone transition-colors"
+              >
+                hola@ecoreforest.com
+              </a>
+              .
+            </motion.p>
+          )}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 lg:gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-3 gap-10 lg:gap-8 mb-16">
           {footerSections.map((section) => (
             <div key={section.title}>
               <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-bone/40 mb-5">
