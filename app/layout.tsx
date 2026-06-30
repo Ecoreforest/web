@@ -109,12 +109,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Para verificación de Search Console: cuando des de alta el sitio en
-  // Google Search Console te darán un token. Pégalo en el campo
-  // `google` y se inserta en el <head> automáticamente.
-  // verification: {
-  //   google: 'TU-TOKEN-DE-VERIFICACION-AQUI',
-  // },
+  // Token de verificación de Google Search Console.
+  // Permite a Google confirmar que somos los propietarios del dominio
+  // y empezar a indexar + mostrar métricas de búsqueda en el dashboard.
+  verification: {
+    google: 'gVgjHiwPodXXKILM_t2CQTqVEQGUenMuiDH87h0JceY',
+  },
 };
 
 /**
