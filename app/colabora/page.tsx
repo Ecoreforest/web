@@ -2,6 +2,7 @@ import ColaboraHero from '../components/colabora/ColaboraHero';
 import ColaboraFormas from '../components/colabora/ColaboraFormas';
 import ColaboraEmpresas from '../components/colabora/ColaboraEmpresas';
 import ColaboraVoluntariado from '../components/colabora/ColaboraVoluntariado';
+import HomeSuscripcion from '../components/home/HomeSuscripcion';
 import ColaboraCTA from '../components/colabora/ColaboraCTA';
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function Colabora() {
       <ColaboraFormas />
       <ColaboraEmpresas />
       <ColaboraVoluntariado />
+      <HomeSuscripcion />
       <ColaboraCTA />
     </>
   );

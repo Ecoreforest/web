@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
 const formas = [
@@ -100,6 +101,31 @@ export default function ColaboraFormas() {
             </motion.article>
           ))}
         </div>
+
+        {/* CTAs debajo del grid de formas.
+            "Quiero colaborar" → /contacto (formulario general).
+            "Suscribirme" → ancla #suscripcion en la misma página que hace scroll
+            suave hasta el bloque de tiers de suscripción. */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-16 lg:mt-20 flex flex-col sm:flex-row gap-3 justify-center"
+        >
+          <Link
+            href="/contacto"
+            className="px-8 py-4 bg-ink text-bone rounded-full font-medium text-center hover:bg-ink/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            Quiero colaborar
+          </Link>
+          <Link
+            href="#suscripcion"
+            className="px-8 py-4 border border-ink/25 text-ink rounded-full font-medium text-center hover:bg-ink/5 transition-all"
+          >
+            Suscribirme
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

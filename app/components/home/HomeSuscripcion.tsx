@@ -7,15 +7,21 @@ import SectionEyebrow from '../SectionEyebrow';
 /**
  * Sección de suscripción mensual con 4 tiers.
  *
- * Paso 10 — cambios:
+ * Paso 10 / 10.1 / 10.2 — cambios acumulados:
  * - Cifras ajustadas a los beneficios reales: 12 / 36 / 144 plantones anuales
  *   (que se traducen en 1 / 3 / 12 al mes)
  * - Fondos con progresión cromática (ivory → forest.light → forest → ink)
  *   que cuenta visualmente la evolución de semilla a bosque
  * - Eliminadas las etiquetas "Tier 0X" que no aportaban información
+ * - Eliminado el disclaimer "Cifras orientativas..." de la parte inferior
+ * - Añadido id="suscripcion" a la <section> para que los botones/enlaces
+ *   con href="#suscripcion" (como el "Suscribirme" del bloque
+ *   ColaboraFormas) hagan scroll suave hasta aquí
  *
- * Los botones llevan a /contacto?tier=XXX de momento. Cuando Stripe esté
- * conectado, sustituir los hrefs por la URL del checkout correspondiente.
+ * El componente se importa desde el home (app/page.tsx) y también desde
+ * /colabora (app/colabora/page.tsx). Los botones llevan a /contacto?tier=XXX
+ * de momento. Cuando Stripe esté conectado, sustituir los hrefs por la URL
+ * del checkout correspondiente.
  */
 
 type Tier = {
@@ -102,10 +108,6 @@ const tiers: Tier[] = [
   },
 ];
 
-/**
- * Estilos por tema. Cada tier tiene su paleta coherente:
- * fondo, texto principal, texto secundario, borde, dot de lista, botón.
- */
 const temas: Record<
   Tier['tema'],
   {
@@ -138,7 +140,7 @@ const temas: Record<
     precioColor: 'text-ink',
   },
   'verde-claro': {
-    bg: 'bg-[#2D6A4F]', // forest.light
+    bg: 'bg-[#2D6A4F]',
     tituloColor: 'text-bone',
     subtituloColor: 'text-bone/70',
     hookColor: 'text-bone',
@@ -152,7 +154,7 @@ const temas: Record<
     precioColor: 'text-bone',
   },
   'verde-oscuro': {
-    bg: 'bg-forest', // #1B4332
+    bg: 'bg-forest',
     tituloColor: 'text-bone',
     subtituloColor: 'text-bone/70',
     hookColor: 'text-bone',
@@ -183,7 +185,10 @@ const temas: Record<
 
 export default function HomeSuscripcion() {
   return (
-    <section className="relative py-24 lg:py-32 bg-bone overflow-hidden">
+    <section
+      id="suscripcion"
+      className="relative py-24 lg:py-32 bg-bone overflow-hidden scroll-mt-20"
+    >
       <div className="container-x max-w-7xl">
         <div className="max-w-3xl mb-16 lg:mb-20">
           <SectionEyebrow>Hazte socio</SectionEyebrow>
@@ -223,7 +228,6 @@ export default function HomeSuscripcion() {
                 transition={{ duration: 0.8, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className={`group relative flex flex-col p-8 lg:p-10 rounded-sm transition-all duration-500 ${t.bg}`}
               >
-                {/* Nombre + hook */}
                 <div className="mb-8">
                   <h3
                     className={`font-semibold tracking-tight leading-[0.95] mb-3 ${t.tituloColor}`}
@@ -232,19 +236,14 @@ export default function HomeSuscripcion() {
                     {tier.nombre}
                     <span className="italic-display font-normal text-forest">.</span>
                   </h3>
-                  <p
-                    className={`text-base font-medium leading-tight ${t.hookColor}`}
-                  >
+                  <p className={`text-base font-medium leading-tight ${t.hookColor}`}>
                     {tier.hook}
                   </p>
-                  <p
-                    className={`text-sm leading-relaxed mt-2 ${t.ritmoColor}`}
-                  >
+                  <p className={`text-sm leading-relaxed mt-2 ${t.ritmoColor}`}>
                     {tier.ritmo}
                   </p>
                 </div>
 
-                {/* Precio */}
                 <div className={`mb-8 pb-8 border-b ${t.dividerColor}`}>
                   <p
                     className={`font-semibold tracking-tighter leading-none ${t.precioColor}`}
@@ -260,7 +259,6 @@ export default function HomeSuscripcion() {
                   </p>
                 </div>
 
-                {/* Beneficios */}
                 <ul className="space-y-3 mb-10 flex-1">
                   {tier.beneficios.map((b) => (
                     <li
@@ -275,7 +273,6 @@ export default function HomeSuscripcion() {
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <Link
                   href={tier.href}
                   className={`block text-center px-6 py-3.5 rounded-full font-medium text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${t.botonBg} ${t.botonHover}`}
@@ -286,18 +283,6 @@ export default function HomeSuscripcion() {
             );
           })}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 lg:mt-16 text-center text-sm text-smoke max-w-2xl mx-auto"
-        >
-          Cifras orientativas. Cada euro queda asociado a una parcela y a un
-          reporte público. La aportación se desglosa anualmente en la memoria
-          de impacto, sin redondeos.
-        </motion.p>
       </div>
     </section>
   );
