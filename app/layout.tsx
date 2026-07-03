@@ -66,9 +66,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: '/',
-  },
+  // NOTA (paso 9.3): eliminado `alternates: { canonical: '/' }` que causaba
+  // que TODAS las páginas apuntaran a la home como canónica. Ahora Next.js
+  // usa automáticamente la URL de cada página como su propia canonical, que
+  // es el comportamiento correcto y el que Google espera.
   openGraph: {
     type: 'website',
     locale: 'es_ES',
