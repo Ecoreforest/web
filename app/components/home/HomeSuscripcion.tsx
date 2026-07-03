@@ -7,21 +7,15 @@ import SectionEyebrow from '../SectionEyebrow';
 /**
  * Sección de suscripción mensual con 4 tiers.
  *
- * Paso 10 / 10.1 / 10.2 — cambios acumulados:
- * - Cifras ajustadas a los beneficios reales: 12 / 36 / 144 plantones anuales
- *   (que se traducen en 1 / 3 / 12 al mes)
+ * Paso 10 / 10.1 / 10.2 / 10.3 — cambios acumulados:
+ * - Cifras: 12 / 36 / 144 plantones anuales (1 / 3 / 12 al mes)
  * - Fondos con progresión cromática (ivory → forest.light → forest → ink)
- *   que cuenta visualmente la evolución de semilla a bosque
- * - Eliminadas las etiquetas "Tier 0X" que no aportaban información
- * - Eliminado el disclaimer "Cifras orientativas..." de la parte inferior
- * - Añadido id="suscripcion" a la <section> para que los botones/enlaces
- *   con href="#suscripcion" (como el "Suscribirme" del bloque
- *   ColaboraFormas) hagan scroll suave hasta aquí
- *
- * El componente se importa desde el home (app/page.tsx) y también desde
- * /colabora (app/colabora/page.tsx). Los botones llevan a /contacto?tier=XXX
- * de momento. Cuando Stripe esté conectado, sustituir los hrefs por la URL
- * del checkout correspondiente.
+ * - Sin etiquetas "Tier 0X"
+ * - Sin disclaimer "Cifras orientativas..."
+ * - id="suscripcion" para el ancla desde ColaboraFormas
+ * - Paso 10.3: `acentoColor` por tema para el "." y el "€/mes", porque
+ *   text-forest hardcoded era invisible sobre bg-forest (Bosque) y de
+ *   bajo contraste sobre bg-forest.light (Plantón)
  */
 
 type Tier = {
@@ -113,7 +107,6 @@ const temas: Record<
   {
     bg: string;
     tituloColor: string;
-    subtituloColor: string;
     hookColor: string;
     ritmoColor: string;
     dividerColor: string;
@@ -121,14 +114,13 @@ const temas: Record<
     dotColor: string;
     botonBg: string;
     botonHover: string;
-    eyebrowColor: string;
     precioColor: string;
+    acentoColor: string; // Nuevo — para "." y "€/mes"
   }
 > = {
   ivory: {
     bg: 'bg-ivory',
     tituloColor: 'text-ink',
-    subtituloColor: 'text-smoke',
     hookColor: 'text-forest',
     ritmoColor: 'text-smoke',
     dividerColor: 'border-ash',
@@ -136,13 +128,12 @@ const temas: Record<
     dotColor: 'bg-forest',
     botonBg: 'bg-ink text-bone',
     botonHover: 'hover:bg-ink/90',
-    eyebrowColor: 'text-forest',
     precioColor: 'text-ink',
+    acentoColor: 'text-forest', // Verde oscuro sobre crema = buen contraste
   },
   'verde-claro': {
     bg: 'bg-[#2D6A4F]',
     tituloColor: 'text-bone',
-    subtituloColor: 'text-bone/70',
     hookColor: 'text-bone',
     ritmoColor: 'text-bone/75',
     dividerColor: 'border-bone/20',
@@ -150,13 +141,12 @@ const temas: Record<
     dotColor: 'bg-bone',
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
-    eyebrowColor: 'text-bone/70',
     precioColor: 'text-bone',
+    acentoColor: 'text-bone/85', // Blanco cálido sobre verde medio = visible
   },
   'verde-oscuro': {
     bg: 'bg-forest',
     tituloColor: 'text-bone',
-    subtituloColor: 'text-bone/70',
     hookColor: 'text-bone',
     ritmoColor: 'text-bone/75',
     dividerColor: 'border-bone/20',
@@ -164,13 +154,12 @@ const temas: Record<
     dotColor: 'bg-bone',
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
-    eyebrowColor: 'text-bone/70',
     precioColor: 'text-bone',
+    acentoColor: 'text-bone/85', // Blanco cálido sobre verde oscuro = visible
   },
   oscuro: {
     bg: 'bg-ink',
     tituloColor: 'text-bone',
-    subtituloColor: 'text-bone/65',
     hookColor: 'text-bone',
     ritmoColor: 'text-bone/70',
     dividerColor: 'border-bone/15',
@@ -178,8 +167,8 @@ const temas: Record<
     dotColor: 'bg-forest',
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
-    eyebrowColor: 'text-forest',
     precioColor: 'text-bone',
+    acentoColor: 'text-forest', // Verde sobre negro = buen contraste
   },
 };
 
@@ -234,7 +223,7 @@ export default function HomeSuscripcion() {
                     style={{ fontSize: 'clamp(1.75rem, 2.6vw, 2.25rem)' }}
                   >
                     {tier.nombre}
-                    <span className="italic-display font-normal text-forest">.</span>
+                    <span className={`italic-display font-normal ${t.acentoColor}`}>.</span>
                   </h3>
                   <p className={`text-base font-medium leading-tight ${t.hookColor}`}>
                     {tier.hook}
@@ -251,7 +240,7 @@ export default function HomeSuscripcion() {
                   >
                     {tier.precio}
                     <span
-                      className="italic-display font-normal text-forest ml-1"
+                      className={`italic-display font-normal ml-1 ${t.acentoColor}`}
                       style={{ fontSize: '0.45em' }}
                     >
                       {tier.periodo}
