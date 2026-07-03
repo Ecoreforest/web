@@ -28,14 +28,12 @@ const jetbrains = JetBrains_Mono({
 });
 
 /**
- * Imagen Open Graph / Twitter card — 1200×630.
- *
- * Por ahora generada a partir de bosque-mediterraneo con transformaciones de
- * Cloudinary (recorte centrado en 1200×630). Cuando se diseñe una OG con
- * marca + slogan, sustituir esta URL por la nueva.
+ * Imagen Open Graph / Twitter card — 1200×630 con marca propia.
+ * Diseñada específicamente para redes sociales, subida a Cloudinary
+ * el 2026-06-29.
  */
 const OG_IMAGE =
-  'https://res.cloudinary.com/dekgmk73i/image/upload/c_fill,g_auto,w_1200,h_630/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg';
+  'https://res.cloudinary.com/dekgmk73i/image/upload/v1783079503/og-image-ecoreforest_eztm4z.jpg';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ecoreforest.org'),
