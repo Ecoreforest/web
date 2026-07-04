@@ -1,21 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useState } from 'react';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Sección de suscripción mensual con 4 tiers.
+ * Sección de suscripción mensual con 4 tiers, conectada a Stripe Checkout.
  *
- * Paso 10 / 10.1 / 10.2 / 10.3 — cambios acumulados:
- * - Cifras: 12 / 36 / 144 plantones anuales (1 / 3 / 12 al mes)
- * - Fondos con progresión cromática (ivory → forest.light → forest → ink)
- * - Sin etiquetas "Tier 0X"
- * - Sin disclaimer "Cifras orientativas..."
- * - id="suscripcion" para el ancla desde ColaboraFormas
- * - Paso 10.3: `acentoColor` por tema para el "." y el "€/mes", porque
- *   text-forest hardcoded era invisible sobre bg-forest (Bosque) y de
- *   bajo contraste sobre bg-forest.light (Plantón)
+ * Paso 11 (Fase 3 Stripe) — cambios:
+ * - Los botones ya no navegan a /contacto?tier=X. Ahora llaman al API interno
+ *   /api/checkout que crea una sesión de Stripe y redirige al checkout de
+ *   Stripe hospedado (dominio de stripe).
+ * - El tier `libre` muestra un input inline para elegir cantidad €/mes.
+ * - Estados de carga y error por tier.
+ *
+ * Requiere STRIPE_SECRET_KEY en las env variables de Vercel para funcionar.
  */
 
 type Tier = {
@@ -27,7 +26,6 @@ type Tier = {
   ritmo: string;
   beneficios: string[];
   cta: string;
-  href: string;
   tema: 'ivory' | 'verde-claro' | 'verde-oscuro' | 'oscuro';
 };
 
@@ -46,7 +44,6 @@ const tiers: Tier[] = [
       'Deducción fiscal · Régimen de Mecenazgo',
     ],
     cta: 'Hacerme socio Semilla',
-    href: '/contacto?tier=semilla',
     tema: 'ivory',
   },
   {
@@ -63,7 +60,6 @@ const tiers: Tier[] = [
       'Invitación a eventos del proyecto',
     ],
     cta: 'Hacerme socio Plantón',
-    href: '/contacto?tier=planton',
     tema: 'verde-claro',
   },
   {
@@ -80,7 +76,6 @@ const tiers: Tier[] = [
       'Visita técnica a parcela en curso',
     ],
     cta: 'Hacerme socio Bosque',
-    href: '/contacto?tier=bosque',
     tema: 'verde-oscuro',
   },
   {
@@ -96,8 +91,7 @@ const tiers: Tier[] = [
       'Beneficios proporcionales al importe',
       'Reporte personalizado anual',
     ],
-    cta: 'Aportar lo que pueda',
-    href: '/contacto?tier=libre',
+    cta: 'Aportar',
     tema: 'oscuro',
   },
 ];
@@ -115,7 +109,12 @@ const temas: Record<
     botonBg: string;
     botonHover: string;
     precioColor: string;
-    acentoColor: string; // Nuevo — para "." y "€/mes"
+    acentoColor: string;
+    inputBg: string;
+    inputBorder: string;
+    inputText: string;
+    inputPlaceholder: string;
+    errorText: string;
   }
 > = {
   ivory: {
@@ -129,7 +128,12 @@ const temas: Record<
     botonBg: 'bg-ink text-bone',
     botonHover: 'hover:bg-ink/90',
     precioColor: 'text-ink',
-    acentoColor: 'text-forest', // Verde oscuro sobre crema = buen contraste
+    acentoColor: 'text-forest',
+    inputBg: 'bg-transparent',
+    inputBorder: 'border-ash focus:border-forest',
+    inputText: 'text-ink',
+    inputPlaceholder: 'placeholder:text-smoke/60',
+    errorText: 'text-forest',
   },
   'verde-claro': {
     bg: 'bg-[#2D6A4F]',
@@ -142,7 +146,12 @@ const temas: Record<
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
     precioColor: 'text-bone',
-    acentoColor: 'text-bone/85', // Blanco cálido sobre verde medio = visible
+    acentoColor: 'text-bone/85',
+    inputBg: 'bg-transparent',
+    inputBorder: 'border-bone/20 focus:border-bone/60',
+    inputText: 'text-bone',
+    inputPlaceholder: 'placeholder:text-bone/40',
+    errorText: 'text-bone',
   },
   'verde-oscuro': {
     bg: 'bg-forest',
@@ -155,7 +164,12 @@ const temas: Record<
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
     precioColor: 'text-bone',
-    acentoColor: 'text-bone/85', // Blanco cálido sobre verde oscuro = visible
+    acentoColor: 'text-bone/85',
+    inputBg: 'bg-transparent',
+    inputBorder: 'border-bone/20 focus:border-bone/60',
+    inputText: 'text-bone',
+    inputPlaceholder: 'placeholder:text-bone/40',
+    errorText: 'text-bone',
   },
   oscuro: {
     bg: 'bg-ink',
@@ -168,11 +182,55 @@ const temas: Record<
     botonBg: 'bg-bone text-ink',
     botonHover: 'hover:bg-bone/90',
     precioColor: 'text-bone',
-    acentoColor: 'text-forest', // Verde sobre negro = buen contraste
+    acentoColor: 'text-forest',
+    inputBg: 'bg-transparent',
+    inputBorder: 'border-bone/20 focus:border-bone/60',
+    inputText: 'text-bone',
+    inputPlaceholder: 'placeholder:text-bone/40',
+    errorText: 'text-bone',
   },
 };
 
 export default function HomeSuscripcion() {
+  const [loadingTier, setLoadingTier] = useState<string | null>(null);
+  const [customAmount, setCustomAmount] = useState<string>('');
+  const [errores, setErrores] = useState<Record<string, string>>({});
+
+  const iniciarCheckout = async (tier: string, extra?: { customAmount?: number }) => {
+    setLoadingTier(tier);
+    setErrores((e) => ({ ...e, [tier]: '' }));
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tier, customAmount: extra?.customAmount }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'No pudimos iniciar el pago.');
+      }
+      window.location.href = data.url;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Error inesperado.';
+      setErrores((e) => ({ ...e, [tier]: message }));
+      setLoadingTier(null);
+    }
+  };
+
+  const clickTierFijo = (tier: string) => () => iniciarCheckout(tier);
+
+  const clickLibre = () => {
+    const amount = parseFloat(customAmount.replace(',', '.'));
+    if (!amount || amount < 1) {
+      setErrores((e) => ({
+        ...e,
+        libre: 'Introduce una cantidad de al menos 1 €.',
+      }));
+      return;
+    }
+    iniciarCheckout('libre', { customAmount: amount });
+  };
+
   return (
     <section
       id="suscripcion"
@@ -208,6 +266,10 @@ export default function HomeSuscripcion() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
           {tiers.map((tier, i) => {
             const t = temas[tier.tema];
+            const isLoading = loadingTier === tier.id;
+            const isLibre = tier.id === 'libre';
+            const error = errores[tier.id];
+
             return (
               <motion.article
                 key={tier.id}
@@ -234,18 +296,50 @@ export default function HomeSuscripcion() {
                 </div>
 
                 <div className={`mb-8 pb-8 border-b ${t.dividerColor}`}>
-                  <p
-                    className={`font-semibold tracking-tighter leading-none ${t.precioColor}`}
-                    style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}
-                  >
-                    {tier.precio}
-                    <span
-                      className={`italic-display font-normal ml-1 ${t.acentoColor}`}
-                      style={{ fontSize: '0.45em' }}
+                  {isLibre ? (
+                    <div>
+                      <label
+                        htmlFor="libre-amount"
+                        className={`block font-mono text-[10px] uppercase tracking-[0.25em] mb-3 ${t.ritmoColor}`}
+                      >
+                        Elige tu cantidad
+                      </label>
+                      <div className="flex items-baseline gap-2">
+                        <input
+                          id="libre-amount"
+                          type="number"
+                          min={1}
+                          max={5000}
+                          step={1}
+                          value={customAmount}
+                          onChange={(e) => setCustomAmount(e.target.value)}
+                          placeholder="10"
+                          disabled={isLoading}
+                          className={`w-full font-semibold tracking-tighter leading-none focus:outline-none border-b py-1 disabled:opacity-50 ${t.inputBg} ${t.inputBorder} ${t.inputText} ${t.inputPlaceholder}`}
+                          style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}
+                        />
+                        <span
+                          className={`italic-display font-normal ml-1 ${t.acentoColor}`}
+                          style={{ fontSize: '1.4rem' }}
+                        >
+                          €/mes
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <p
+                      className={`font-semibold tracking-tighter leading-none ${t.precioColor}`}
+                      style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)' }}
                     >
-                      {tier.periodo}
-                    </span>
-                  </p>
+                      {tier.precio}
+                      <span
+                        className={`italic-display font-normal ml-1 ${t.acentoColor}`}
+                        style={{ fontSize: '0.45em' }}
+                      >
+                        {tier.periodo}
+                      </span>
+                    </p>
+                  )}
                 </div>
 
                 <ul className="space-y-3 mb-10 flex-1">
@@ -262,12 +356,22 @@ export default function HomeSuscripcion() {
                   ))}
                 </ul>
 
-                <Link
-                  href={tier.href}
-                  className={`block text-center px-6 py-3.5 rounded-full font-medium text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${t.botonBg} ${t.botonHover}`}
+                <button
+                  type="button"
+                  onClick={isLibre ? clickLibre : clickTierFijo(tier.id)}
+                  disabled={isLoading}
+                  className={`block w-full text-center px-6 py-3.5 rounded-full font-medium text-sm transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 ${t.botonBg} ${t.botonHover}`}
                 >
-                  {tier.cta}
-                </Link>
+                  {isLoading ? 'Preparando pago…' : tier.cta}
+                </button>
+
+                {error && (
+                  <p
+                    className={`mt-4 text-xs leading-relaxed ${t.errorText}`}
+                  >
+                    {error}
+                  </p>
+                )}
               </motion.article>
             );
           })}
