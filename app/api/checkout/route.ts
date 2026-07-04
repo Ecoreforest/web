@@ -13,10 +13,10 @@ import Stripe from 'stripe';
  */
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
-  apiVersion: '2024-06-20',
+  apiVersion: '2025-02-24.acacia',
 });
 
-// IDs de precios recurrentes creados en el dashboard de Stripe.
+// IDs de precios recurrentes creados en el dashboard de Stripe (test mode).
 // En producción (live mode) tendremos otros IDs distintos.
 const TIER_PRICE_IDS = {
   semilla: 'price_1TpGni2Q6SRMcja3ptFpEkzO',
@@ -65,7 +65,6 @@ export async function POST(req: NextRequest) {
         );
       }
 
-      // Redondeamos a céntimos
       const unit_amount = Math.round(amount * 100);
 
       sessionParams = {
@@ -131,7 +130,6 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     const message =
       err instanceof Error ? err.message : 'Error desconocido creando checkout.';
-    // No dejamos que el stack trace llegue al cliente por seguridad.
     console.error('Stripe checkout error:', err);
     return NextResponse.json({ error: message }, { status: 500 });
   }
