@@ -29,11 +29,26 @@ const jetbrains = JetBrains_Mono({
 
 /**
  * Imagen Open Graph / Twitter card — 1200×630 con marca propia.
- * Diseñada específicamente para redes sociales, subida a Cloudinary
- * el 2026-06-29.
  */
 const OG_IMAGE =
   'https://res.cloudinary.com/dekgmk73i/image/upload/v1783079503/og-image-ecoreforest_eztm4z.jpg';
+
+/**
+ * Favicon — hojita verde con fondo transparente.
+ * Cloudinary sirve la imagen ya escalada a los tamaños que piden Safari,
+ * Chrome, Firefox e iOS Home Screen. Padding transparente con c_pad,b_transparent
+ * asegura que quede cuadrada aunque el logo original no lo sea.
+ *
+ * IMPORTANTE: para que este favicon se use, hay que borrar el fichero
+ * `app/icon.png` del repo (que tenía fondo negro). Si el fichero de la
+ * convención sigue existiendo, Next.js le da prioridad sobre este metadata
+ * y seguirás viendo el favicon viejo.
+ */
+const FAVICON_URL =
+  'https://res.cloudinary.com/dekgmk73i/image/upload/w_512,h_512,c_pad,b_transparent,f_png,q_auto/v1780502849/logo-hojita-verde_tum1zm.png';
+
+const FAVICON_APPLE_URL =
+  'https://res.cloudinary.com/dekgmk73i/image/upload/w_180,h_180,c_pad,b_transparent,f_png,q_auto/v1780502849/logo-hojita-verde_tum1zm.png';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ecoreforest.org'),
@@ -66,10 +81,15 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // NOTA (paso 9.3): eliminado `alternates: { canonical: '/' }` que causaba
-  // que TODAS las páginas apuntaran a la home como canónica. Ahora Next.js
-  // usa automáticamente la URL de cada página como su propia canonical, que
-  // es el comportamiento correcto y el que Google espera.
+  icons: {
+    icon: [
+      { url: FAVICON_URL, type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: FAVICON_APPLE_URL, sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: FAVICON_URL,
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
@@ -108,21 +128,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  // Token de verificación de Google Search Console.
-  // Permite a Google confirmar que somos los propietarios del dominio
-  // y empezar a indexar + mostrar métricas de búsqueda en el dashboard.
   verification: {
     google: 'gVgjHiwPodXXKILM_t2CQTqVEQGUenMuiDH87h0JceY',
   },
 };
 
-/**
- * Datos estructurados (JSON-LD) para que Google entienda que EcoReforest
- * es una asociación sin ánimo de lucro con sus fundadores y redes sociales.
- *
- * Aparecerá en el código fuente de cualquier página y los buscadores lo
- * leerán automáticamente para mostrar Knowledge Panel y rich results.
- */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
@@ -184,12 +194,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${manrope.variable} ${instrument.variable} ${jetbrains.variable}`}>
       <body className="bg-bone text-ink antialiased">
-        {/* JSON-LD para SEO semántico */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-
         <SmoothScroll />
         <Navbar />
         <main>{children}</main>
