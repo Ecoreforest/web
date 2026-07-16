@@ -4,6 +4,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
+/**
+ * Paso 16: eyebrow "07 — Colabora" → "04 — Colabora".
+ * Cierra la secuencia coherente del dropdown "Proyecto":
+ * 01 El proyecto · 02 Tecnología · 03 Equipo · 04 Colabora.
+ */
 export default function ColaboraHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -50,7 +55,7 @@ export default function ColaboraHero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs font-mono uppercase tracking-[0.25em] text-bone/70 mb-8"
         >
-          07 — Colabora
+          04 — Colabora
         </motion.p>
 
         <motion.h1

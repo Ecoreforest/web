@@ -4,6 +4,12 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
+/**
+ * Paso 16: eyebrow "03 — Tecnología" → "02 — Tecnología".
+ * Renumeración coherente tras eliminar /proceso: ahora las páginas del
+ * dropdown "Proyecto" son 01 El proyecto, 02 Tecnología, 03 Equipo,
+ * 04 Colabora.
+ */
 export default function TecnologiaHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -50,7 +56,7 @@ export default function TecnologiaHero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs font-mono uppercase tracking-[0.25em] text-bone/70 mb-8"
         >
-          03 — Tecnología
+          02 — Tecnología
         </motion.p>
 
         <motion.h1
@@ -70,9 +76,7 @@ export default function TecnologiaHero() {
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-bone/85 text-lg md:text-xl font-light tracking-tight max-w-2xl"
         >
-          Compostaje termófilo, sensores IoT, drones multiespectrales, Torre
-          Warka, análisis satelital. Tecnología existente, aplicada con un
-          propósito muy concreto.
+          Selección de compost UNE 142500, sensores IoT, drones multiespectrales, Torre Warka y análisis satelital. Tecnología existente, aplicada con un propósito muy concreto.
         </motion.p>
       </motion.div>
     </section>

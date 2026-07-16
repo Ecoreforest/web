@@ -4,6 +4,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
+/**
+ * Paso 16: eyebrow "07 — Equipo" → "03 — Equipo".
+ * El 07 era residuo de cuando existían /hoja-de-ruta e /impacto.
+ */
 export default function EquipoHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -50,7 +54,7 @@ export default function EquipoHero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs font-mono uppercase tracking-[0.25em] text-bone/70 mb-8"
         >
-          07 — Equipo
+          03 — Equipo
         </motion.p>
 
         <motion.h1
