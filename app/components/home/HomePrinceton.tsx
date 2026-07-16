@@ -5,6 +5,12 @@ import { useRef } from 'react';
 import SectionEyebrow from '../SectionEyebrow';
 import BeforeAfterSlider from '../BeforeAfterSlider';
 
+/**
+ * Paso 17: la palabra "naranja" del título aparece en color naranja
+ * (#F97316 = orange-500 de Tailwind). Pequeño guiño visual pedido por
+ * el usuario, coherente con la iconografía cítrica del experimento.
+ * También se aplica en el párrafo donde aparece "residuos de naranja".
+ */
 export default function HomePrinceton() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -27,7 +33,8 @@ export default function HomePrinceton() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="text-display-md font-semibold tracking-tight text-balance"
             >
-              Doce mil toneladas de cáscaras de naranja{' '}
+              Doce mil toneladas de cáscaras de{' '}
+              <span className="text-[#F97316]">naranja</span>{' '}
               <span className="italic-display font-normal">cambiaron la ciencia.</span>
             </motion.h2>
 
@@ -39,7 +46,9 @@ export default function HomePrinceton() {
               className="mt-10 space-y-6 text-bone/70 text-base lg:text-lg leading-relaxed max-w-xl"
             >
               <p>
-                En 1996, dos investigadores de Princeton, Daniel Janzen y Winnie Hallwachs, propusieron un experimento: depositar 12.000 toneladas de residuos de naranja sobre 3 hectáreas de bosque tropical degradado.
+                En 1996, dos investigadores de Princeton, Daniel Janzen y Winnie Hallwachs, propusieron un experimento: depositar 12.000 toneladas de residuos de{' '}
+                <span className="text-[#F97316]">naranja</span>{' '}
+                sobre 3 hectáreas de bosque tropical degradado.
               </p>
               <p>
                 El experimento fue olvidado durante décadas. Cuando volvieron en 2014, no encontraron lo que esperaban: encontraron algo mejor.
