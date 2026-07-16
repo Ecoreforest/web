@@ -3,29 +3,41 @@
 import { motion } from 'framer-motion';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 13: reordenado completo de las 4 etapas tras externalización del
+ * compost. Ya no hay "Recolección" ni "Compostaje" — ahora la Etapa 01
+ * es Selección de terreno, la 02 es Suministro certificado de compost,
+ * la 03 sigue siendo Plantación y la 04 sigue siendo Monitoreo.
+ *
+ * La lógica de negocio real:
+ * - El compost lo compramos a productores UNE 142500
+ * - Nosotros aportamos el diseño técnico, la ejecución en campo,
+ *   el monitoreo y la trazabilidad pública
+ */
+
 const etapas = [
   {
     numero: '01',
-    titulo: 'Recolección',
-    duracion: '24 — 72 h',
+    titulo: 'Selección de terreno y diseño técnico',
+    duracion: '2 — 4 meses',
     descripcion:
-      'Recogemos biorresiduos de mercados municipales, restaurantes, supermercados y poda urbana. Cadena de frío y logística diseñadas para evitar fermentaciones no controladas antes del procesado.',
+      'Identificamos parcelas con administraciones, propietarios privados y comunidades locales. Estudio edafoclimático, cartografía detallada, selección de especies autóctonas por bioma y diseño en mosaico ajustado al terreno.',
     detalles: [
-      'Acuerdos con ayuntamientos bajo Ley 7/2022',
-      'Trazabilidad por lote desde el punto de origen',
-      'Vehículos eléctricos en última milla urbana',
+      'Acuerdos con propietarios y administraciones',
+      'Análisis de suelo y régimen hídrico previo',
+      'Diseño técnico revisado con ingeniería forestal',
     ],
   },
   {
     numero: '02',
-    titulo: 'Compostaje acelerado',
-    duracion: '21 — 28 días',
+    titulo: 'Suministro certificado de compost',
+    duracion: 'Por lote, con antelación a la ventana de plantación',
     descripcion:
-      'Tecnología termófila en biorreactores con sensores de temperatura, humedad y oxígeno. Lo que en un compostador casero tarda 6 meses, aquí ocurre en tres semanas, con calidad UNE 142500.',
+      'Adquirimos compost UNE 142500 a productores españoles certificados. Cada lote entrante pasa un análisis fisicoquímico independiente antes de aprobarse para uso en parcela. Externalizamos la producción del compost para concentrarnos en el diseño y la ejecución de la reforestación.',
     detalles: [
-      'Control automático de aireación y humedad',
-      'Fase termófila estable a 65 °C — eliminación de patógenos',
-      'Análisis fisicoquímico por lote antes de salida',
+      'Compra a productores certificados UNE 142500',
+      'Análisis por lote antes de aprobar entrada',
+      'Trazabilidad completa desde el proveedor',
     ],
   },
   {
@@ -33,11 +45,11 @@ const etapas = [
     titulo: 'Plantación',
     duracion: 'Ventana otoño / primavera',
     descripcion:
-      'Aplicación del compost en el suelo degradado seguida de la plantación de especies autóctonas seleccionadas por bioma. Densidades bajas, sin monocultivos, replicando la estructura natural del ecosistema.',
+      'Aplicación del compost en el suelo degradado seguida de la plantación de especies autóctonas. Densidades bajas, sin monocultivos, replicando la estructura natural del ecosistema mediterráneo.',
     detalles: [
       'Especies nativas adaptadas al clima local',
       'Diseño en mosaico, no plantación en hilera',
-      'Plantilla técnica revisada con ingeniería forestal',
+      'Aplicación técnica del compost por parcela',
     ],
   },
   {
@@ -68,9 +80,9 @@ export default function ProcesoEtapas() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-display-lg font-semibold tracking-tight text-balance"
           >
-            Un ciclo{' '}
-            <span className="italic-display font-normal">cerrado,</span> medido
-            y trazable.
+            Un proceso{' '}
+            <span className="italic-display font-normal">medido,</span>{' '}
+            trazable y sin humo.
           </motion.h2>
 
           <motion.p
@@ -80,8 +92,9 @@ export default function ProcesoEtapas() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
           >
-            No reinventamos la rueda: aplicamos ciencia conocida a una escala
-            donde, hasta hoy, casi nadie lo había hecho con honestidad.
+            Externalizamos la producción del compost a partners certificados
+            para concentrarnos en lo que solo nosotros podemos aportar: diseño
+            técnico regenerativo, ejecución en campo y monitoreo científico.
           </motion.p>
         </div>
 

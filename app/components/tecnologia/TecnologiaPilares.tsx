@@ -4,14 +4,21 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 13: Pilar 01 rebrandeado tras la externalización del compost.
+ * Antes hablaba de biorreactores termófilos propios. Ahora habla de
+ * selección y validación de compost UNE 142500 producido por partners
+ * certificados.
+ */
+
 const pilares = [
   {
     id: '01',
-    titulo: 'Compostaje acelerado',
-    rol: 'Transformación',
+    titulo: 'Selección y validación de compost',
+    rol: 'Aseguramiento de calidad',
     descripcion:
-      'Biorreactores termófilos con control automático de temperatura, humedad y oxígeno. Reducen a tres semanas un proceso natural que tardaría seis meses.',
-    spec: '65 °C · 21 días · UNE 142500',
+      'Trabajamos con productores españoles certificados UNE 142500. Cada lote entrante pasa un análisis fisicoquímico (relación C/N, humedad, patógenos, metales pesados) antes de aprobarse para uso en parcela. Solo entra al proyecto compost que cumple los parámetros.',
+    spec: 'UNE 142500 · Análisis por lote · Trazabilidad de origen',
   },
   {
     id: '02',
@@ -59,21 +66,6 @@ export default function TecnologiaPilares() {
   return (
     <section className="relative py-12 lg:py-20 bg-bone overflow-hidden">
       <div className="container-x max-w-7xl">
-
-        {/*
-          Cabecera con Torre Warka.
-          - items-start: el texto se pega arriba en lugar de centrarse
-            verticalmente dentro de la fila → desaparece el hueco vertical
-            grande entre el final del hero y el eyebrow "Seis pilares".
-          - lg:h-[560px] en la imagen: limita la altura de la fila en
-            desktop a ~560 px (antes la fila medía ~1.200 px porque
-            seguía el aspect ratio de la imagen). Esto reduce drásticamente
-            el espacio vacío que queda entre el final del párrafo y el
-            primer pilar de la lista.
-          - mb-4 lg:mb-8: margen mínimo entre la cabecera y el primer pilar.
-          - lg:scale-[1.05] sobre la imagen: mantiene la sensación de
-            "Torre Warka un poco más grande" sin inflar la fila.
-        */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-4 lg:mb-8">
           <div className="lg:col-span-5">
             <SectionEyebrow>Seis pilares</SectionEyebrow>
@@ -119,7 +111,6 @@ export default function TecnologiaPilares() {
           </motion.div>
         </div>
 
-        {/* Lista de pilares con espacio reducido entre cards */}
         <div className="space-y-6 lg:space-y-8">
           {pilares.map((p, i) => (
             <motion.article

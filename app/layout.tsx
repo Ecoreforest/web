@@ -27,23 +27,9 @@ const jetbrains = JetBrains_Mono({
   weight: ['400', '500'],
 });
 
-/**
- * Imagen Open Graph / Twitter card — 1200×630 con marca propia.
- */
 const OG_IMAGE =
   'https://res.cloudinary.com/dekgmk73i/image/upload/v1783079503/og-image-ecoreforest_eztm4z.jpg';
 
-/**
- * Favicon — hojita verde con fondo transparente.
- * Cloudinary sirve la imagen ya escalada a los tamaños que piden Safari,
- * Chrome, Firefox e iOS Home Screen. Padding transparente con c_pad,b_transparent
- * asegura que quede cuadrada aunque el logo original no lo sea.
- *
- * IMPORTANTE: para que este favicon se use, hay que borrar el fichero
- * `app/icon.png` del repo (que tenía fondo negro). Si el fichero de la
- * convención sigue existiendo, Next.js le da prioridad sobre este metadata
- * y seguirás viendo el favicon viejo.
- */
 const FAVICON_URL =
   'https://res.cloudinary.com/dekgmk73i/image/upload/w_512,h_512,c_pad,b_transparent,f_png,q_auto/v1780502849/logo-hojita-verde_tum1zm.png';
 
@@ -57,18 +43,18 @@ export const metadata: Metadata = {
     template: '%s · EcoReforest',
   },
   description:
-    'Asociación que combate la desertificación en España transformando residuos orgánicos en fertilizante natural para reforestar zonas áridas. Economía circular al servicio del clima.',
+    'Asociación que combate la desertificación en España aplicando compost UNE 142500 certificado para reforestar zonas áridas. Economía circular al servicio del clima.',
   keywords: [
     'reforestación España',
     'desertificación',
     'economía circular',
-    'compost ecológico',
+    'compost UNE 142500',
+    'compost ecológico certificado',
     'créditos de carbono',
     'asociación medio ambiente',
     'sostenibilidad',
     'biodiversidad',
     'restauración de suelos',
-    'biocompost',
     'agricultura regenerativa',
     'LIFE 2027',
     'Pacto Verde Europeo',
@@ -97,7 +83,7 @@ export const metadata: Metadata = {
     siteName: 'EcoReforest',
     title: 'EcoReforest — Convertimos el desperdicio en bosque',
     description:
-      'Asociación que combate la desertificación en España transformando residuos orgánicos en fertilizante natural para reforestar zonas áridas.',
+      'Asociación que combate la desertificación en España aplicando compost UNE 142500 certificado para reforestar zonas áridas.',
     images: [
       {
         url: OG_IMAGE,
@@ -114,7 +100,7 @@ export const metadata: Metadata = {
     creator: '@ecoreforest',
     title: 'EcoReforest — Convertimos el desperdicio en bosque',
     description:
-      'Asociación que combate la desertificación en España transformando residuos orgánicos en fertilizante natural.',
+      'Asociación que combate la desertificación en España aplicando compost UNE 142500 certificado para reforestar zonas áridas.',
     images: [OG_IMAGE],
   },
   robots: {
@@ -133,6 +119,12 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Paso 13: `knowsAbout` actualizado. Fuera "Compostaje acelerado" (que
+ * sugería que lo hacíamos nosotros); dentro "Selección y validación de
+ * compost certificado" y "Aplicación de biocompost en restauración de
+ * suelos", que reflejan lo que realmente hacemos.
+ */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'NGO',
@@ -143,7 +135,7 @@ const jsonLd = {
   logo: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780502849/logo-hojita-verde_tum1zm.png',
   image: OG_IMAGE,
   description:
-    'Asociación sin ánimo de lucro inscrita en el Registro Nacional de Asociaciones de España. Combate la desertificación transformando residuos orgánicos en biocompost para restaurar suelos y reforestar zonas áridas.',
+    'Asociación sin ánimo de lucro inscrita en el Registro Nacional de Asociaciones de España. Combate la desertificación aplicando compost UNE 142500 certificado en reforestación de suelos degradados. Externaliza la producción del compost a partners certificados y se concentra en diseño técnico, ejecución en campo y monitoreo científico.',
   email: 'hola@ecoreforest.com',
   foundingDate: '2026-04-22',
   address: {
@@ -178,7 +170,8 @@ const jsonLd = {
   ],
   knowsAbout: [
     'Restauración ecológica',
-    'Compostaje acelerado',
+    'Selección y validación de compost UNE 142500',
+    'Aplicación de biocompost en restauración de suelos',
     'Economía circular',
     'Captura de carbono',
     'Lucha contra la desertificación',

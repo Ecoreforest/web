@@ -5,11 +5,14 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
-// Aplicamos `e_trim` de Cloudinary para recortar el espacio transparente de
-// cada PNG y `c_pad,w_400,h_400,b_transparent` para normalizar todos los
-// iconos al mismo lienzo. De esa forma `object-contain` renderiza todos los
-// iconos al mismo tamaño visible, independientemente de cómo se exportó cada
-// PNG original.
+/**
+ * Paso 13: el flujo Residuo→Compost→Suelo→Árbol→Bosque sigue siendo válido
+ * como narrativa del ciclo circular EN GENERAL. Añadimos un pequeño
+ * subtítulo aclaratorio al final: EcoReforest interviene en las tres
+ * últimas etapas (Suelo, Árbol, Bosque). El Compost lo aporta la red
+ * de partners certificados.
+ */
+
 const flujo = [
   {
     palabra: 'Residuo',
@@ -18,7 +21,7 @@ const flujo = [
   },
   {
     palabra: 'Compost',
-    descripcion: 'Un fertilizante con más nutrientes que el suelo agotado.',
+    descripcion: 'Un fertilizante certificado UNE 142500 con más nutrientes que el suelo agotado.',
     icono: 'https://res.cloudinary.com/dekgmk73i/image/upload/e_trim/c_pad,w_400,h_400,b_transparent/q_auto/f_auto/v1778624315/flujo-compost_ruecbc.png',
   },
   {
@@ -50,7 +53,6 @@ export default function ProyectoSolucion() {
     <section className="relative py-24 lg:py-32 bg-ivory">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera con roble al lado */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-20 lg:mb-28">
           <div className="lg:col-span-7">
             <SectionEyebrow>La solución</SectionEyebrow>
@@ -74,9 +76,10 @@ export default function ProyectoSolucion() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg lg:text-xl text-smoke leading-relaxed mt-8 max-w-xl"
             >
-              Tomamos lo que la economía lineal considera basura y lo devolvemos al
-              principio del ciclo. Lo que era un problema se convierte en la
-              solución del siguiente.
+              Tomamos compost UNE 142500 producido por partners certificados y
+              lo aplicamos donde tiene sentido: en suelos degradados que
+              vuelven a sostener bosque. La economía circular no es lineal,
+              y nosotros no la tenemos que hacer entera solos.
             </motion.p>
           </div>
 
@@ -99,7 +102,6 @@ export default function ProyectoSolucion() {
           </motion.div>
         </div>
 
-        {/* Flujo con iconos normalizados */}
         <div className="space-y-8 lg:space-y-12">
           {flujo.map((item, i) => (
             <motion.article
@@ -120,7 +122,6 @@ export default function ProyectoSolucion() {
                 </p>
               </div>
 
-              {/* Palabra */}
               <div className="lg:col-span-4">
                 <h3
                   className="font-semibold tracking-tight leading-[0.9]"
@@ -133,7 +134,6 @@ export default function ProyectoSolucion() {
                 </h3>
               </div>
 
-              {/* Icono normalizado en lienzo 1:1 */}
               <div className="lg:col-span-2 flex justify-center">
                 <div className="relative w-24 h-24 lg:w-28 lg:h-28 shrink-0">
                   <Image
@@ -146,7 +146,6 @@ export default function ProyectoSolucion() {
                 </div>
               </div>
 
-              {/* Frase */}
               <div className="lg:col-span-5">
                 <p className="text-lg lg:text-xl text-smoke leading-relaxed">
                   {item.descripcion}
@@ -168,6 +167,19 @@ export default function ProyectoSolucion() {
             misma manzana
           </span>{' '}
           que iba a un vertedero acaba alimentando un encinar.
+        </motion.p>
+
+        {/* Paso 13: aclaración honesta sobre dónde intervenimos exactamente */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 text-center text-sm text-smoke max-w-2xl mx-auto leading-relaxed"
+        >
+          EcoReforest interviene desde el compost hasta el bosque. La producción
+          del compost la realizan nuestros partners certificados UNE 142500.
+          Nosotros seleccionamos, validamos por lote y aplicamos.
         </motion.p>
       </div>
     </section>

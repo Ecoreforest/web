@@ -5,11 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 13: la card de "Compost certificado" ya no dice "producido con
+ * tecnología de compostaje acelerado". Ahora es un servicio de distribución
+ * de compost UNE 142500 de productores certificados españoles.
+ */
+
 const lineas = [
   {
     eyebrow: 'Producto',
     titulo: 'Compost certificado',
-    descripcion: 'Fertilizante orgánico de alta calidad producido con tecnología de compostaje acelerado. Cumple la norma UNE 142500 y es apto para agricultura ecológica.',
+    descripcion: 'Compost UNE 142500 de productores españoles certificados. Selección rigurosa, análisis por lote y trazabilidad completa. Para reforestación, agricultura ecológica, viveros y jardinería profesional.',
     cta: 'Conoce el producto',
     href: '/servicios/compost',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-compost_jepie9.jpg',
@@ -104,7 +110,6 @@ export default function HomeLineas() {
           ))}
         </div>
 
-        {/* Dos líneas adicionales — formato compacto */}
         <div className="grid md:grid-cols-2 gap-px mt-12 lg:mt-16 bg-ash border-t border-b border-ash">
           {adicionales.map((a, i) => (
             <motion.div

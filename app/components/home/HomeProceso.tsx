@@ -6,19 +6,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 13: los 4 pasos del home reformulados tras externalización compost.
+ * - 01 Selección de terreno (antes Recolección)
+ * - 02 Suministro certificado de compost (antes Compostaje acelerado)
+ * - 03 Plantación (igual)
+ * - 04 Monitoreo (igual)
+ */
+
 const pasos = [
   {
     numero: '01',
-    titulo: 'Recolección',
-    descripcion: 'Recogemos residuos orgánicos de mercados, supermercados y centrales hortofrutícolas que de otro modo acabarían en vertederos. Cada tonelada que recuperamos es una tonelada que no genera metano en un vertedero.',
-    dato: '7,7M toneladas/año en España',
+    titulo: 'Selección de terreno',
+    descripcion: 'Identificamos parcelas con administraciones, propietarios privados y comunidades locales. Estudio edafoclimático y diseño técnico ajustado al bioma. Sin diseño previo no hay plantación que sobreviva.',
+    dato: 'Diseño en mosaico · Especies autóctonas',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/paso-01-recolecci%C3%B3n_mottf9.png',
   },
   {
     numero: '02',
-    titulo: 'Compostaje acelerado',
-    descripcion: 'Mediante microorganismos específicos y control automatizado por sensores IoT, transformamos los residuos en compost de alta calidad en 30-45 días. Tres veces más rápido que el método tradicional, y con mayor concentración nutricional.',
-    dato: '3× más rápido que el método tradicional',
+    titulo: 'Suministro certificado de compost',
+    descripcion: 'Compramos compost UNE 142500 a productores españoles certificados. Cada lote entrante pasa análisis fisicoquímico independiente antes de aprobarse. Externalizamos la producción para concentrarnos en lo que solo nosotros hacemos: la reforestación.',
+    dato: 'UNE 142500 · Análisis por lote',
     imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895098/paso-02-compostaje_k6ibj4.png',
   },
   {
@@ -49,13 +57,10 @@ function Paso({ paso, index }: { paso: typeof pasos[0]; index: number }) {
   const isReverse = index % 2 === 1;
 
   return (
-    // Padding vertical reducido: py-10 lg:py-14 (era py-20 lg:py-32)
-    // Cada paso pasa de ~256px a ~112px de aire vertical → mucho menos espacio entre pasos.
     <article ref={ref} className="relative py-10 lg:py-14">
       <div className="container-x max-w-7xl">
         <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${isReverse ? 'lg:flex-row-reverse' : ''}`}>
 
-          {/* Texto */}
           <div className={`lg:col-span-5 ${isReverse ? 'lg:col-start-8' : 'lg:col-start-1'}`}>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -103,7 +108,6 @@ function Paso({ paso, index }: { paso: typeof pasos[0]; index: number }) {
             </motion.div>
           </div>
 
-          {/* Imagen con parallax */}
           <div className={`lg:col-span-7 ${isReverse ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-6'}`}>
             <motion.div
               style={{ y: imageY }}
@@ -134,7 +138,6 @@ function Paso({ paso, index }: { paso: typeof pasos[0]; index: number }) {
 export default function HomeProceso() {
   return (
     <section className="relative bg-bone">
-      {/* Cabecera */}
       <div className="container-x pt-24 lg:pt-32 pb-8 max-w-6xl">
         <SectionEyebrow>El proceso</SectionEyebrow>
         <motion.h2
@@ -144,17 +147,15 @@ export default function HomeProceso() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="text-display-lg font-semibold tracking-tight max-w-5xl text-balance"
         >
-          Del residuo al bosque,{' '}
+          Del terreno al bosque,{' '}
           <span className="italic-display font-normal">en cuatro pasos.</span>
         </motion.h2>
       </div>
 
-      {/* Los 4 pasos */}
       {pasos.map((paso, i) => (
         <Paso key={paso.numero} paso={paso} index={i} />
       ))}
 
-      {/* CTA */}
       <div className="container-x max-w-6xl pb-24 lg:pb-32 pt-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

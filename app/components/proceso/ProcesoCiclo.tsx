@@ -4,15 +4,24 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 13: entradas/salidas rework tras externalización compost.
+ * Antes: 120 kt biorresiduos entrada, 70 kt compost salida (como si
+ * lo produjéramos nosotros). Ahora la entrada real es "compost
+ * adquirido a partners" y las salidas son hectáreas, CO2 capturado
+ * y volumen redistribuido al mercado (venta directa).
+ */
+
 const inputs = [
-  { label: 'Biorresiduos urbanos', valor: '120 kt / año' },
-  { label: 'Restos de poda', valor: '40 kt / año' },
-  { label: 'Subproductos agrícolas', valor: '60 kt / año' },
+  { label: 'Compost UNE 142500 adquirido', valor: 'a productores certificados' },
+  { label: 'Terrenos apalabrados', valor: '270 ha · Galicia año 1' },
+  { label: 'Productores partner', valor: '3 — 5 en Península' },
 ];
 
 const outputs = [
-  { label: 'Compost certificado UNE 142500', valor: '70 kt / año' },
   { label: 'Hectáreas reforestadas', valor: '270 ha año 1' },
+  { label: 'Compost aplicado en parcela', valor: 'según diseño técnico' },
+  { label: 'Compost redistribuido al mercado', valor: 'venta directa' },
   { label: 'Carbono capturado a 10 años', valor: '≈ 18 kt CO₂' },
 ];
 
@@ -21,7 +30,6 @@ export default function ProcesoCiclo() {
     <section className="relative py-24 lg:py-32 bg-ink text-bone overflow-hidden grain">
       <div className="container-x max-w-7xl">
 
-        {/* Cabecera + imagen al lado */}
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20 lg:mb-28">
           <div className="lg:col-span-7">
             <SectionEyebrow light>Balance del ciclo</SectionEyebrow>
@@ -45,8 +53,8 @@ export default function ProcesoCiclo() {
               className="mt-8 text-lg lg:text-xl text-bone/65 leading-relaxed max-w-xl"
             >
               La economía circular no es una metáfora: es una contabilidad.
-              Cada tonelada que entra como residuo se transforma en algo
-              cuantificable a la salida.
+              Adquirimos compost certificado, lo aplicamos en parcelas
+              regenerativas y publicamos los resultados. Todo trazable.
             </motion.p>
           </div>
 
@@ -67,7 +75,6 @@ export default function ProcesoCiclo() {
           </motion.div>
         </div>
 
-        {/* Tabla entradas / salidas */}
         <div className="grid lg:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-0">
           <div>
             <p className="text-xs font-mono uppercase tracking-[0.25em] text-forest mb-8 pb-4 border-b border-bone/15">
@@ -84,7 +91,7 @@ export default function ProcesoCiclo() {
                   className="flex items-baseline justify-between gap-6 border-b border-bone/10 pb-6"
                 >
                   <p className="text-lg lg:text-xl text-bone/90">{item.label}</p>
-                  <p className="font-mono text-sm lg:text-base text-bone/60 whitespace-nowrap">
+                  <p className="font-mono text-sm lg:text-base text-bone/60 whitespace-nowrap text-right">
                     {item.valor}
                   </p>
                 </motion.div>
@@ -107,7 +114,7 @@ export default function ProcesoCiclo() {
                   className="flex items-baseline justify-between gap-6 border-b border-bone/10 pb-6"
                 >
                   <p className="text-lg lg:text-xl text-bone/90">{item.label}</p>
-                  <p className="font-mono text-sm lg:text-base text-bone/60 whitespace-nowrap">
+                  <p className="font-mono text-sm lg:text-base text-bone/60 whitespace-nowrap text-right">
                     {item.valor}
                   </p>
                 </motion.div>
