@@ -3,6 +3,10 @@
 import { motion } from 'framer-motion';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 15: "cada tonelada de compost producida" → "cada tonelada de compost
+ * aplicada". Ya no producimos compost, lo compramos a partners certificados.
+ */
 export default function EquipoManifiesto() {
   return (
     <section className="relative py-20 lg:py-28 bg-bone">
@@ -40,7 +44,7 @@ export default function EquipoManifiesto() {
             sin ánimo de lucro, transparente, auditable, abierta.
           </p>
           <p className="text-ink">
-            Cada hectárea plantada, cada tonelada de compost producida y cada
+            Cada hectárea plantada, cada tonelada de compost aplicada y cada
             cifra publicada pasa por nosotros antes de que nadie más la vea.
             Esa es la única promesa que sabemos cumplir.
           </p>

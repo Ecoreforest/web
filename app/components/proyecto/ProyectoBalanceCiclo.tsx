@@ -5,16 +5,9 @@ import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Paso 14: Balance del ciclo migrado desde /proceso a /proyecto.
- *
- * Contexto: la página /proceso se elimina en el paso 14 (sweep de coherencia).
- * Sus dos secciones únicas viajan: esta va a /proyecto (cierra la narrativa
- * de "La solución" con la contabilidad concreta) y Trazabilidad va a
- * /tecnologia (es una capa técnica del stack, no un paso operativo).
- *
- * Contenido reciclado 1:1 del antiguo ProcesoCiclo.tsx (paso 13). Se mantiene
- * el bg-ink para dar contraste con ProyectoSolucion (bg-ivory) y ProyectoMarco
- * (que va justo después con bg-bone).
+ * Paso 14 (re-subido en paso 15): Balance del ciclo migrado desde /proceso
+ * a /proyecto. Cierra la narrativa de "La solución" con la contabilidad
+ * concreta antes del marco institucional.
  */
 
 const inputs = [

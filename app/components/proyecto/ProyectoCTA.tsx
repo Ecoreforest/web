@@ -4,11 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 /**
- * Paso 14: CTA "Ver el proceso" reemplazada por "Ver la tecnología".
- * La página /proceso desaparece en el sweep de coherencia. La tecnología
- * es el siguiente paso lógico para el visitante que ya conoce el porqué:
- * "Descubre cómo lo hacemos, con qué tecnología" enlaza directamente con
- * el botón.
+ * Paso 14 (re-subido en paso 15): CTA "Ver el proceso" reemplazada por
+ * "Ver la tecnología". La página /proceso desaparece.
  */
 export default function ProyectoCTA() {
   return (

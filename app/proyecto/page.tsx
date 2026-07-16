@@ -14,10 +14,9 @@ export const metadata = {
 };
 
 /**
- * Paso 14: se inserta ProyectoBalanceCiclo entre Solucion y Marco.
- * Cierra la narrativa "así funciona el ciclo" (Solucion) con "esto es lo
- * que entra y sale del sistema" (BalanceCiclo) antes de escalar al marco
- * institucional europeo/español.
+ * Paso 14 (re-subido en paso 15): se inserta ProyectoBalanceCiclo entre
+ * Solucion y Marco. Cierra la narrativa "así funciona el ciclo" con
+ * "esto es lo que entra y sale del sistema".
  */
 export default function Proyecto() {
   return (

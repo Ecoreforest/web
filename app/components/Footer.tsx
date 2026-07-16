@@ -7,12 +7,7 @@ import Logo from './Logo';
 
 /**
  * Footer con newsletter funcional vía Web3Forms (paso 9).
- * Misma access key que el formulario de /contacto. Los envíos de newsletter
- * llegan al mismo email (hola@ecoreforest.com) pero con subject distinguible
- * para que se puedan filtrar a una carpeta dedicada.
- *
- * Paso 14: retirado el link a /proceso. Esa página se elimina en el sweep
- * de coherencia y su contenido único migra a /proyecto y /tecnologia.
+ * Paso 14 (re-subido en paso 15): retirado el link a /proceso.
  */
 const WEB3FORMS_ACCESS_KEY = 'c3a3728f-67f5-4c60-b68c-be8d2393189e';
 
@@ -93,8 +88,6 @@ export default function Footer() {
       if (data.success) {
         setStatus('success');
         setEmail('');
-        // Después de 6s volvemos al estado inicial por si el usuario quiere
-        // suscribir otro email
         setTimeout(() => setStatus('idle'), 6000);
       } else {
         setStatus('error');
@@ -122,7 +115,6 @@ export default function Footer() {
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
-            {/* Honeypot anti-spam — invisible para humanos */}
             <input
               type="checkbox"
               name="botcheck"
@@ -153,7 +145,6 @@ export default function Footer() {
             </button>
           </form>
 
-          {/* Mensajes de estado bajo el form */}
           {status === 'success' && (
             <motion.p
               initial={{ opacity: 0, y: 5 }}

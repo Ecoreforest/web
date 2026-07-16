@@ -9,6 +9,13 @@ type Area = {
   funcion: string;
 };
 
+/**
+ * Paso 15: área 05 pasa de "Compostaje y biocompost / Recetas, proveedores,
+ * control de calidad y permisos" a "Compost certificado / Auditoría de
+ * partners UNE 142500, análisis por lote y trazabilidad de origen".
+ * Refleja el pivote: no fabricamos, seleccionamos y validamos.
+ */
+
 const areas: Area[] = [
   {
     numero: '01',
@@ -32,8 +39,8 @@ const areas: Area[] = [
   },
   {
     numero: '05',
-    nombre: 'Compostaje y biocompost',
-    funcion: 'Recetas, proveedores, control de calidad y permisos.',
+    nombre: 'Compost certificado',
+    funcion: 'Auditoría de partners UNE 142500, análisis por lote y trazabilidad de origen.',
   },
   {
     numero: '06',

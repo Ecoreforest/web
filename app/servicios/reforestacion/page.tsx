@@ -8,6 +8,11 @@ export const metadata = {
   description: 'Diseño, plantación y mantenimiento de proyectos de restauración ecológica con especies autóctonas y garantía de supervivencia del 85%.',
 };
 
+/**
+ * Paso 15: dos fixes tras el pivote de externalización del compost:
+ * - Feature "Sustrato propio" → "Compost certificado" (compramos, no producimos).
+ * - Paso 02 "enmiendas con compost propio" → "enmiendas con compost UNE 142500".
+ */
 export default function Reforestacion() {
   return (
     <>
@@ -33,8 +38,8 @@ export default function Reforestacion() {
             descripcion: 'Tasa de supervivencia garantizada por contrato. Si una planta muere en el periodo de garantía, la reponemos sin coste.',
           },
           {
-            titulo: 'Sustrato propio',
-            descripcion: 'Cada plantón se aplica con compost certificado UNE 142500 producido por EcoReforest. Cierre del ciclo desde el primer día.',
+            titulo: 'Compost certificado',
+            descripcion: 'Cada plantón se aplica con compost UNE 142500 de productores partners españoles, con análisis por lote. Cierre del ciclo desde el primer día.',
           },
           {
             titulo: 'Riego eficiente',
@@ -57,7 +62,7 @@ export default function Reforestacion() {
         italicWord="árbol adulto."
         pasos={[
           { numero: '01', titulo: 'Diagnóstico del terreno', descripcion: 'Análisis edafoclimático, topográfico y de biodiversidad. Cartografía detallada del área y diseño técnico ajustado a las condiciones locales.' },
-          { numero: '02', titulo: 'Acondicionamiento', descripcion: 'Subsolado, enmiendas con compost propio, instalación de sistemas de riego y preparación de microsites favorables para cada especie.' },
+          { numero: '02', titulo: 'Acondicionamiento', descripcion: 'Subsolado, enmiendas con compost UNE 142500, instalación de sistemas de riego y preparación de microsites favorables para cada especie.' },
           { numero: '03', titulo: 'Plantación', descripcion: 'Plantación en otoño-invierno con plantas de vivero propio. Densidad de 400-1.200 plantas por hectárea según especie y objetivos del proyecto.' },
           { numero: '04', titulo: 'Mantenimiento y monitoreo', descripcion: 'Seguimiento durante 2-3 años: riego, reposición de marras, control de plagas y monitoreo continuo con tecnología de campo y satélite.' },
         ]}

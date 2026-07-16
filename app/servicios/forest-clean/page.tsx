@@ -8,6 +8,12 @@ export const metadata = {
   description: 'Servicio integral de limpieza y gestión de biomasa forestal en 4 fases. Prevención de incendios y valorización circular de la biomasa obtenida.',
 };
 
+/**
+ * Paso 15: reescritas todas las menciones a "nuestras instalaciones de
+ * compostaje". La biomasa herbácea se entrega a productores partners UNE 142500.
+ * Los destinos de valorización pasan a ser: astilla energética, biochar y
+ * entrega a partners de compostaje certificados.
+ */
 export default function ForestClean() {
   return (
     <>
@@ -15,7 +21,7 @@ export default function ForestClean() {
         eyebrow="Servicio 03"
         title="Forest Clean. Bosques limpios, comunidades protegidas."
         italicWord="comunidades protegidas."
-        description="Servicio integral de limpieza y gestión de biomasa forestal. Reducimos el riesgo de incendios mientras alimentamos la economía circular del compostaje y la valorización energética."
+        description="Servicio integral de limpieza y gestión de biomasa forestal. Reducimos el riesgo de incendios y valorizamos toda la biomasa obtenida: astilla energética, biochar y entrega a productores de compost certificados."
         imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1780492612/servicio-hero-forest-clean_aj7hwi.png"
       />
 
@@ -35,7 +41,7 @@ export default function ForestClean() {
           },
           {
             titulo: 'Biomasa valorizada',
-            descripcion: 'Toda la biomasa obtenida se reincorpora al ciclo: compostaje, biochar o astilla energética. Cero residuo, cero quema en campo.',
+            descripcion: 'Toda la biomasa obtenida se reincorpora al ciclo: astilla energética, biochar o entrega a productores de compost certificados. Cero residuo, cero quema en campo.',
           },
           {
             titulo: 'Empleo rural',
@@ -59,8 +65,8 @@ export default function ForestClean() {
         pasos={[
           { numero: '01', titulo: 'Diagnóstico y planificación', descripcion: 'Evaluación técnica del estado del monte, cartografía de zonas de riesgo, plan de actuación con criterios de biodiversidad y tramitación de permisos administrativos.' },
           { numero: '02', titulo: 'Trabajos silvícolas', descripcion: 'Desbroce selectivo del sotobosque, poda de formación, eliminación de árboles muertos o enfermos, y apertura y mantenimiento de cortafuegos.' },
-          { numero: '03', titulo: 'Recogida y clasificación', descripcion: 'Separación en campo según el destino de cada material: leñoso para astilla, herbáceo para compostaje, carbonizado para biochar.' },
-          { numero: '04', titulo: 'Valorización y trazabilidad', descripcion: 'Transporte a nuestras instalaciones, incorporación al proceso de compostaje y certificados de gestión sostenible para el cliente.' },
+          { numero: '03', titulo: 'Recogida y clasificación', descripcion: 'Separación en campo según el destino de cada material: leñoso para astilla energética, herbáceo para productores de compost certificados, carbonizado para biochar.' },
+          { numero: '04', titulo: 'Valorización y trazabilidad', descripcion: 'Transporte a instalaciones autorizadas de valorización (energía, compostaje certificado o biochar) y entrega al cliente de certificados de gestión sostenible.' },
         ]}
       />
 

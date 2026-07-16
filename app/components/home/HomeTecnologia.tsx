@@ -6,8 +6,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 15: primer pilar tecnológico pasa de "Compostaje acelerado / 30-45 días"
+ * (obsoleto tras el pivote de externalización) a "Compost UNE 142500 /
+ * Análisis por lote", coherente con lo que hoy hacemos en /tecnologia.
+ */
+
 const tech = [
-  { nombre: 'Compostaje acelerado', dato: '30-45 días' },
+  { nombre: 'Compost UNE 142500', dato: 'Análisis por lote' },
   { nombre: 'Drones multiespectrales', dato: 'NDVI en tiempo real' },
   { nombre: 'Sensores IoT', dato: '24/7 en campo' },
   { nombre: 'Análisis satelital', dato: 'Sentinel-2 · Landsat' },
@@ -43,7 +49,6 @@ export default function HomeTecnologia() {
 
       <div className="relative container-x max-w-7xl py-24 lg:py-32">
 
-        {/* Cabecera con drone flotante al lado */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
             <SectionEyebrow light>Tecnología</SectionEyebrow>
@@ -71,7 +76,6 @@ export default function HomeTecnologia() {
             </motion.p>
           </div>
 
-          {/* Wrapper externo: scroll-linked y + entrada al viewport */}
           <motion.div
             style={{ y: droneY }}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -80,8 +84,6 @@ export default function HomeTecnologia() {
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative aspect-square w-full max-w-sm mx-auto lg:max-w-none"
           >
-            {/* Wrapper interno: float continuo (oscilación + micro-rotación)
-                Simula vuelo del drone sin tocar la PNG. */}
             <motion.div
               className="absolute inset-0"
               animate={{

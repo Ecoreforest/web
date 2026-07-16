@@ -2,19 +2,13 @@ import type { MetadataRoute } from 'next';
 
 /**
  * Sitemap dinámico para Next.js App Router.
- * Next.js lo sirve automáticamente en /sitemap.xml.
- *
- * Páginas excluidas:
- * - /shop: la tienda se va a separar a ecoreforest.com cuando esté lista
- * - /hoja-de-ruta y /impacto: ya no existen
- * - /proceso: eliminada en paso 14 (sweep de coherencia). Redirect 301 en
- *   next.config.mjs → /proyecto
+ * Paso 14 (re-subido en paso 15): eliminada /proceso del sitemap.
+ * Redirect 301 en next.config.mjs → /proyecto.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ecoreforest.org';
   const now = new Date();
 
-  // Página principal — máxima prioridad
   const home = {
     url: `${baseUrl}/`,
     lastModified: now,
@@ -22,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   };
 
-  // Páginas principales — alta prioridad, cambian con relativa frecuencia
   const mainPages = [
     '/proyecto',
     '/equipo',
@@ -36,7 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // Subpáginas de servicios — alta prioridad (son las páginas comerciales)
   const servicesPages = [
     '/servicios/compost',
     '/servicios/reforestacion',
@@ -50,7 +42,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Páginas legales — baja prioridad, casi nunca cambian
   const legalPages = [
     '/aviso-legal',
     '/privacidad',
