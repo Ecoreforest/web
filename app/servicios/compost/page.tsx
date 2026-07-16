@@ -17,7 +17,7 @@ export default function Compost() {
         title="Compost certificado. UNE 142500 en cada lote."
         italicWord="cada lote."
         description="Distribuimos compost UNE 142500 producido por partners certificados españoles. Selección rigurosa, análisis fisicoquímico por lote y aplicación técnica en proyectos de reforestación o entrega directa a agricultura ecológica, viveros y jardinería profesional."
-        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895092/bosque-mediterraneo_peuyt6.jpg"
+        imagen="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895082/linea-compost_jepie9.jpg"
       />
 
       <ServicioFeatures

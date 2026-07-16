@@ -11,6 +11,17 @@ type Props = {
   ctaSecundario?: { label: string; href: string };
 };
 
+/**
+ * Paso 13.1: añadido `mx-auto` al container para que el bloque se centre
+ * horizontalmente en pantallas anchas. Sin él, `max-w-5xl` limita el ancho
+ * pero deja el bloque anclado a la izquierda dentro del section, haciendo
+ * que el texto "centrado" parezca desplazado.
+ *
+ * Este componente lo usan las 5 páginas de servicios (compost, reforestación,
+ * forest-clean, auditorías, créditos de carbono), así que el fix aplica a
+ * todas.
+ */
+
 export default function ServicioCTA({
   titulo,
   italicWord,
@@ -32,13 +43,13 @@ export default function ServicioCTA({
 
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
-      <div className="container-x max-w-5xl py-24 lg:py-32 text-center">
+      <div className="container-x max-w-5xl mx-auto py-24 lg:py-32 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-display-lg font-semibold tracking-tight text-balance leading-[1]"
+          className="text-display-lg font-semibold tracking-tight text-balance leading-[1] max-w-4xl mx-auto"
         >
           {renderTitle()}
         </motion.h2>
