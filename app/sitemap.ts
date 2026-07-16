@@ -7,6 +7,8 @@ import type { MetadataRoute } from 'next';
  * Páginas excluidas:
  * - /shop: la tienda se va a separar a ecoreforest.com cuando esté lista
  * - /hoja-de-ruta y /impacto: ya no existen
+ * - /proceso: eliminada en paso 14 (sweep de coherencia). Redirect 301 en
+ *   next.config.mjs → /proyecto
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://ecoreforest.org';
@@ -24,7 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainPages = [
     '/proyecto',
     '/equipo',
-    '/proceso',
     '/tecnologia',
     '/colabora',
     '/contacto',

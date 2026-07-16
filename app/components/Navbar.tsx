@@ -10,10 +10,13 @@ type SubLink = { href: string; label: string; description?: string };
 type NavItem = { label: string; href?: string; children?: SubLink[] };
 
 /**
- * Nav restructurada (paso 6.6):
+ * Nav restructurada (paso 6.6, actualizada en paso 14):
  * - "Tienda" eliminada del menú (irá en dominio separado ecoreforest.com cuando esté lista)
  * - Hoja de ruta e Impacto fueron retiradas previamente (paso 6.4) y las páginas se eliminan en paso 6.6
- * - Proyecto contiene: El proyecto · Equipo · Proceso · Tecnología · Colabora
+ * - Paso 14: "Proceso" retirada del dropdown. Su contenido único (Balance del ciclo
+ *   y Trazabilidad) migra a /proyecto y /tecnologia respectivamente. Los 4 pasos
+ *   operativos ya viven en HomeProceso, por lo que /proceso resultaba redundante.
+ * - Proyecto contiene ahora: El proyecto · Equipo · Tecnología · Colabora
  */
 const navStructure: NavItem[] = [
   {
@@ -21,7 +24,6 @@ const navStructure: NavItem[] = [
     children: [
       { href: '/proyecto', label: 'El proyecto', description: 'Quiénes somos y por qué' },
       { href: '/equipo', label: 'Equipo', description: 'Los tres fundadores' },
-      { href: '/proceso', label: 'Proceso', description: 'Del residuo al bosque' },
       { href: '/tecnologia', label: 'Tecnología', description: 'Drones, IoT, satélite' },
       { href: '/colabora', label: 'Colabora', description: 'Únete al proyecto' },
     ],

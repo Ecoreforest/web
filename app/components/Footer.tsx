@@ -10,6 +10,9 @@ import Logo from './Logo';
  * Misma access key que el formulario de /contacto. Los envíos de newsletter
  * llegan al mismo email (hola@ecoreforest.com) pero con subject distinguible
  * para que se puedan filtrar a una carpeta dedicada.
+ *
+ * Paso 14: retirado el link a /proceso. Esa página se elimina en el sweep
+ * de coherencia y su contenido único migra a /proyecto y /tecnologia.
  */
 const WEB3FORMS_ACCESS_KEY = 'c3a3728f-67f5-4c60-b68c-be8d2393189e';
 
@@ -19,7 +22,6 @@ const footerSections = [
     links: [
       { href: '/proyecto', label: 'El proyecto' },
       { href: '/equipo', label: 'Equipo' },
-      { href: '/proceso', label: 'Proceso' },
       { href: '/tecnologia', label: 'Tecnología' },
       { href: '/colabora', label: 'Colabora' },
     ],

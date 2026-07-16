@@ -7,10 +7,13 @@ import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Paso 13.2: la imagen del paso 01 pasa de la pila de frutas y verduras
- * (que era coherente con la vieja "Recolección de residuos") a una vista
- * aérea de terreno árido, coherente con el nuevo paso "Selección de
- * terreno" y con el lenguaje visual de drones/satélite del resto de la web.
+ * Paso 14:
+ * - Consolida el cambio de imagen del paso 01 introducido en el paso 13.2
+ *   (vista aérea de terreno degradado).
+ * - Cambia el CTA final "Ver el proceso completo" (que apuntaba a /proceso,
+ *   ya eliminada) por "Conoce el proyecto" apuntando a /proyecto. Los 4 pasos
+ *   operativos viven aquí en la home; el porqué y el balance del ciclo viven
+ *   en /proyecto.
  */
 
 const pasos = [
@@ -164,10 +167,10 @@ export default function HomeProceso() {
           className="flex items-center gap-6 pt-12 border-t border-ash"
         >
           <Link
-            href="/proceso"
+            href="/proyecto"
             className="inline-flex items-center gap-3 px-7 py-3.5 bg-ink text-bone rounded-full font-medium hover:bg-forest transition-colors"
           >
-            Ver el proceso completo
+            Conoce el proyecto
             <span>→</span>
           </Link>
         </motion.div>
