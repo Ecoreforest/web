@@ -7,11 +7,10 @@ import Link from 'next/link';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Paso 13: los 4 pasos del home reformulados tras externalización compost.
- * - 01 Selección de terreno (antes Recolección)
- * - 02 Suministro certificado de compost (antes Compostaje acelerado)
- * - 03 Plantación (igual)
- * - 04 Monitoreo (igual)
+ * Paso 13.2: la imagen del paso 01 pasa de la pila de frutas y verduras
+ * (que era coherente con la vieja "Recolección de residuos") a una vista
+ * aérea de terreno árido, coherente con el nuevo paso "Selección de
+ * terreno" y con el lenguaje visual de drones/satélite del resto de la web.
  */
 
 const pasos = [
@@ -20,7 +19,7 @@ const pasos = [
     titulo: 'Selección de terreno',
     descripcion: 'Identificamos parcelas con administraciones, propietarios privados y comunidades locales. Estudio edafoclimático y diseño técnico ajustado al bioma. Sin diseño previo no hay plantación que sobreviva.',
     dato: 'Diseño en mosaico · Especies autóctonas',
-    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1777895095/paso-01-recolecci%C3%B3n_mottf9.png',
+    imagen: 'https://res.cloudinary.com/dekgmk73i/image/upload/v1784171735/paso-01-terreno-aereo.jpg_bidvrr.webp',
   },
   {
     numero: '02',
