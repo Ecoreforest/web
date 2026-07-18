@@ -38,6 +38,9 @@ const FAVICON_APPLE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ecoreforest.org'),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: 'EcoReforest — Convertimos el desperdicio en bosque',
     template: '%s · EcoReforest',
