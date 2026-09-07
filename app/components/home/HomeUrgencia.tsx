@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 import AnimatedCounter from '../AnimatedCounter';
 import SectionEyebrow from '../SectionEyebrow';
 
+/**
+ * Paso 20: fuera el dato "270 hectáreas comprometidas en Galicia" —
+ * esos terrenos ya no forman parte del proyecto. Se sustituye por una
+ * cifra del problema, verificable y sin compromisos de calendario:
+ * la cobertura forestal perdida en la Península en tres décadas.
+ */
 export default function HomeUrgencia() {
   return (
     <section className="relative py-24 lg:py-32 bg-bone">
@@ -39,7 +45,7 @@ export default function HomeUrgencia() {
             { value: 74, suffix: '%', label: 'Territorio español en riesgo de desertificación' },
             { value: 7.7, decimals: 1, suffix: 'M', label: 'Toneladas de residuos orgánicos al año' },
             { value: 176, suffix: '%', label: 'Aumento de biomasa en estudios con compost' },
-            { value: 270, label: 'Hectáreas comprometidas en Galicia' },
+            { value: 2.3, decimals: 1, suffix: 'M ha', label: 'Bosque perdido en la Península en tres décadas' },
           ].map((stat, i) => (
             <motion.div
               key={i}

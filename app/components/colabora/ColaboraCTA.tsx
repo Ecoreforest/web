@@ -3,6 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+/**
+ * Paso 20: fuera "Octubre 2026 — primera plantación en Galicia" y las
+ * 270 hectáreas. El cierre apela a la misión sin fechas ni cifras de
+ * terreno que ya no existen.
+ */
 export default function ColaboraCTA() {
   return (
     <section className="relative bg-bone overflow-hidden">
@@ -14,7 +19,7 @@ export default function ColaboraCTA() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs font-mono uppercase tracking-[0.25em] text-smoke mb-10"
         >
-          Octubre 2026 — primera plantación en Galicia
+          El primer capítulo
         </motion.p>
 
         <motion.h2
@@ -24,7 +29,7 @@ export default function ColaboraCTA() {
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-display-lg font-semibold tracking-tight text-balance leading-[1] max-w-4xl mx-auto"
         >
-          Hay 270 hectáreas{' '}
+          Hay un bosque{' '}
           <span className="italic-display font-normal text-forest">
             esperándote.
           </span>

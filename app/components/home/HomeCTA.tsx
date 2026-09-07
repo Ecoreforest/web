@@ -3,6 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+/**
+ * Paso 20: fuera la fecha de la plantación de octubre. El titular pasa
+ * a hablar de la misión sin comprometer calendario.
+ */
 export default function HomeCTA() {
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
@@ -25,8 +29,7 @@ export default function HomeCTA() {
           className="text-display-lg font-semibold tracking-tight text-balance max-w-5xl mx-auto"
         >
           El primer árbol{' '}
-          <span className="italic-display font-normal">se planta en octubre.</span>{' '}
-          ¿Estarás ahí?
+          <span className="italic-display font-normal">empieza contigo.</span>
         </motion.h2>
 
         <motion.p

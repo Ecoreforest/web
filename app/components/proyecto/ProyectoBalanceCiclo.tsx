@@ -5,22 +5,24 @@ import Image from 'next/image';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
- * Paso 14 (re-subido en paso 15): Balance del ciclo migrado desde /proceso
- * a /proyecto. Cierra la narrativa de "La solución" con la contabilidad
- * concreta antes del marco institucional.
+ * Paso 20: el balance del ciclo deja de proyectar cifras basadas en las
+ * 270 hectáreas de Galicia, que ya no forman parte del proyecto. Se
+ * mantiene la estructura entradas/salidas —que explica el modelo— pero
+ * describiendo qué se mide en cada una en lugar de prometer volúmenes.
+ * En cuanto haya parcelas confirmadas, aquí vuelven las cifras reales.
  */
 
 const inputs = [
   { label: 'Compost UNE 142500 adquirido', valor: 'a productores certificados' },
-  { label: 'Terrenos apalabrados', valor: '270 ha · Galicia año 1' },
-  { label: 'Productores partner', valor: '3 — 5 en Península' },
+  { label: 'Análisis por lote', valor: 'previo a cada aplicación' },
+  { label: 'Diseño técnico por parcela', valor: 'suelo, clima y especies' },
 ];
 
 const outputs = [
-  { label: 'Hectáreas reforestadas', valor: '270 ha año 1' },
-  { label: 'Compost aplicado en parcela', valor: 'según diseño técnico' },
+  { label: 'Hectáreas restauradas', valor: 'publicadas por parcela' },
+  { label: 'Compost aplicado en campo', valor: 'según diseño técnico' },
   { label: 'Compost redistribuido al mercado', valor: 'venta directa' },
-  { label: 'Carbono capturado a 10 años', valor: '≈ 18 kt CO₂' },
+  { label: 'Carbono capturado', valor: 'medido y verificable' },
 ];
 
 export default function ProyectoBalanceCiclo() {
@@ -128,9 +130,9 @@ export default function ProyectoBalanceCiclo() {
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-20 lg:mt-28 text-center text-xl lg:text-2xl font-light tracking-tight max-w-3xl mx-auto text-bone/80 text-balance"
         >
-          Cifras objetivo para el ejercicio{' '}
-          <span className="italic-display font-normal text-bone">2026 — 2027.</span>{' '}
-          Verificables, auditables y publicadas anualmente.
+          Cada cifra que publiquemos será{' '}
+          <span className="italic-display font-normal text-bone">verificable,</span>{' '}
+          auditable y abierta. Sin excepciones.
         </motion.p>
       </div>
     </section>
