@@ -50,7 +50,7 @@ const legal = [
   { href: '/aviso-legal', label: 'Aviso legal' },
   { href: '/privacidad', label: 'Privacidad' },
   { href: '/cookies', label: 'Cookies' },
-  { href: '/condiciones', label: 'Condiciones de venta' },
+  { href: '/condiciones', label: 'Condiciones de contratación' },
 ];
 
 type NewsletterStatus = 'idle' | 'submitting' | 'success' | 'error';
