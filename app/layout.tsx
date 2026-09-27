@@ -38,9 +38,6 @@ const FAVICON_APPLE_URL =
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ecoreforest.org'),
-  alternates: {
-    canonical: './',
-  },
   title: {
     default: 'EcoReforest — Convertimos el desperdicio en bosque',
     template: '%s · EcoReforest',
@@ -182,6 +179,33 @@ const jsonLd = {
   ],
 };
 
+/**
+ * Paso 22: marcado `WebSite`.
+ *
+ * El bloque NGO de arriba describe a la ENTIDAD. Este describe al SITIO,
+ * y es el que Google usa específicamente para decidir qué nombre muestra
+ * como título en los resultados de búsqueda. Sin él lo deduce del
+ * <title>, y ahí aparece la frase entera "EcoReforest — Convertimos el
+ * desperdicio en bosque" en lugar del nombre a secas.
+ *
+ * `alternateName` le da una segunda opción por si descarta la primera, y
+ * `publisher` enlaza este sitio con la ficha de la asociación mediante el
+ * @id, para que Google entienda que son la misma cosa.
+ *
+ * Esto no garantiza los enlaces de sitio: son automáticos y los decide
+ * Google. Solo le quita una excusa para equivocarse con el nombre.
+ */
+const jsonLdWebsite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://ecoreforest.org/#website',
+  name: 'EcoReforest',
+  alternateName: 'EcoReforest Asociación',
+  url: 'https://ecoreforest.org',
+  inLanguage: 'es-ES',
+  publisher: { '@id': 'https://ecoreforest.org/#organization' },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -193,6 +217,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
         <SmoothScroll />
         <Navbar />
