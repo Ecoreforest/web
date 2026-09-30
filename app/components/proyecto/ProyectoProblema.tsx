@@ -49,8 +49,13 @@ export default function ProyectoProblema() {
     target: imgRef,
     offset: ['start end', 'end start'],
   });
+  /**
+   * Paso 23: se conserva el desplazamiento vertical del bloque, que es
+   * puramente decorativo y no afecta al encuadre, pero desaparece el
+   * `scale` que había aquí. Aquel zoom del 8 % ampliaba la imagen dentro
+   * de su marco y se comía los bordes del mapa.
+   */
   const imageY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
 
   return (
     <section className="relative bg-ink text-bone overflow-hidden grain">
@@ -84,25 +89,36 @@ export default function ProyectoProblema() {
             </motion.p>
           </div>
 
+          {/**
+           * Paso 23: el marco pasa de 4:5 a cuadrado y la imagen de
+           * `object-cover` a `object-contain`.
+           *
+           * El archivo original mide 1248 × 1248, es decir, cuadrado. Meterlo
+           * en un marco vertical 4:5 y recortarlo al vuelo con `cover` le
+           * quitaba un 20 % por los laterales, que es justo donde estaban los
+           * bordes del mapa. Con un marco de la misma proporción que el
+           * archivo, la imagen entra entera sin bandas ni recortes.
+           *
+           * También se retira el degradado oscuro que cubría la parte baja:
+           * sobre una fotografía quedaba bien, pero sobre un mapa tapaba
+           * información.
+           */}
           <motion.div
             ref={imgRef}
             initial={{ opacity: 0, scale: 1.05 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative aspect-[4/5] overflow-hidden rounded-sm"
+            className="lg:col-span-5 relative aspect-square overflow-hidden rounded-sm"
             style={{ y: imageY }}
           >
-            <motion.div style={{ scale: imageScale }} className="absolute inset-0">
-              <Image
-                src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778154904/dos-crisis_kk1u3a.png"
-                alt="Tierra seca y agrietada, símbolo de la desertificación"
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
+            <Image
+              src="https://res.cloudinary.com/dekgmk73i/image/upload/q_auto/f_auto/v1778154904/dos-crisis_kk1u3a.png"
+              alt="Mapa de España con las zonas en riesgo de desertificación"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-contain"
+            />
           </motion.div>
         </div>
 
