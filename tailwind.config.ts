@@ -25,6 +25,13 @@ const config: Config = {
         sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
         display: ['var(--font-instrument)', 'Georgia', 'serif'],
         mono: ['var(--font-jetbrains)', 'monospace'],
+        /**
+         * Paso 24: la manuscrita. Se usa con `font-manuscrita` y de
+         * momento solo en los campos del formulario de contacto. Si
+         * Homemade Apple no ha cargado todavía, cae en la cursiva del
+         * sistema, que es fea pero mantiene el gesto.
+         */
+        manuscrita: ['var(--font-homemade)', 'cursive'],
       },
       fontSize: {
         'display-xl': ['clamp(3.5rem, 11vw, 11rem)', { lineHeight: '0.9', letterSpacing: '-0.04em' }],
