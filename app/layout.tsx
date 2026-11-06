@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
-import { Manrope, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import {
+  Manrope,
+  Instrument_Serif,
+  JetBrains_Mono,
+  Homemade_Apple,
+} from 'next/font/google';
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -25,6 +30,27 @@ const jetbrains = JetBrains_Mono({
   variable: '--font-jetbrains',
   display: 'swap',
   weight: ['400', '500'],
+});
+
+/**
+ * Paso 24: Homemade Apple, la manuscrita.
+ *
+ * Es exactamente la misma tipografía que usa reginaorizaga.com —lo he
+ * comprobado leyendo su CSS, donde aparece como `homemade-apple,
+ * cursive`— y está en Google Fonts con licencia libre, así que no hay
+ * nada que negociar.
+ *
+ * Se carga con `display: 'swap'` como las demás: mientras descarga se ve
+ * la cursiva del sistema y luego cambia, en lugar de dejar un hueco en
+ * blanco. Solo tiene un peso, 400; no existen ni negrita ni cursiva, así
+ * que no conviene aplicarle `font-bold` porque el navegador se la
+ * inventaría y queda sucia.
+ */
+const homemade = Homemade_Apple({
+  subsets: ['latin'],
+  variable: '--font-homemade',
+  display: 'swap',
+  weight: '400',
 });
 
 const OG_IMAGE =
@@ -184,16 +210,7 @@ const jsonLd = {
  *
  * El bloque NGO de arriba describe a la ENTIDAD. Este describe al SITIO,
  * y es el que Google usa específicamente para decidir qué nombre muestra
- * como título en los resultados de búsqueda. Sin él lo deduce del
- * <title>, y ahí aparece la frase entera "EcoReforest — Convertimos el
- * desperdicio en bosque" en lugar del nombre a secas.
- *
- * `alternateName` le da una segunda opción por si descarta la primera, y
- * `publisher` enlaza este sitio con la ficha de la asociación mediante el
- * @id, para que Google entienda que son la misma cosa.
- *
- * Esto no garantiza los enlaces de sitio: son automáticos y los decide
- * Google. Solo le quita una excusa para equivocarse con el nombre.
+ * como título en los resultados de búsqueda.
  */
 const jsonLdWebsite = {
   '@context': 'https://schema.org',
@@ -212,7 +229,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${manrope.variable} ${instrument.variable} ${jetbrains.variable}`}>
+    <html
+      lang="es"
+      className={`${manrope.variable} ${instrument.variable} ${jetbrains.variable} ${homemade.variable}`}
+    >
       <body className="bg-bone text-ink antialiased">
         <script
           type="application/ld+json"

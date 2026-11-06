@@ -5,6 +5,25 @@ import { useState } from 'react';
 import SectionEyebrow from '../SectionEyebrow';
 
 /**
+ * Paso 24: el texto que escribe la persona se muestra en Homemade Apple,
+ * la misma manuscrita que usa reginaorizaga.com.
+ *
+ * El formulario no cambia de forma: ni papel, ni sobre, ni fondo. Lo
+ * único distinto es la letra de lo que tú escribes, para que la consulta
+ * parezca escrita a mano y no rellenada en un impreso.
+ *
+ * Tres decisiones de legibilidad:
+ *   · Las etiquetas (Nombre, Email…) siguen en Manrope. Una etiqueta
+ *     manuscrita se lee peor y además es lo que anuncian los lectores de
+ *     pantalla, así que ahí la claridad manda sobre el gesto.
+ *   · Los textos de ejemplo vuelven a Manrope con `placeholder:font-sans`.
+ *     Si el ejemplo también fuera manuscrito, no se distinguiría de lo ya
+ *     escrito y la gente creería que el campo está relleno.
+ *   · El tamaño sube a text-xl porque Homemade Apple tiene la x muy
+ *     pequeña: al cuerpo normal se leería diminuta.
+ */
+
+/**
  * Web3Forms integration.
  *
  * Sustituir 'YOUR_WEB3FORMS_ACCESS_KEY' por la access key real que llegará al
@@ -103,7 +122,7 @@ export default function ContactoFormulario() {
                     type="text"
                     required
                     autoComplete="name"
-                    className="w-full bg-transparent border-b border-ash py-3 text-base text-ink placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
+                    className="w-full bg-transparent border-b border-ash py-3 font-manuscrita text-xl text-ink placeholder:font-sans placeholder:text-base placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
                     placeholder="Tu nombre"
                   />
                 </div>
@@ -118,7 +137,7 @@ export default function ContactoFormulario() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="w-full bg-transparent border-b border-ash py-3 text-base text-ink placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
+                    className="w-full bg-transparent border-b border-ash py-3 font-manuscrita text-xl text-ink placeholder:font-sans placeholder:text-base placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
                     placeholder="tu@email.com"
                   />
                 </div>
@@ -134,7 +153,7 @@ export default function ContactoFormulario() {
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    className="w-full bg-transparent border-b border-ash py-3 text-base text-ink placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
+                    className="w-full bg-transparent border-b border-ash py-3 font-manuscrita text-xl text-ink placeholder:font-sans placeholder:text-base placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors"
                     placeholder="+34 600 000 000"
                   />
                 </div>
@@ -148,7 +167,7 @@ export default function ContactoFormulario() {
                     name="tipo"
                     required
                     defaultValue=""
-                    className="w-full bg-transparent border-b border-ash py-3 text-base text-ink focus:outline-none focus:border-forest transition-colors appearance-none cursor-pointer"
+                    className="w-full bg-transparent border-b border-ash py-3 font-manuscrita text-xl text-ink focus:outline-none focus:border-forest transition-colors appearance-none cursor-pointer"
                   >
                     <option value="" disabled>
                       Selecciona…
@@ -171,7 +190,7 @@ export default function ContactoFormulario() {
                   name="message"
                   required
                   rows={6}
-                  className="w-full bg-transparent border-b border-ash py-3 text-base text-ink placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-ash py-3 font-manuscrita text-xl leading-loose text-ink placeholder:font-sans placeholder:text-base placeholder:text-smoke/60 focus:outline-none focus:border-forest transition-colors resize-none"
                   placeholder="Cuéntanos en qué podemos ayudarte. Si es para una colaboración, incluye tipo, alcance estimado y plazo si lo tienes."
                 />
               </div>
