@@ -16,6 +16,7 @@ const footerSections = [
     title: 'Proyecto',
     links: [
       { href: '/proyecto', label: 'El proyecto' },
+      { href: '/misiones', label: 'Misiones' },
       { href: '/equipo', label: 'Equipo' },
       { href: '/tecnologia', label: 'Tecnología' },
       { href: '/colabora', label: 'Colabora' },
@@ -50,7 +51,7 @@ const legal = [
   { href: '/aviso-legal', label: 'Aviso legal' },
   { href: '/privacidad', label: 'Privacidad' },
   { href: '/cookies', label: 'Cookies' },
-  { href: '/condiciones', label: 'Condiciones de contratación' },
+  { href: '/condiciones', label: 'Condiciones de venta' },
 ];
 
 type NewsletterStatus = 'idle' | 'submitting' | 'success' | 'error';

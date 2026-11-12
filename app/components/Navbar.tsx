@@ -28,6 +28,10 @@ const navStructure: NavItem[] = [
       { href: '/colabora', label: 'Colabora', description: 'Únete al proyecto' },
     ],
   },
+  // Paso 26: Misiones entra como primer nivel, no dentro de Proyecto.
+  // Es la prueba de todo lo que afirma el resto de la web y el destino
+  // del QR de las etiquetas de la tienda: merece su sitio en el menú.
+  { label: 'Misiones', href: '/misiones' },
   {
     label: 'Servicios',
     children: [

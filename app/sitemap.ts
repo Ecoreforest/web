@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { MISIONES } from '../lib/misiones';
 
 /**
  * Sitemap dinámico para Next.js App Router.
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const mainPages = [
     '/proyecto',
+    '/misiones',
     '/equipo',
     '/tecnologia',
     '/colabora',
@@ -54,5 +56,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [home, ...mainPages, ...servicesPages, ...legalPages];
+  // Paso 26: una entrada por misión. Se generan solas desde lib/misiones,
+  // así que al añadir una misión el sitemap se actualiza sin tocar nada.
+  const misionesPages = MISIONES.map((m) => ({
+    url: `${baseUrl}/misiones/${m.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  return [
+    home,
+    ...mainPages,
+    ...misionesPages,
+    ...servicesPages,
+    ...legalPages,
+  ];
 }
