@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LegalLayout, Bloque, Fila, Pendiente } from '../components/LegalLayout';
+import { LegalLayout, Bloque, Fila } from '../components/LegalLayout';
 
 export const metadata = {
   title: 'Condiciones de contratación',
@@ -22,7 +22,7 @@ export default function Condiciones() {
       title="Condiciones de contratación."
       italicWord="contratación"
       description="Qué ocurre cuando te haces socio, cuando donas y cuando contratas uno de nuestros servicios."
-      actualizado={12 de noviembre de 2026}
+      actualizado="12 de noviembre de 2026"
     >
       <Bloque n="01" titulo="A qué se aplican">
         <p>

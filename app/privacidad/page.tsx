@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LegalLayout, Bloque, Fila, Pendiente } from '../components/LegalLayout';
+import { LegalLayout, Bloque, Fila } from '../components/LegalLayout';
 
 export const metadata = {
   title: 'Política de privacidad',
@@ -23,7 +23,7 @@ export default function Privacidad() {
       title="Política de privacidad."
       italicWord="privacidad"
       description="Qué datos nos das, qué hacemos con ellos y qué puedes exigirnos. Sin jerga innecesaria."
-      actualizado={12 de noviembre de 2026}
+      actualizado="12 de noviembre de 2026"
     >
       <Bloque n="01" titulo="Quién es el responsable">
         <div className="pt-1">

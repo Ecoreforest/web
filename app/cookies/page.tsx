@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LegalLayout, Bloque, Fila, Pendiente } from '../components/LegalLayout';
+import { LegalLayout, Bloque, Fila } from '../components/LegalLayout';
 
 export const metadata = {
   title: 'Política de cookies',
@@ -26,7 +26,7 @@ export default function Cookies() {
       title="Política de cookies."
       italicWord="cookies"
       description="La versión corta: no te rastreamos. No hay analítica, ni publicidad, ni píxeles de redes sociales."
-      actualizado={12 de noviembre de 2026}
+      actualizado="12 de noviembre de 2026"
     >
       <Bloque n="01" titulo="Qué es una cookie">
         <p>

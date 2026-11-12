@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LegalLayout, Bloque, Fila, Pendiente } from '../components/LegalLayout';
+import { LegalLayout, Bloque, Fila } from '../components/LegalLayout';
 
 export const metadata = {
   title: 'Aviso legal',
@@ -22,7 +22,7 @@ export default function AvisoLegal() {
       title="Aviso legal."
       italicWord="legal"
       description="Quiénes somos, qué puedes hacer en este sitio y a quién pertenece lo que hay en él."
-      actualizado={12 de noviembre de 2026}
+      actualizado="12 de noviembre de 2026"
     >
       <Bloque n="01" titulo="Datos identificativos">
         <p>
