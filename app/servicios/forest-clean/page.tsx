@@ -18,7 +18,7 @@ export default function ForestClean() {
   return (
     <>
       <ServicioHero
-        eyebrow="Servicio 03"
+        eyebrow="Servicio"
         title="Forest Clean. Bosques limpios, comunidades protegidas."
         italicWord="comunidades protegidas."
         description="Servicio integral de limpieza y gestión de biomasa forestal. Reducimos el riesgo de incendios y valorizamos toda la biomasa obtenida: astilla energética, biochar y entrega a productores de compost certificados."

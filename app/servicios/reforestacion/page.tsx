@@ -17,7 +17,7 @@ export default function Reforestacion() {
   return (
     <>
       <ServicioHero
-        eyebrow="Servicio 02"
+        eyebrow="Servicio"
         title="Reforestación integral. Del proyecto al primer brote, todo bajo control."
         italicWord="todo bajo control."
         description="Diseño, plantación y mantenimiento de proyectos de restauración ecológica con especies autóctonas, sistemas de riego eficiente y monitoreo digital con garantía de supervivencia."

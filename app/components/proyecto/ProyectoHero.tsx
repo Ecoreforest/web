@@ -4,6 +4,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
+/**
+ * Paso 29: fuera el número del eyebrow. Las cuatro páginas que lo
+ * llevaban —Proyecto, Tecnología, Equipo y Colabora— no se leen en
+ * orden: nadie entra en «03 — Equipo» después de «02 — Tecnología».
+ */
 export default function ProyectoHero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -50,7 +55,7 @@ export default function ProyectoHero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs font-mono uppercase tracking-[0.25em] text-bone/70 mb-8"
         >
-          01 — El proyecto
+          El proyecto
         </motion.p>
 
         <motion.h1

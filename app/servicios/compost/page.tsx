@@ -13,7 +13,7 @@ export default function Compost() {
   return (
     <>
       <ServicioHero
-        eyebrow="Servicio 01"
+        eyebrow="Servicio"
         title="Compost certificado. UNE 142500 en cada lote."
         italicWord="cada lote."
         description="Distribuimos compost UNE 142500 producido por partners certificados españoles. Selección rigurosa, análisis fisicoquímico por lote y aplicación técnica en proyectos de reforestación o entrega directa a agricultura ecológica, viveros y jardinería profesional."
