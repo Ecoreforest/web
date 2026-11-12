@@ -78,8 +78,8 @@ export type Mision = {
 
 export const MISIONES: Mision[] = [
   {
-    slug: 'monegrillos',
-    nombre: 'Misión Monegrillos',
+    slug: 'monegrillo',
+    nombre: 'Misión Monegrillo',
     estado: 'prevista',
     resumen:
       'Restauración de suelo degradado en Los Monegros, una de las zonas más áridas de la Península.',
