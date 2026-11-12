@@ -12,7 +12,7 @@ export default function Auditorias() {
   return (
     <>
       <ServicioHero
-        eyebrow="Servicio 04"
+        eyebrow="Servicio"
         title="Auditorías forestales. Diagnóstico técnico para decidir con datos."
         italicWord="decidir con datos."
         description="Evaluación experta del estado del monte, cartografía de riesgo, certificaciones FSC y PEFC, e informes técnicos para administraciones, propietarios y empresas con obligaciones ambientales."
