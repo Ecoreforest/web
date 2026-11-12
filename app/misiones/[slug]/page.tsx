@@ -48,20 +48,17 @@ function Dato({ clave, valor }: { clave: string; valor: string }) {
 }
 
 function Bloque({
-  n,
   titulo,
   intro,
   children,
 }: {
-  n: string;
   titulo: string;
   intro?: string;
   children: React.ReactNode;
 }) {
   return (
     <section className="mb-16">
-      <div className="flex items-baseline gap-4 mb-4">
-        <span className="font-mono text-xs text-smoke/70">{n}</span>
+      <div className="mb-4">
         <h2 className="text-xl lg:text-2xl font-semibold tracking-tight">
           {titulo}
         </h2>
@@ -148,23 +145,17 @@ export default function MisionPage({ params }: Props) {
       <div className="container-x max-w-5xl py-20 lg:py-24">
         {/* Mapa primero: lo que la gente viene a ver */}
         <section className="mb-16">
-          <div className="flex items-baseline gap-4 mb-6">
-            <span className="font-mono text-xs text-smoke/70">01</span>
-            <h2 className="text-xl lg:text-2xl font-semibold tracking-tight">
-              Dónde
-            </h2>
-          </div>
+          <h2 className="text-xl lg:text-2xl font-semibold tracking-tight mb-6">
+            Dónde
+          </h2>
           <Mapa ubicacion={m.ubicacion} nombre={m.nombre} />
         </section>
 
         {/* Contexto */}
         <section className="mb-16 max-w-2xl">
-          <div className="flex items-baseline gap-4 mb-6">
-            <span className="font-mono text-xs text-smoke/70">02</span>
-            <h2 className="text-xl lg:text-2xl font-semibold tracking-tight">
-              Por qué aquí
-            </h2>
-          </div>
+          <h2 className="text-xl lg:text-2xl font-semibold tracking-tight mb-6">
+            Por qué aquí
+          </h2>
           <div className="space-y-5 text-base lg:text-lg text-smoke leading-relaxed">
             {m.contexto.map((p, i) => (
               <p key={i}>{p}</p>
@@ -173,7 +164,6 @@ export default function MisionPage({ params }: Props) {
         </section>
 
         <Bloque
-          n="03"
           titulo="El terreno"
           intro="Qué superficie es, en qué estado estaba antes de tocar nada y de quién es."
         >
@@ -183,7 +173,6 @@ export default function MisionPage({ params }: Props) {
         </Bloque>
 
         <Bloque
-          n="04"
           titulo="La plantación"
           intro="Qué se planta, cuánto y cuándo."
         >
@@ -194,7 +183,6 @@ export default function MisionPage({ params }: Props) {
         </Bloque>
 
         <Bloque
-          n="05"
           titulo="El seguimiento"
           intro="Plantar es la parte fácil. Lo que decide si un bosque existe dentro de diez años es lo que se hace después, y quién lo comprueba."
         >
@@ -204,7 +192,6 @@ export default function MisionPage({ params }: Props) {
         </Bloque>
 
         <Bloque
-          n="06"
           titulo="Quién lo hace posible"
           intro="Una plantación no la levanta una asociación sola."
         >
@@ -217,7 +204,6 @@ export default function MisionPage({ params }: Props) {
         {/* Vínculo con la tienda */}
         {m.lotes.length > 0 && (
           <Bloque
-            n="07"
             titulo="Prendas que la financian"
             intro="Estas tiradas de Forest Classics destinan sus ingresos a esta misión. Si tienes una en casa, su etiqueta trae este terreno."
           >

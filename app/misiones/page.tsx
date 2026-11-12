@@ -91,11 +91,6 @@ export default function Misiones() {
                   <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-forest">
                     {COPY_ESTADO[estado].titulo}
                   </h2>
-                  {lista.length > 0 && (
-                    <span className="font-mono text-xs text-smoke">
-                      {String(lista.length).padStart(2, '0')}
-                    </span>
-                  )}
                 </div>
 
                 {lista.length === 0 ? (
