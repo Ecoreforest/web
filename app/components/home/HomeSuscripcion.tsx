@@ -41,7 +41,7 @@ const tiers: Tier[] = [
       'Reporte anual de impacto',
       'Newsletter trimestral del proyecto',
       'Tu nombre en el muro de socios',
-      'Deducción fiscal · Régimen de Mecenazgo',
+      'Baja cuando quieras, sin permanencia',
     ],
     cta: 'Hacerme socio Semilla',
     tema: 'ivory',
@@ -258,8 +258,8 @@ export default function HomeSuscripcion() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-8 text-lg lg:text-xl text-smoke leading-relaxed max-w-2xl"
           >
-            Cuatro formas de sumar cada mes. Sin permanencia, con deducción
-            fiscal y trazabilidad pública de a dónde va cada euro.
+            Cuatro formas de sumar cada mes. Sin permanencia y con
+            trazabilidad pública de a dónde va cada euro.
           </motion.p>
         </div>
 

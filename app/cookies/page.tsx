@@ -26,7 +26,7 @@ export default function Cookies() {
       title="Política de cookies."
       italicWord="cookies"
       description="La versión corta: no te rastreamos. No hay analítica, ni publicidad, ni píxeles de redes sociales."
-      actualizado={<Pendiente>fecha de publicación</Pendiente>}
+      actualizado={12 de noviembre de 2026}
     >
       <Bloque n="01" titulo="Qué es una cookie">
         <p>

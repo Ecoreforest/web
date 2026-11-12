@@ -22,7 +22,7 @@ export default function Condiciones() {
       title="Condiciones de contratación."
       italicWord="contratación"
       description="Qué ocurre cuando te haces socio, cuando donas y cuando contratas uno de nuestros servicios."
-      actualizado={<Pendiente>fecha de publicación</Pendiente>}
+      actualizado={12 de noviembre de 2026}
     >
       <Bloque n="01" titulo="A qué se aplican">
         <p>
@@ -44,10 +44,10 @@ export default function Condiciones() {
             Nacional de Asociaciones
           </Fila>
           <Fila clave="NIF">
-            <Pendiente>NIF</Pendiente>
+            G05608773
           </Fila>
           <Fila clave="Domicilio">
-            <Pendiente>domicilio social</Pendiente>
+            C/ Guitard 49, 2.º 6.ª, 08014 Barcelona
           </Fila>
           <Fila clave="Contacto">
             <a
@@ -104,13 +104,17 @@ export default function Condiciones() {
           es reembolsable, salvo en los supuestos de error del párrafo anterior.
         </p>
         <p>
-          Si necesitas un certificado de tu aportación para tu declaración,
-          pídenoslo por correo.{' '}
-          <Pendiente>
-            confirmar si la asociación está acogida a la Ley 49/2002; si no lo
-            está, las aportaciones no dan derecho a deducción y hay que decirlo
-            aquí
-          </Pendiente>
+          La asociación <strong className="text-ink font-normal">no está
+          acogida</strong> al régimen fiscal especial de la Ley 49/2002, de
+          modo que las aportaciones <strong className="text-ink font-normal">no
+          dan derecho a deducción</strong> en el IRPF ni en el impuesto de
+          sociedades. Lo decimos aquí porque es lo primero que mucha gente da
+          por supuesto al donar a una entidad sin ánimo de lucro, y preferimos
+          que lo sepas antes de aportar y no en abril.
+        </p>
+        <p>
+          Si necesitas un justificante de tu aportación para tu contabilidad,
+          pídenoslo por correo y te lo emitimos.
         </p>
       </Bloque>
 

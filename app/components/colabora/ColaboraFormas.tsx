@@ -26,7 +26,7 @@ const formas = [
     titulo: 'Mecenazgo',
     subtitulo: 'Aportaciones puntuales o recurrentes',
     descripcion:
-      'Aportaciones libres a partir de 5 €, con deducción fiscal según el Régimen de Mecenazgo. Cada euro queda asociado a una parcela y unos resultados.',
+      'Aportaciones libres a partir de 5 €. Cada euro queda asociado a una parcela y unos resultados.',
     quien: 'Para personas que quieren apoyar el proyecto sin compromiso.',
   },
   {

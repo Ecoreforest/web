@@ -22,7 +22,7 @@ export default function AvisoLegal() {
       title="Aviso legal."
       italicWord="legal"
       description="Quiénes somos, qué puedes hacer en este sitio y a quién pertenece lo que hay en él."
-      actualizado={<Pendiente>fecha de publicación</Pendiente>}
+      actualizado={12 de noviembre de 2026}
     >
       <Bloque n="01" titulo="Datos identificativos">
         <p>
@@ -31,19 +31,19 @@ export default function AvisoLegal() {
           constar los siguientes datos:
         </p>
         <div className="pt-2">
-          <Fila clave="Denominación">EcoReforest</Fila>
+          <Fila clave="Denominación">Asociación EcoReforest</Fila>
           <Fila clave="Naturaleza">
             Asociación sin ánimo de lucro inscrita en el Registro Nacional de
             Asociaciones del Ministerio del Interior
           </Fila>
           <Fila clave="Nº de inscripción">
-            <Pendiente>número de inscripción</Pendiente>
+            Sección 1.ª, número nacional 633759
           </Fila>
           <Fila clave="NIF">
-            <Pendiente>NIF</Pendiente>
+            G05608773
           </Fila>
           <Fila clave="Domicilio">
-            <Pendiente>domicilio social</Pendiente>
+            C/ Guitard 49, 2.º 6.ª, 08014 Barcelona
           </Fila>
           <Fila clave="Correo">
             <a

@@ -23,7 +23,7 @@ export default function Privacidad() {
       title="Política de privacidad."
       italicWord="privacidad"
       description="Qué datos nos das, qué hacemos con ellos y qué puedes exigirnos. Sin jerga innecesaria."
-      actualizado={<Pendiente>fecha de publicación</Pendiente>}
+      actualizado={12 de noviembre de 2026}
     >
       <Bloque n="01" titulo="Quién es el responsable">
         <div className="pt-1">
@@ -31,10 +31,10 @@ export default function Privacidad() {
             EcoReforest, asociación sin ánimo de lucro
           </Fila>
           <Fila clave="NIF">
-            <Pendiente>NIF</Pendiente>
+            G05608773
           </Fila>
           <Fila clave="Domicilio">
-            <Pendiente>domicilio social</Pendiente>
+            C/ Guitard 49, 2.º 6.ª, 08014 Barcelona
           </Fila>
           <Fila clave="Contacto">
             <a
