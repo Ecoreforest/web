@@ -12,7 +12,7 @@ export default function CreditosCarbono() {
   return (
     <>
       <ServicioHero
-        eyebrow="Servicio 05"
+        eyebrow="Servicio"
         title="Créditos de carbono. Tu compensación, verificable y trazable."
         italicWord="verificable y trazable."
         description="Captura de CO₂ certificada bajo estándares internacionales Verra y Gold Standard. Cada tonelada compensada está vinculada a una hectárea reforestada real, con seguimiento durante décadas."
