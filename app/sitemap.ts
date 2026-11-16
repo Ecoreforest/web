@@ -20,6 +20,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const mainPages = [
     '/proyecto',
     '/misiones',
+    // Paso 32: /servicios faltaba. Está enlazada desde el pie y desde las
+    // cinco fichas de servicio, pero nunca la declaramos, así que Google
+    // tenía que descubrirla por su cuenta.
+    '/servicios',
     '/equipo',
     '/tecnologia',
     '/colabora',
